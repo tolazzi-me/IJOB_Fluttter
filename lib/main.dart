@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                         MaterialPageRoute(
                             builder: ((context) => dadosEndereco())));
                   },
-                  child: const Text('Pagamentod')),
+                  child: const Text('Pagamentodf')),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
