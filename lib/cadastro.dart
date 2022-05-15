@@ -44,13 +44,24 @@ class cadastro extends State<cadastroMain> {
                       topRight: Radius.circular(25)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(30),
+                  padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Cadastro',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon:
+                                Icon(Icons.arrow_back_ios, color: Colors.black),
+                          ),
+                          Text('Criando sua conta',
+                              style: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold))
+                        ],
+                      ),
                       const SizedBox(height: 20),
                       const TextField(
                         style: TextStyle(fontSize: 20),
@@ -88,7 +99,7 @@ class cadastro extends State<cadastroMain> {
                             )),
                         obscureText: true,
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Checkbox(
@@ -101,7 +112,7 @@ class cadastro extends State<cadastroMain> {
                               "Concordar com Termos de Uso \n e Política de Privacidade.")
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.stretch,

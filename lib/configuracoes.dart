@@ -1,8 +1,10 @@
-
-/*
 import 'package:flutter/material.dart';
 
-class configuracoes extends StatelessWidget {
+class configuracoesMain extends StatefulWidget {
+  configuracoes createState() => configuracoes();
+}
+
+class configuracoes extends State<configuracoesMain> {
   double distancia = 100;
   bool tipoUsuario = false;
 
@@ -18,9 +20,11 @@ class configuracoes extends StatelessWidget {
               'Configurações',
               style: TextStyle(fontSize: 30, color: Colors.black),
             )),
-            leading: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
             ),
           ),
           body: Padding(
@@ -64,9 +68,6 @@ class configuracoes extends StatelessWidget {
     );
   }
 
-  setState(Null Function() param0) {}
-}
-
   Widget _configuracoes() => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,5 +108,3 @@ class configuracoes extends StatelessWidget {
         ],
       );
 }
-
-*/

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/configuracoes.dart';
 import 'package:formulario/login.dart';
 import 'package:formulario/dadosEndereco.dart';
 import 'package:formulario/cadastro.dart';
@@ -22,27 +23,30 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => dadosEndereco())));
-                  },
-                  child: const Text('Pagamento')),
+                child: const Text('Pagamento'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => dadosEndereco())));
+                },
+              ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => login())));
-                  },
-                  child: const Text('Login')),
+                child: const Text('Login'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => login())));
+                },
+              ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => cadastroMain())));
-                  },
-                  child: const Text('cadastro')),
+                child: const Text('Configurações'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => configuracoesMain())));
+                },
+              ),
             ],
           ),
         ),

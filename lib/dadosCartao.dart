@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:formulario/dadosEndereco.dart';
 
 class dadosCartao extends StatelessWidget {
   final controleNumero = TextEditingController();

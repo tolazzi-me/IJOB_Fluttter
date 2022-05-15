@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/cadastro.dart';
+import 'package:formulario/esqueciSenha.dart';
 
-class login extends StatelessWidget {
+class login extends StatefulWidget {
+  _login createState() => _login();
+}
+
+class _login extends State<login> {
   List<String> images = ["assets/BannerLogin1.png", "assets/BannerLogin2.png"];
   bool _obscureText = true;
 
@@ -69,7 +75,12 @@ class login extends StatelessWidget {
                         obscureText: true,
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => esqueciSenha())));
+                          },
                           child: const Text(
                             'Esqueci minha senha',
                             style: TextStyle(color: Colors.black),
@@ -112,7 +123,13 @@ class login extends StatelessWidget {
                                   fontStyle: FontStyle.italic, fontSize: 17),
                             ),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              cadastroMain())));
+                                },
                                 child: const Text('Crie uma conta!',
                                     style: TextStyle(
                                         color: Colors.amberAccent,
@@ -131,6 +148,4 @@ class login extends StatelessWidget {
       ),
     );
   }
-
-  void setState(Null Function() param0) {}
 }
