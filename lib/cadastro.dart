@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-class cadastro extends StatelessWidget {
+class cadastroMain extends StatefulWidget {
+  cadastro createState() => cadastro();
+}
+
+class cadastro extends State<cadastroMain> {
   List<String> images = ["assets/BannerLogin1.png", "assets/BannerLogin2.png"];
   bool _obscureText = true;
   bool termos = false;
@@ -76,9 +80,7 @@ class cadastro extends StatelessWidget {
                             labelText: 'Senha novamente',
                             suffixIcon: GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  _obscureText = !_obscureText;
-                                });
+                                setState(() => _obscureText = !_obscureText);
                               },
                               child: Icon(_obscureText
                                   ? Icons.visibility
@@ -86,21 +88,23 @@ class cadastro extends StatelessWidget {
                             )),
                         obscureText: true,
                       ),
+                      const SizedBox(height: 15),
                       Row(
                         children: [
                           Checkbox(
-                              value: termos,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  termos = value!;
-                                });
-                              }),
-                          Text(
+                            value: termos,
+                            onChanged: (valor) {
+                              setState(() => termos = valor!);
+                            },
+                          ),
+                          const Text(
                               "Concordar com Termos de Uso \n e Política de Privacidade.")
                         ],
                       ),
                       const SizedBox(height: 20),
-                      Row(
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           ElevatedButton(
                               onPressed: () => {Navigator.pop(context)},
@@ -109,7 +113,7 @@ class cadastro extends StatelessWidget {
                                       MaterialStateProperty.all<Color>(
                                           Colors.amberAccent)),
                               child: const Text(
-                                'Voltar',
+                                'Continuar',
                                 style: TextStyle(color: Colors.black),
                               )),
                         ],
@@ -124,6 +128,4 @@ class cadastro extends StatelessWidget {
       ),
     );
   }
-
-  void setState(Null Function() param0) {}
 }

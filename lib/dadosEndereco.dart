@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/dadosCartao.dart';
 
 class dadosEndereco extends StatelessWidget {
   final controleNumero = TextEditingController();
@@ -22,9 +23,11 @@ class dadosEndereco extends StatelessWidget {
               'Endereço',
               style: TextStyle(fontSize: 30, color: Colors.black),
             )),
-            leading: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
             ),
           ),
           body: Padding(
@@ -35,7 +38,12 @@ class dadosEndereco extends StatelessWidget {
               children: [
                 endereco(),
                 ElevatedButton(
-                    onPressed: () => {},
+                    onPressed: () => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => dadosCartao()))),
+                        },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             Color.fromARGB(255, 255, 214, 62))),

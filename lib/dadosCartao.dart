@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:formulario/dadosEndereco.dart';
 
-class _dadosCartao extends StatelessWidget {
+class dadosCartao extends StatelessWidget {
   final controleNumero = TextEditingController();
   final controleCPF = TextEditingController();
   final controleValidade = TextEditingController();
@@ -22,9 +22,11 @@ class _dadosCartao extends StatelessWidget {
               'Informações do Cartão',
               style: TextStyle(fontSize: 30, color: Colors.black),
             ),
-            leading: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
             ),
           ),
           body: SingleChildScrollView(
