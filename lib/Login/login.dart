@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:formulario/cadastro.dart';
-import 'package:formulario/esqueciSenha.dart';
+import 'package:formulario/Cadastro/cadastro.dart';
+import 'package:formulario/Login/esqueciSenha.dart';
 
 class login extends StatefulWidget {
   _login createState() => _login();

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/Cadastro/cadastro3.dart';
 
-class cadastroMain extends StatefulWidget {
-  cadastro createState() => cadastro();
-}
-
-class cadastro extends State<cadastroMain> {
+class cadastro2 extends StatelessWidget {
   List<String> images = ["assets/BannerLogin1.png", "assets/BannerLogin2.png"];
   bool _obscureText = true;
   bool termos = false;
@@ -57,7 +54,7 @@ class cadastro extends State<cadastroMain> {
                             icon:
                                 Icon(Icons.arrow_back_ios, color: Colors.black),
                           ),
-                          Text('Criando sua conta',
+                          const Text('Criando sua conta',
                               style: TextStyle(
                                   fontSize: 30, fontWeight: FontWeight.bold))
                         ],
@@ -68,57 +65,31 @@ class cadastro extends State<cadastroMain> {
                         decoration: InputDecoration(labelText: 'Email'),
                       ),
                       const SizedBox(height: 15),
-                      TextField(
+                      const TextField(
                         style: TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            labelText: 'Senha',
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  _obscureText = !_obscureText;
-                                });
-                              },
-                              child: Icon(_obscureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                            )),
-                        obscureText: true,
+                          labelText: 'Genero',
+                        ),
                       ),
                       const SizedBox(height: 15),
-                      TextField(
-                        style: TextStyle(fontSize: 20),
+                      const TextField(
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            labelText: 'Senha novamente',
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() => _obscureText = !_obscureText);
-                              },
-                              child: Icon(_obscureText
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                            )),
-                        obscureText: true,
+                          labelText: 'Data de Nascimento',
+                        ),
                       ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Checkbox(
-                            value: termos,
-                            onChanged: (valor) {
-                              setState(() => termos = valor!);
-                            },
-                          ),
-                          const Text(
-                              "Concordar com Termos de Uso \n e Política de Privacidade.")
-                        ],
-                      ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 40),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           ElevatedButton(
-                              onPressed: () => {Navigator.pop(context)},
+                              onPressed: () => {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                cadastro3())))
+                                  },
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(

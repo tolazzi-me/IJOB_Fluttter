@@ -57,6 +57,11 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: Chopsic
+      fonts:
+        - asset: assets/Chopsic.otf
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/BannerLogin1.png

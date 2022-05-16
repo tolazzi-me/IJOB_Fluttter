@@ -69,7 +69,9 @@ class _esqueciSenha extends State<esqueciSenha> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           ElevatedButton(
-                              onPressed: (() {}),
+                              onPressed: (() {
+                                Navigator.pop(context);
+                              }),
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
@@ -83,7 +85,9 @@ class _esqueciSenha extends State<esqueciSenha> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
-                              onPressed: (() {}),
+                              onPressed: (() {
+                                Navigator.pop(context);
+                              }),
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(

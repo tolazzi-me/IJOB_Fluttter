@@ -25,7 +25,7 @@ class dadosCartao extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
             ),
           ),
           body: SingleChildScrollView(
@@ -36,20 +36,16 @@ class dadosCartao extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   dados(),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  const SizedBox(height: 30),
                   const Text(
                     'Selecione o plano:',
                     style: TextStyle(fontSize: 30),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 30),
+                    margin: const EdgeInsets.symmetric(vertical: 30),
                     child: planos(),
                   ),
-                  SizedBox(
-                    height: 40,
-                  ),
+                  const SizedBox(height: 40),
                   ElevatedButton(
                       onPressed: () => {Navigator.pop(context)},
                       style: ButtonStyle(
@@ -70,7 +66,7 @@ class dadosCartao extends StatelessWidget {
         children: [
           TextField(
             style: TextStyle(fontSize: 20),
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Número do cartão',
               hintText: '0000 0000 0000 0000',
             ),
@@ -81,14 +77,14 @@ class dadosCartao extends StatelessWidget {
             keyboardType: TextInputType.number,
             controller: controleNumero,
           ),
-          TextField(
+          const TextField(
             style: TextStyle(fontSize: 20),
             decoration: InputDecoration(
                 labelText: 'Nome do titular', hintText: 'Nome completo'),
           ),
           TextField(
-            style: TextStyle(fontSize: 20),
-            decoration: InputDecoration(
+            style: const TextStyle(fontSize: 20),
+            decoration: const InputDecoration(
               labelText: 'CPF/CNPJ',
               hintText: '000 000 000 00',
             ),
@@ -97,15 +93,15 @@ class dadosCartao extends StatelessWidget {
             maxLength: 11,
           ),
           TextField(
-            style: TextStyle(fontSize: 20),
-            decoration: InputDecoration(labelText: 'Validade'),
+            style: const TextStyle(fontSize: 20),
+            decoration: const InputDecoration(labelText: 'Validade'),
             keyboardType: TextInputType.number,
             controller: controleValidade,
             maxLength: 4,
           ),
           TextField(
-            style: TextStyle(fontSize: 20),
-            decoration: InputDecoration(
+            style: const TextStyle(fontSize: 20),
+            decoration: const InputDecoration(
                 labelText: 'CCV', suffixIcon: Icon(Icons.question_mark)),
             keyboardType: TextInputType.number,
             controller: controleCCV,
@@ -124,7 +120,7 @@ class dadosCartao extends StatelessWidget {
                 onPressed: () => {},
                 child: Text(
                   '1 Mês \n R\$ $vlrUmMes',
-                  style: TextStyle(fontSize: 23),
+                  style: const TextStyle(fontSize: 23),
                   textAlign: TextAlign.center,
                 ),
                 style: ButtonStyle(
@@ -139,7 +135,7 @@ class dadosCartao extends StatelessWidget {
                 onPressed: () => {},
                 child: Text(
                   '6 Messes \n R\$ $vlrSeisMes',
-                  style: TextStyle(fontSize: 23),
+                  style: const TextStyle(fontSize: 23),
                   textAlign: TextAlign.center,
                 ),
                 style: ButtonStyle(
@@ -154,7 +150,7 @@ class dadosCartao extends StatelessWidget {
                 onPressed: () => {},
                 child: Text(
                   'Anual \n R\$ $vlrAnual',
-                  style: TextStyle(fontSize: 23),
+                  style: const TextStyle(fontSize: 23),
                   textAlign: TextAlign.center,
                 ),
                 style: ButtonStyle(

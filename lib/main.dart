@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:formulario/configuracoes.dart';
-import 'package:formulario/login.dart';
-import 'package:formulario/dadosEndereco.dart';
-import 'package:formulario/cadastro.dart';
+import 'package:formulario/Login/login.dart';
+import 'package:formulario/Pagamento/dadosEndereco.dart';
+import 'package:formulario/Cadastro/cadastro.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Teste Menu'),
+          title: const Text('Teste Menu'),
         ),
         body: Center(
           child: Column(
