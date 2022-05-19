@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:formulario/Cadastro/cadastro.dart';
+import 'package:formulario/Empregado/homeEmpregado.dart';
 import 'package:formulario/Login/esqueciSenha.dart';
 
 class login extends StatefulWidget {
@@ -87,7 +88,12 @@ class _login extends State<login> {
                           )),
                       Center(
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => homeEmpregado())));
+                            },
                             child: const Text(
                               'Continuar',
                               style: TextStyle(

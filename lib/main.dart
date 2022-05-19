@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:formulario/configuracoes.dart';
 import 'package:formulario/Login/login.dart';
 import 'package:formulario/Pagamento/dadosEndereco.dart';
-import 'package:formulario/Cadastro/cadastro.dart';
 
 void main() {
   runApp(MaterialApp(
