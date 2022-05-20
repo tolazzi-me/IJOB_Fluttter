@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/Perfil/perfil.dart';
 
 class homeEmpregado extends StatelessWidget {
   @override
@@ -14,7 +15,8 @@ class homeEmpregado extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) => perfil())));
                   },
                   icon: const Icon(
                     Icons.account_circle,

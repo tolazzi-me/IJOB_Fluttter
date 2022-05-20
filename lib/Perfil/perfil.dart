@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/Perfil/widgetPerfilAppBar.dart';
 
-class homeEmpregador extends StatefulWidget {
-  _homeEmpregador createState() => _homeEmpregador();
+class perfil extends StatefulWidget {
+  _perfil createState() => _perfil();
 }
 
-class _homeEmpregador extends State<homeEmpregador> {
+class _perfil extends State<perfil> {
   @override
-  Widget build(BuildContext context) => Scaffold();
+  Widget build(BuildContext context) => Scaffold(
+        appBar: buildAppBar(context),
+        body: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [],
+        ),
+      );
 }
