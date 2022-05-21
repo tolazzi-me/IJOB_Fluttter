@@ -17,6 +17,7 @@ class dadosCartao extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.transparent,
+            centerTitle: true,
             title: const Text(
               'Informações do Cartão',
               style: TextStyle(fontSize: 30, color: Colors.black),
@@ -32,7 +33,6 @@ class dadosCartao extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(35.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   dados(),
@@ -46,15 +46,25 @@ class dadosCartao extends StatelessWidget {
                     child: planos(),
                   ),
                   const SizedBox(height: 40),
-                  ElevatedButton(
-                      onPressed: () => {Navigator.pop(context)},
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.amberAccent)),
-                      child: const Text(
-                        'Confirmar',
-                        style: TextStyle(color: Colors.black),
-                      )),
+                  Center(
+                    child: SizedBox(
+                      height: 40,
+                      width: 170,
+                      child: ElevatedButton(
+                          onPressed: () => {Navigator.pop(context)},
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15))),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.amberAccent)),
+                          child: const Text(
+                            'Confirmar',
+                            style: TextStyle(color: Colors.black),
+                          )),
+                    ),
+                  ),
                 ],
               ),
             ),

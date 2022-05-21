@@ -15,11 +15,11 @@ class configuracoes extends State<configuracoesMain> {
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.white,
-            title: const Center(
-                child: Text(
+            centerTitle: true,
+            title: const Text(
               'Configurações',
               style: TextStyle(fontSize: 30, color: Colors.black),
-            )),
+            ),
             leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -30,10 +30,9 @@ class configuracoes extends State<configuracoesMain> {
           body: Padding(
             padding: const EdgeInsets.all(35.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text("Tipo de conta", style: TextStyle(fontSize: 25)),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -52,16 +51,28 @@ class configuracoes extends State<configuracoesMain> {
                     const Text("Empregado", style: TextStyle(fontSize: 20))
                   ],
                 ),
+                const SizedBox(height: 20),
                 _configuracoes(),
-                ElevatedButton(
-                    onPressed: () => {},
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromARGB(255, 255, 214, 62))),
-                    child: const Text(
-                      'Redefinir',
-                      style: TextStyle(color: Colors.black),
-                    )),
+                const SizedBox(height: 40),
+                Center(
+                  child: SizedBox(
+                    height: 40,
+                    width: 170,
+                    child: ElevatedButton(
+                        onPressed: () => {},
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color.fromARGB(255, 255, 214, 62))),
+                        child: const Text(
+                          'Redefinir',
+                          style: TextStyle(color: Colors.black),
+                        )),
+                  ),
+                ),
               ],
             ),
           )),
@@ -72,7 +83,7 @@ class configuracoes extends State<configuracoesMain> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          Row(children: [
             const Icon(Icons.add_location_rounded, size: 50),
             Column(children: [
               const Text("Distância máxima", style: TextStyle(fontSize: 20)),
@@ -89,21 +100,36 @@ class configuracoes extends State<configuracoesMain> {
               ),
             ])
           ]),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            const Icon(Icons.dark_mode, size: 50),
-            const Text("Tema escuro", style: TextStyle(fontSize: 20))
+          Row(children: const [
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+              child: Icon(Icons.dark_mode, size: 50),
+            ),
+            Text("Tema escuro", style: TextStyle(fontSize: 20))
           ]),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            const Icon(Icons.notifications, size: 50),
-            const Text("Desativar notificações", style: TextStyle(fontSize: 20))
+          const SizedBox(height: 10),
+          Row(children: const [
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+              child: Icon(Icons.notifications, size: 50),
+            ),
+            Text("Desativar notificações", style: TextStyle(fontSize: 20))
           ]),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            const Icon(Icons.first_page, size: 50),
-            const Text("Sair da conta", style: TextStyle(fontSize: 20))
+          const SizedBox(height: 10),
+          Row(children: const [
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+              child: Icon(Icons.first_page, size: 50),
+            ),
+            Text("Sair da conta", style: TextStyle(fontSize: 20))
           ]),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            const Icon(Icons.cancel, size: 50),
-            const Text("Excluir conta", style: TextStyle(fontSize: 20))
+          const SizedBox(height: 10),
+          Row(children: const [
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+              child: Icon(Icons.cancel, size: 50),
+            ),
+            Text("Excluir conta", style: TextStyle(fontSize: 20))
           ]),
         ],
       );

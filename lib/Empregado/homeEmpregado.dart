@@ -3,6 +3,11 @@ import 'package:formulario/Perfil/perfil.dart';
 import 'package:formulario/widgetAppBar.dart';
 
 class homeEmpregado extends StatelessWidget {
+  String imageAceitar = "assets/aceitar.png";
+  String imageRecusar = "assets/recusar.png";
+  String imageVoltar = "assets/voltar.png";
+  String imageChat = "assets/chat.png";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,38 +62,17 @@ class homeEmpregado extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 20, 30),
+              Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.arrow_back_ios,
-                            color: Colors.grey, size: 60)),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.cancel,
-                            color: Colors.red, size: 60)),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.handshake,
-                            color: Colors.green, size: 60)),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.chat,
-                            color: Colors.cyan, size: 60)),
+                    Image.asset(imageVoltar, height: 60),
+                    Image.asset(imageRecusar, height: 80),
+                    Image.asset(imageAceitar, height: 80),
+                    Image.asset(imageChat, height: 60),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

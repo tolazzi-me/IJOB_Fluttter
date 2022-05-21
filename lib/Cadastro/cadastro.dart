@@ -83,7 +83,7 @@ class cadastro extends State<cadastroMain> {
                                   ? Icons.visibility
                                   : Icons.visibility_off),
                             )),
-                        obscureText: true,
+                        obscureText: _obscureText,
                       ),
                       const SizedBox(height: 15),
                       TextField(
@@ -98,7 +98,7 @@ class cadastro extends State<cadastroMain> {
                                   ? Icons.visibility
                                   : Icons.visibility_off),
                             )),
-                        obscureText: true,
+                        obscureText: _obscureText,
                       ),
                       const SizedBox(height: 10),
                       Row(
@@ -115,25 +115,34 @@ class cadastro extends State<cadastroMain> {
                       ),
                       const SizedBox(height: 30),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          ElevatedButton(
-                              onPressed: () => {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: ((context) =>
-                                                cadastro2())))
-                                  },
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.amberAccent)),
-                              child: const Text(
-                                'Continuar',
-                                style: TextStyle(color: Colors.black),
-                              )),
+                          Center(
+                            child: SizedBox(
+                              height: 40,
+                              width: 200,
+                              child: ElevatedButton(
+                                  onPressed: () => {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: ((context) =>
+                                                    cadastro2())))
+                                      },
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15))),
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.amberAccent)),
+                                  child: const Text(
+                                    'Continuar',
+                                    style: TextStyle(color: Colors.black),
+                                  )),
+                            ),
+                          ),
                         ],
                       ),
                     ],

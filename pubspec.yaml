@@ -66,6 +66,13 @@ flutter:
   assets:
     - assets/BannerLogin1.png
     - assets/BannerLogin2.png
+    - assets/aceitar.png
+    - assets/recusar.png
+    - assets/voltar.png
+    - assets/chat.png
+    - assets/loginGoogle.png
+    - assets/loginFacebook.png
+    - assets/loginLinkedin.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

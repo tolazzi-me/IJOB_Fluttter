@@ -66,18 +66,30 @@ class _esqueciSenha extends State<esqueciSenha> {
                       ),
                       const SizedBox(height: 50),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ElevatedButton(
-                              onPressed: (() {
-                                Navigator.pop(context);
-                              }),
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.amberAccent)),
-                              child: const Text('Enviar',
-                                  style: TextStyle(color: Colors.black))),
+                          Center(
+                            child: SizedBox(
+                              height: 40,
+                              width: 170,
+                              child: ElevatedButton(
+                                  onPressed: (() {
+                                    Navigator.pop(context);
+                                  }),
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(13))),
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.amberAccent)),
+                                  child: const Text('Enviar',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 20))),
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 25),
@@ -89,6 +101,11 @@ class _esqueciSenha extends State<esqueciSenha> {
                                 Navigator.pop(context);
                               }),
                               style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15))),
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
                                           Colors.grey)),

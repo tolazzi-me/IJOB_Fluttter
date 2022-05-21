@@ -64,35 +64,55 @@ class cadastro3 extends StatelessWidget {
                       Center(
                         child: Column(
                           children: [
-                            ElevatedButton(
-                                onPressed: (() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: ((context) =>
-                                              homeEmpregado())));
-                                }),
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            Colors.amberAccent)),
-                                child: const Text('Quero Trabalhar',
-                                    style: TextStyle(color: Colors.black))),
+                            SizedBox(
+                              height: 50,
+                              width: 200,
+                              child: ElevatedButton(
+                                  onPressed: (() {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                homeEmpregado())));
+                                  }),
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15))),
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.amberAccent)),
+                                  child: const Text('Quero Trabalhar',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 25))),
+                            ),
                             const SizedBox(height: 40),
-                            ElevatedButton(
-                                onPressed: (() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: ((context) =>
-                                              homeEmpregador())));
-                                }),
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            Colors.amberAccent)),
-                                child: const Text('Quero Empregar',
-                                    style: TextStyle(color: Colors.black))),
+                            SizedBox(
+                              height: 50,
+                              width: 200,
+                              child: ElevatedButton(
+                                  onPressed: (() {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                homeEmpregador())));
+                                  }),
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15))),
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.amberAccent)),
+                                  child: const Text('Quero Empregar',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 25))),
+                            ),
                           ],
                         ),
                       ),

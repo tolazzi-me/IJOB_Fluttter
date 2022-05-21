@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:formulario/Perfil/user.dart';
-import 'package:formulario/Perfil/UserData.dart';
 import 'package:formulario/Perfil/widgetFoto.dart';
 import 'package:formulario/Perfil/widgetPerfilAppBar.dart';
 

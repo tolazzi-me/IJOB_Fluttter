@@ -18,11 +18,11 @@ class dadosEndereco extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.white,
-            title: const Center(
-                child: Text(
+            centerTitle: true,
+            title: const Text(
               'Endereço',
               style: TextStyle(fontSize: 30, color: Colors.black),
-            )),
+            ),
             leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -33,24 +33,33 @@ class dadosEndereco extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.all(35.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 endereco(),
-                ElevatedButton(
-                    onPressed: () => {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => dadosCartao()))),
-                        },
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Color.fromARGB(255, 255, 214, 62))),
-                    child: const Text(
-                      'Proximo',
-                      style: TextStyle(color: Colors.black),
-                    )),
+                Center(
+                  child: SizedBox(
+                    height: 40,
+                    width: 170,
+                    child: ElevatedButton(
+                        onPressed: () => {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => dadosCartao()))),
+                            },
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromARGB(255, 255, 214, 62))),
+                        child: const Text(
+                          'Proximo',
+                          style: TextStyle(color: Colors.black),
+                        )),
+                  ),
+                ),
               ],
             ),
           )),

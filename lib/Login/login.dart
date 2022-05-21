@@ -9,6 +9,9 @@ class login extends StatefulWidget {
 
 class _login extends State<login> {
   List<String> images = ["assets/BannerLogin1.png", "assets/BannerLogin2.png"];
+  String loginGoogle = "assets/loginGoogle.png";
+  String loginFacebook = "assets/loginFacebook.png";
+  String loginLinkedin = "assets/loginLinkedin.png";
   bool _obscureText = true;
 
   @override
@@ -73,7 +76,7 @@ class _login extends State<login> {
                                   ? Icons.visibility
                                   : Icons.visibility_off),
                             )),
-                        obscureText: true,
+                        obscureText: _obscureText,
                       ),
                       TextButton(
                           onPressed: () {
@@ -104,16 +107,16 @@ class _login extends State<login> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Image.network(
-                            'https://i.imgur.com/SjwsN5V.png',
+                          Image.asset(
+                            loginFacebook,
                             height: 75,
                           ),
-                          Image.network(
-                            'https://i.imgur.com/hstdWrp.png',
+                          Image.asset(
+                            loginGoogle,
                             height: 75,
                           ),
-                          Image.network(
-                            'https://i.imgur.com/JlJQiw9.png',
+                          Image.asset(
+                            loginLinkedin,
                             height: 75,
                           ),
                         ],

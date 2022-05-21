@@ -8,6 +8,7 @@ class homeEmpregador extends StatefulWidget {
 class _homeEmpregador extends State<homeEmpregador> {
   @override
   Widget build(BuildContext context) => Scaffold(
+        appBar: buildAppBar(context),
         floatingActionButton: buildNavigateButton(),
         body: SingleChildScrollView(
           child: Padding(
