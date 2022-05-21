@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/widgetAppBar.dart';
 
 class homeEmpregador extends StatefulWidget {
   _homeEmpregador createState() => _homeEmpregador();
@@ -7,43 +8,6 @@ class homeEmpregador extends StatefulWidget {
 class _homeEmpregador extends State<homeEmpregador> {
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-            toolbarHeight: 80,
-            elevation: 0,
-            backgroundColor: Color(0xFFFFD740),
-            leadingWidth: 75,
-            leading: Padding(
-              padding: const EdgeInsets.all(8),
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.account_circle,
-                    color: Colors.black,
-                    size: 40,
-                  )),
-            ),
-            title: const Center(
-                child: Text(
-              'iJob',
-              style: TextStyle(
-                  color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
-            )),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.menu,
-                      color: Colors.black,
-                      size: 40,
-                    )),
-              )
-            ]),
         floatingActionButton: buildNavigateButton(),
         body: SingleChildScrollView(
           child: Padding(

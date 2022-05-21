@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formulario/configuracoes.dart';
+import 'package:formulario/Configura%C3%A7%C3%B5es/configuracoes.dart';
 import 'package:formulario/Login/login.dart';
 import 'package:formulario/Pagamento/dadosEndereco.dart';
 

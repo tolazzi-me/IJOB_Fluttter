@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-AppBar buildAppBar(BuildContext context) {
+AppBar buildAppBarPerfil(BuildContext context) {
   return AppBar(
     backgroundColor: Colors.transparent,
     elevation: 0,
@@ -8,7 +8,9 @@ AppBar buildAppBar(BuildContext context) {
         padding: const EdgeInsets.all(10),
         child: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black, size: 40),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         )),
     actions: [
       Padding(

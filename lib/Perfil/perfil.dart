@@ -13,10 +13,10 @@ class perfil extends StatefulWidget {
 class _perfil extends State<perfil> {
   @override
   Widget build(BuildContext context) {
-    final user = UserData.myUser;
+    final user = UserDados.myUser;
 
     return Scaffold(
-      appBar: buildAppBar(context),
+      appBar: buildAppBarPerfil(context),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
