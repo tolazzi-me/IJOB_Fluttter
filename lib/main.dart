@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:formulario/Configura%C3%A7%C3%B5es/configuracoes.dart';
 import 'package:formulario/Login/login.dart';
-import 'package:formulario/Pagamento/dadosEndereco.dart';
+import 'package:formulario/Premium/dadosEndereco.dart';
+import 'package:formulario/Premium/premium.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -22,12 +23,10 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
-                child: const Text('Pagamento'),
+                child: const Text('Premium'),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => dadosEndereco())));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => premium())));
                 },
               ),
               ElevatedButton(

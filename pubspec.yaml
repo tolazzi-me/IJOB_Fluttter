@@ -66,6 +66,10 @@ flutter:
   assets:
     - assets/BannerLogin1.png
     - assets/BannerLogin2.png
+    - assets/BannerPremium1.png
+    - assets/BannerPremium2.png
+    - assets/BannerPremium3.png
+    - assets/BannerPremium4.png
     - assets/aceitar.png
     - assets/recusar.png
     - assets/voltar.png

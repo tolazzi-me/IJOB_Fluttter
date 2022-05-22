@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:formulario/Empregado/homeEmpregado.dart';
 
 class dadosCartao extends StatelessWidget {
   final controleNumero = TextEditingController();
@@ -48,20 +49,26 @@ class dadosCartao extends StatelessWidget {
                   const SizedBox(height: 40),
                   Center(
                     child: SizedBox(
-                      height: 40,
-                      width: 170,
+                      height: 45,
+                      width: 180,
                       child: ElevatedButton(
-                          onPressed: () => {Navigator.pop(context)},
+                          onPressed: () => {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((context) =>
+                                            homeEmpregado())))
+                              },
                           style: ButtonStyle(
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15))),
+                                      borderRadius: BorderRadius.circular(17))),
                               backgroundColor: MaterialStateProperty.all<Color>(
                                   Colors.amberAccent)),
                           child: const Text(
                             'Confirmar',
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.black, fontSize: 20),
                           )),
                     ),
                   ),
@@ -92,6 +99,7 @@ class dadosCartao extends StatelessWidget {
             decoration: InputDecoration(
                 labelText: 'Nome do titular', hintText: 'Nome completo'),
           ),
+          const SizedBox(height: 20),
           TextField(
             style: const TextStyle(fontSize: 20),
             decoration: const InputDecoration(
@@ -102,20 +110,35 @@ class dadosCartao extends StatelessWidget {
             controller: controleCPF,
             maxLength: 11,
           ),
-          TextField(
-            style: const TextStyle(fontSize: 20),
-            decoration: const InputDecoration(labelText: 'Validade'),
-            keyboardType: TextInputType.number,
-            controller: controleValidade,
-            maxLength: 4,
-          ),
-          TextField(
-            style: const TextStyle(fontSize: 20),
-            decoration: const InputDecoration(
-                labelText: 'CCV', suffixIcon: Icon(Icons.question_mark)),
-            keyboardType: TextInputType.number,
-            controller: controleCCV,
-            maxLength: 3,
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 150,
+                child: TextField(
+                  style: const TextStyle(fontSize: 20),
+                  decoration: const InputDecoration(
+                      labelText: 'Validade', border: OutlineInputBorder()),
+                  keyboardType: TextInputType.number,
+                  controller: controleValidade,
+                  maxLength: 4,
+                ),
+              ),
+              SizedBox(
+                width: 150,
+                child: TextField(
+                  style: const TextStyle(fontSize: 20),
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'CCV',
+                      suffixIcon: Icon(Icons.question_mark)),
+                  keyboardType: TextInputType.number,
+                  controller: controleCCV,
+                  maxLength: 3,
+                ),
+              ),
+            ],
           ),
         ],
       );
@@ -137,10 +160,40 @@ class dadosCartao extends StatelessWidget {
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.black)),
               ),
+              SizedBox(
+                height: 20,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Economize 10%',
+                      style: TextStyle(color: Colors.black, fontSize: 11)),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(17))),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.amberAccent),
+                  ),
+                ),
+              ),
             ],
           ),
           Column(
             children: [
+              SizedBox(
+                height: 20,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('+ VENDIDO',
+                      style: TextStyle(color: Colors.white, fontSize: 11)),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(17))),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.red),
+                  ),
+                ),
+              ),
               TextButton(
                 onPressed: () => {},
                 child: Text(
@@ -151,6 +204,21 @@ class dadosCartao extends StatelessWidget {
                 style: ButtonStyle(
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.black)),
+              ),
+              SizedBox(
+                height: 20,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Economize 10%',
+                      style: TextStyle(color: Colors.black, fontSize: 11)),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(17))),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.amberAccent),
+                  ),
+                ),
               ),
             ],
           ),
@@ -166,6 +234,21 @@ class dadosCartao extends StatelessWidget {
                 style: ButtonStyle(
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.black)),
+              ),
+              SizedBox(
+                height: 20,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Economize 10%',
+                      style: TextStyle(color: Colors.black, fontSize: 11)),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(17))),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.amberAccent),
+                  ),
+                ),
               ),
             ],
           ),
@@ -188,4 +271,3 @@ class dadosCartao extends StatelessWidget {
                     height: 2,
                   )),
 */
-
