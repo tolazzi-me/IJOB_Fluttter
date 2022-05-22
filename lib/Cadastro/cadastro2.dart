@@ -176,7 +176,7 @@ class cadastro2 extends StatelessWidget {
                               return SizedBox(
                                 height: 60,
                                 child: DropdownButton<String>(
-                                  hint: const Text('Dia',
+                                  hint: const Text('Mês',
                                       style: TextStyle(fontSize: 20)),
                                   value: (value.isEmpty) ? null : value,
                                   onChanged: (escolha) =>
@@ -199,7 +199,7 @@ class cadastro2 extends StatelessWidget {
                               return SizedBox(
                                 height: 60,
                                 child: DropdownButton<String>(
-                                  hint: const Text('Dia',
+                                  hint: const Text('Ano',
                                       style: TextStyle(fontSize: 20)),
                                   value: (value.isEmpty) ? null : value,
                                   onChanged: (escolha) =>

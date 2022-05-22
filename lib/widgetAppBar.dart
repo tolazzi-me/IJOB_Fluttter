@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:formulario/Perfil/perfil.dart';
+import 'package:formulario/Empregado/homeEmpregado.dart';
 
 AppBar buildAppBar(BuildContext context) {
   return AppBar(
-      toolbarHeight: 80,
-      elevation: 0,
-      backgroundColor: Color(0xFFFFD740),
-      leadingWidth: 75,
-      leading: Padding(
-        padding: const EdgeInsets.all(8),
-        child: IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: ((context) => perfil())));
-            },
-            icon: const Icon(
-              Icons.account_circle,
-              color: Colors.black,
-              size: 40,
-            )),
-      ),
-      title: const Center(
-          child: Text(
-        'iJob',
-        style:
-            TextStyle(color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
-      )),
-      actions: [
+    toolbarHeight: 80,
+    elevation: 0,
+    backgroundColor: Color(0xFFFFD740),
+    leadingWidth: 75,
+    leading: Padding(
+      padding: const EdgeInsets.all(8),
+      child: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: ((context) => perfil())));
+          },
+          icon: const Icon(
+            Icons.account_circle,
+            color: Colors.black,
+            size: 40,
+          )),
+    ),
+    title: const Center(
+        child: Text(
+      'iJob',
+      style:
+          TextStyle(color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
+    )),
+  );
+}
+
+/*
+actions: [
         Padding(
           padding: const EdgeInsets.all(8),
           child: IconButton(
@@ -39,5 +44,5 @@ AppBar buildAppBar(BuildContext context) {
                 size: 40,
               )),
         )
-      ]);
-}
+      ]
+*/

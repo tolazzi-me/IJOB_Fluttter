@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formulario/Configura%C3%A7%C3%B5es/configuracoes.dart';
 import 'package:formulario/Login/login.dart';
-import 'package:formulario/Premium/dadosEndereco.dart';
-import 'package:formulario/Premium/premium.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -13,8 +10,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return MaterialApp(home: login());
+  }
+}
+
+
+/*Scaffold(
         appBar: AppBar(
           title: const Text('Teste Menu'),
         ),
@@ -42,13 +43,10 @@ class MyApp extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => configuracoesMain())));
+                          builder: ((context) => configuracoes())));
                 },
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
+      ), */

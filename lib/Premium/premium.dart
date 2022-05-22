@@ -12,7 +12,7 @@ class _premium extends State<premium> {
     "assets/BannerPremium3.png",
     "assets/BannerPremium4.png",
   ];
-  String vlrUmMes = '10,00';
+  String vlrUmMes = '9,00';
   String vlrSeisMes = '49,90';
   String vlrAnual = '89,90';
 
@@ -173,7 +173,7 @@ class _premium extends State<premium> {
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center),
               const Text(
-                'R\$ 9,00',
+                'R\$ 10,00',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 23,

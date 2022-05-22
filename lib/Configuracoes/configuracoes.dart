@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class configuracoesMain extends StatefulWidget {
-  configuracoes createState() => configuracoes();
+class configuracoes extends StatefulWidget {
+  _configuracoes createState() => _configuracoes();
 }
 
-class configuracoes extends State<configuracoesMain> {
+class _configuracoes extends State<configuracoes> {
   double distancia = 100;
   bool tipoUsuario = false;
 
@@ -52,7 +52,7 @@ class configuracoes extends State<configuracoesMain> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                _configuracoes(),
+                buildConfiguracoes(),
                 const SizedBox(height: 40),
                 Center(
                   child: SizedBox(
@@ -79,7 +79,7 @@ class configuracoes extends State<configuracoesMain> {
     );
   }
 
-  Widget _configuracoes() => Column(
+  Widget buildConfiguracoes() => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

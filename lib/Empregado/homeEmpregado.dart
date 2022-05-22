@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:formulario/Perfil/perfil.dart';
+import 'package:formulario/Configuracoes/configuracoes.dart';
+import 'package:formulario/Premium/premium.dart';
 import 'package:formulario/widgetAppBar.dart';
 
-class homeEmpregado extends StatelessWidget {
+class homeEmpregado extends StatefulWidget {
+  _homeEmpregado createState() => _homeEmpregado();
+}
+
+class _homeEmpregado extends State<homeEmpregado> {
   String imageAceitar = "assets/aceitar.png";
   String imageRecusar = "assets/recusar.png";
   String imageVoltar = "assets/voltar.png";
@@ -12,6 +17,107 @@ class homeEmpregado extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        endDrawer: Drawer(
+          backgroundColor: Colors.transparent,
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const SizedBox(height: 80),
+                  SizedBox(
+                    height: 35,
+                    width: 130,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => premium())));
+                      },
+                      child: const Text('Filtro de Jobs',
+                          style: TextStyle(color: Colors.black, fontSize: 15)),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.amberAccent)),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    height: 35,
+                    width: 130,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => premium())));
+                      },
+                      child: const Text('Premium',
+                          style: TextStyle(color: Colors.black, fontSize: 15)),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.amberAccent)),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    height: 35,
+                    width: 130,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => configuracoes())));
+                      },
+                      child: const Text('Configurações',
+                          style: TextStyle(color: Colors.black, fontSize: 15)),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.amberAccent)),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    height: 35,
+                    width: 130,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => configuracoes())));
+                      },
+                      child: const Text('Suporte',
+                          style: TextStyle(color: Colors.black, fontSize: 15)),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.amberAccent)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
         appBar: buildAppBar(context),
         body: Container(
           height: double.infinity,
@@ -27,7 +133,7 @@ class homeEmpregado extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 2),
+                    border: Border.all(color: Colors.white, width: 1),
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
                     image: const DecorationImage(
                         image: NetworkImage(
@@ -44,8 +150,8 @@ class homeEmpregado extends StatelessWidget {
                       width: 220,
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.75),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(15))),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15))),
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: Column(
