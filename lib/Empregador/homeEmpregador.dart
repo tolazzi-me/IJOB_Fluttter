@@ -30,28 +30,6 @@ class _homeEmpregador extends State<homeEmpregador> {
                             MaterialPageRoute(
                                 builder: ((context) => premium())));
                       },
-                      child: const Text('Filtro de Jobs',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.amberAccent)),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 35,
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => premium())));
-                      },
                       child: const Text('Premium',
                           style: TextStyle(color: Colors.black, fontSize: 15)),
                       style: ButtonStyle(

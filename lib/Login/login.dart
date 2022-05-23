@@ -30,7 +30,7 @@ class _login extends State<login> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               height: 300,
               width: double.maxFinite,
               child: PageView.builder(
@@ -68,7 +68,7 @@ class _login extends State<login> {
                     ),
                     const SizedBox(height: 15),
                     TextField(
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                       decoration: InputDecoration(
                           labelText: 'Senha',
                           suffixIcon: GestureDetector(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:formulario/Configuracoes/configuracoes.dart';
+import 'package:formulario/FiltroJobs/filtroJobs.dart';
 import 'package:formulario/Premium/premium.dart';
 import 'package:formulario/widgetAppBar.dart';
 
@@ -34,7 +35,7 @@ class _homeEmpregado extends State<homeEmpregado> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => premium())));
+                                builder: ((context) => filtroJobs())));
                       },
                       child: const Text('Filtro de Jobs',
                           style: TextStyle(color: Colors.black, fontSize: 15)),
