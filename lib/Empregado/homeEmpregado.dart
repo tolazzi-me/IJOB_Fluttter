@@ -13,113 +13,16 @@ class _homeEmpregado extends State<homeEmpregado> {
   String imageRecusar = "assets/recusar.png";
   String imageVoltar = "assets/voltar.png";
   String imageChat = "assets/chat.png";
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        endDrawer: Drawer(
-          backgroundColor: Colors.transparent,
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const SizedBox(height: 80),
-                  SizedBox(
-                    height: 35,
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => filtroJobs())));
-                      },
-                      child: const Text('Filtro de Jobs',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.amberAccent)),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 35,
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => premium())));
-                      },
-                      child: const Text('Premium',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.amberAccent)),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 35,
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => configuracoes())));
-                      },
-                      child: const Text('Configurações',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.amberAccent)),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 35,
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => configuracoes())));
-                      },
-                      child: const Text('Suporte',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.amberAccent)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        appBar: buildAppBar(context),
+        key: _scaffoldKey,
+        endDrawer: buildDrawer(),
+        appBar:
+            buildAppBar(context, () => _scaffoldKey.currentState?.openDrawer()),
         body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -186,4 +89,104 @@ class _homeEmpregado extends State<homeEmpregado> {
       ),
     );
   }
+
+  Drawer buildDrawer() => Drawer(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const SizedBox(height: 80),
+                SizedBox(
+                  height: 35,
+                  width: 130,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => filtroJobs())));
+                    },
+                    child: const Text('Filtro de Jobs',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 35,
+                  width: 130,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => premium())));
+                    },
+                    child: const Text('Premium',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 35,
+                  width: 130,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => configuracoes())));
+                    },
+                    child: const Text('Configurações',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 35,
+                  width: 130,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => configuracoes())));
+                    },
+                    child: const Text('Suporte',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 }
