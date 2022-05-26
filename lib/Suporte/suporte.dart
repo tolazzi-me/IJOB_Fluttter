@@ -118,9 +118,10 @@ class suporte extends StatelessWidget {
                   children: [
                     TextButton(
                         onPressed: () {},
-                        child: Text('Política de privacidade')),
+                        child: const Text('Política de privacidade')),
                     TextButton(
-                        onPressed: () {}, child: Text('Termos de serviço'))
+                        onPressed: () {},
+                        child: const Text('Termos de serviço'))
                   ],
                 )
               ],

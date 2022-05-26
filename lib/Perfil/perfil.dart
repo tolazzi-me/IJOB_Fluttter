@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:formulario/FiltroJobs/filtroJobs.dart';
 import 'package:formulario/Perfil/user.dart';
 import 'package:formulario/Perfil/widgetFoto.dart';
 import 'package:formulario/Perfil/widgetPerfilAppBar.dart';
+import 'package:formulario/Configuracoes/documentacao.dart';
 
 class perfil extends StatefulWidget {
   @override
@@ -82,7 +84,12 @@ class _perfil extends State<perfil> {
                           width: double.infinity,
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => filtroJobs())));
+                          },
                           child: const Text(
                             'Filtro de trabalhos',
                             style: TextStyle(
@@ -120,7 +127,12 @@ class _perfil extends State<perfil> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => documentacao())));
+                          },
                           child: const Text(
                             'Documentação de segurança',
                             style: TextStyle(

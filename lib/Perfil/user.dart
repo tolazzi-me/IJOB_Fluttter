@@ -1,5 +1,3 @@
-import 'package:formulario/Perfil/user.dart';
-
 class User {
   final String imagePath;
   final String nome;

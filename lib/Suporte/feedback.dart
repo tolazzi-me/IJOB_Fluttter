@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/Suporte/suporte.dart';
 
-class feedback extends StatelessWidget {
+class feedback extends StatefulWidget {
+  _feedback createState() => _feedback();
+}
+
+class _feedback extends State<feedback> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,7 +74,7 @@ class feedback extends StatelessWidget {
                   width: 150,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      openEmailEnviado();
                     },
                     child: const Text(
                       'Enviar',
@@ -91,4 +96,43 @@ class feedback extends StatelessWidget {
       ),
     );
   }
+
+  Future openEmailEnviado() => showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Container(
+            height: 80,
+            width: 80,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            child: Column(
+              children: [
+                const Text(
+                  'Email enviado com sucesso',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.amberAccent),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) => suporte())));
+                  },
+                  child: const Text(
+                    'OK',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 }
