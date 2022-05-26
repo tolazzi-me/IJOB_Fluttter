@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:formulario/Empregador/addTrabalho.dart';
+import 'package:formulario/Suporte/suporte.dart';
 import 'package:formulario/widgetAppBar.dart';
 
 import '../Configuracoes/configuracoes.dart';
@@ -398,10 +400,8 @@ class _homeEmpregador extends State<homeEmpregador> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => configuracoes())));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => suporte())));
                     },
                     child: const Text('Suporte',
                         style: TextStyle(color: Colors.black, fontSize: 15)),
@@ -421,9 +421,15 @@ class _homeEmpregador extends State<homeEmpregador> {
       );
 
   Widget buildNavigateButton() => FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: ((context) => addTrabalho())));
+      },
       child: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => addTrabalho())));
+        },
         icon: const Icon(Icons.add),
         color: Colors.black,
       ),

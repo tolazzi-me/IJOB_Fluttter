@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:formulario/Configuracoes/configuracoes.dart';
 import 'package:formulario/FiltroJobs/filtroJobs.dart';
 import 'package:formulario/Premium/premium.dart';
+import 'package:formulario/Suporte/suporte.dart';
 import 'package:formulario/widgetAppBar.dart';
 
 class homeEmpregado extends StatefulWidget {
@@ -168,10 +169,8 @@ class _homeEmpregado extends State<homeEmpregado> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => configuracoes())));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => suporte())));
                     },
                     child: const Text('Suporte',
                         style: TextStyle(color: Colors.black, fontSize: 15)),

@@ -55,11 +55,25 @@ class _filtroJobs extends State<filtroJobs> {
                     ),
                   ],
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Salvar',
-                      style: TextStyle(color: Colors.black, fontSize: 25)),
-                  style: ButtonStyle(),
+                const SizedBox(height: 20),
+                Center(
+                  child: SizedBox(
+                    height: 40,
+                    width: 170,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Salvar',
+                          style: TextStyle(color: Colors.black, fontSize: 25)),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20))),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
