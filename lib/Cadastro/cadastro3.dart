@@ -60,6 +60,11 @@ class cadastro3 extends StatelessWidget {
                                   fontSize: 30, fontWeight: FontWeight.bold))
                         ],
                       ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        "Você pode trocar o tipo de conta a qualquer\nmomento nas configurações!",
+                        style: TextStyle(fontSize: 17, color: Colors.grey),
+                      ),
                       const SizedBox(height: 100),
                       Center(
                         child: Column(

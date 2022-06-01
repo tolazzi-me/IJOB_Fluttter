@@ -56,30 +56,21 @@ class _premium extends State<premium> {
                       Center(
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  icon: const Icon(Icons.arrow_back_ios,
-                                      color: Colors.black),
-                                ),
-                                const Text(
-                                  'Escolha seu plano',
-                                  style: TextStyle(
-                                    fontFamily: 'Chopsic',
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              ],
+                            const SizedBox(height: 15),
+                            const Text(
+                              'Escolha seu plano',
+                              style: TextStyle(
+                                fontFamily: 'Chopsic',
+                                fontSize: 30,
+                              ),
                             ),
+                            const SizedBox(height: 10),
                             const Text(
                               'Economize na sua primeira compra!',
-                              style: TextStyle(
-                                  color: Colors.amberAccent, fontSize: 17),
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 17),
                             ),
-                            const SizedBox(height: 60),
+                            const SizedBox(height: 40),
                             SizedBox(
                               height: 20,
                               child: ElevatedButton(
@@ -100,18 +91,38 @@ class _premium extends State<premium> {
                               ),
                             ),
                             planos(),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 25),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: const [
                                 Text(
                                   'O pagamento será efetuado pela plataforma "GerenciaNet"\nSaiba mais em www.gerencianet.com.br',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                   textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 70),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Assinando você aceita nossos',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic),
+                                ),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: const Text(
+                                      'TERMOS',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic),
+                                    ))
+                              ],
+                            ),
+                            const SizedBox(height: 35),
                             SizedBox(
                               height: 45,
                               width: 180,
@@ -137,17 +148,29 @@ class _premium extends State<premium> {
                                             Colors.amberAccent)),
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Assinando você aceita nossos',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: const Text('TERMOS'))
-                              ],
+                            const SizedBox(height: 25),
+                            SizedBox(
+                              height: 35,
+                              width: 120,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Não, Obrigado',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13,
+                                        fontStyle: FontStyle.italic)),
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(17))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.grey)),
+                              ),
                             ),
                           ],
                         ),

@@ -30,37 +30,40 @@ class dadosEndereco extends StatelessWidget {
               icon: Icon(Icons.arrow_back_ios, color: Colors.black),
             ),
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(35.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                endereco(),
-                Center(
-                  child: SizedBox(
-                    height: 40,
-                    width: 170,
-                    child: ElevatedButton(
-                        onPressed: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: ((context) => dadosCartao()))),
-                            },
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15))),
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Color.fromARGB(255, 255, 214, 62))),
-                        child: const Text(
-                          'Proximo',
-                          style: TextStyle(color: Colors.black),
-                        )),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(35.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  endereco(),
+                  const SizedBox(height: 35),
+                  Center(
+                    child: SizedBox(
+                      height: 40,
+                      width: 170,
+                      child: ElevatedButton(
+                          onPressed: () => {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((context) => dadosCartao()))),
+                              },
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15))),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 255, 214, 62))),
+                          child: const Text(
+                            'Proximo',
+                            style: TextStyle(color: Colors.black),
+                          )),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           )),
     );

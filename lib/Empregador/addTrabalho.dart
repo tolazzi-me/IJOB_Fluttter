@@ -27,73 +27,75 @@ class _addTrabalho extends State<addTrabalho> {
             },
           ),
         ),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  border: Border.all(color: Colors.grey, width: 1),
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
-                ),
-                height: 570,
-                width: double.infinity,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: Container(
-                      height: 150,
-                      width: 230,
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.75),
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(15))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            TextField(
-                                decoration: InputDecoration(
-                                    labelText: 'Nome do Trabalho'),
-                                style: TextStyle(fontSize: 15)),
-                            SizedBox(height: 10),
-                            TextField(
-                                decoration:
-                                    InputDecoration(labelText: 'Descriçao'),
-                                style: TextStyle(fontSize: 15)),
-                          ],
+        body: SingleChildScrollView(
+          child: Container(
+            height: 700,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                  decoration: BoxDecoration(
+                    color: Colors.black12,
+                    border: Border.all(color: Colors.grey, width: 1),
+                    borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  ),
+                  height: 570,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        height: 150,
+                        width: 230,
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.75),
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(15))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              TextField(
+                                  decoration: InputDecoration(
+                                      labelText: 'Nome do Trabalho'),
+                                  style: TextStyle(fontSize: 15)),
+                              SizedBox(height: 10),
+                              TextField(
+                                  decoration:
+                                      InputDecoration(labelText: 'Descriçao'),
+                                  style: TextStyle(fontSize: 15)),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Center(
-                  child: SizedBox(
-                height: 40,
-                width: 150,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Pronto',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                Center(
+                    child: SizedBox(
+                  height: 40,
+                  width: 150,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Pronto',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.amberAccent),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                    ),
                   ),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amberAccent),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                  ),
-                ),
-              )),
-            ],
+                )),
+              ],
+            ),
           ),
         ),
       ),

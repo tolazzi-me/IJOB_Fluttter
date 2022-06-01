@@ -16,8 +16,8 @@ class _homeEmpregador extends State<homeEmpregador> {
   Widget build(BuildContext context) => Scaffold(
         key: _scaffoldKey,
         endDrawer: buildDrawer(),
-        appBar:
-            buildAppBar(context, () => _scaffoldKey.currentState?.openDrawer()),
+        appBar: buildAppBarEmpregador(
+            context, () => _scaffoldKey.currentState?.openDrawer()),
         floatingActionButton: buildNavigateButton(),
         body: SingleChildScrollView(
           child: Padding(
@@ -25,6 +25,7 @@ class _homeEmpregador extends State<homeEmpregador> {
             child: Column(
               children: [
                 ExpansionTile(
+                  initiallyExpanded: true,
                   title: const Text('Vaga para fotógrafo',
                       style: TextStyle(fontSize: 20)),
                   children: [
