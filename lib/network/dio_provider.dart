@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:ijob_app/network/request_header.dart';
 import 'package:ijob_app/utils/constants.dart';
@@ -15,7 +18,12 @@ class DioProvider {
     _instance ??= Dio(_options);
     _instance!.interceptors.clear();
     // add interceptors
-
+    (_instance!.httpClientAdapter as DefaultHttpClientAdapter)
+        .onHttpClientCreate = (dioClient) {
+      dioClient.badCertificateCallback =
+          ((X509Certificate cert, String host, int port) => true);
+      return null;
+    };
     return _instance!;
   }
 
