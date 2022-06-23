@@ -16,6 +16,7 @@ Exception handleError(String error) {
 }
 
 Exception handleDioError(DioError dioError) {
+  print(dioError.error);
   switch (dioError.type) {
     case DioErrorType.cancel:
       return AppException(message: 'Request to API was cancelled');
@@ -39,10 +40,10 @@ Exception _parseDioErrorResponse(DioError dioError) {
 
   try {
     if (statusCode == -1 || statusCode == HttpStatus.ok) {
-      statusCode = dioError.response?.data["statusCode"];
+      statusCode = dioError.response?.data["code"];
     }
-    status = dioError.response?.data["status"];
-    serverMessage = dioError.response?.data["message"];
+    status = dioError.response?.data["error"];
+    serverMessage = dioError.response?.data["message"][0];
   } catch (e, s) {
     log("$e");
     log(s.toString());
@@ -56,6 +57,9 @@ Exception _parseDioErrorResponse(DioError dioError) {
     case HttpStatus.notFound:
       return NotFoundException(serverMessage ?? '', status ?? '');
     default:
-      return ApiException(httpCode: statusCode, status: status ?? '', message: serverMessage ?? '');
+      return ApiException(
+          httpCode: statusCode,
+          status: status ?? '',
+          message: serverMessage ?? '');
   }
 }
