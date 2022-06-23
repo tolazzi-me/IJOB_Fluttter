@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ijob_app/data/local/get_storage.dart';
 
 class RequestHeaderInterceptor extends InterceptorsWrapper {
   @override
@@ -11,7 +12,8 @@ class RequestHeaderInterceptor extends InterceptorsWrapper {
 
   Future<Map<String, dynamic>> getCustomHeaders() async {
     //include all custom headers, e.g: token for login in app
-    final customHeader = {'content-type': 'application/json'};
+    final _accessToken = LocalStorageImp().accessToken;
+    final customHeader = {'content-type': 'application/json', 'x-access-token': _accessToken};
 
     return customHeader;
   }
