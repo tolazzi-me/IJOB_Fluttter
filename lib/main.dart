@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:ijob_app/routes/app_pages.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
   await GetStorage.init();
+      initialRoute: AppPages.initial,
+      getPages: AppPages.routes,
       theme: ThemeData(
         // This is the theme of your application.
         //
