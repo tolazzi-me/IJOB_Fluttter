@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../data/local/get_storage.dart';
 import '../../../routes/app_pages.dart';
+import '../../FiltroJobs/filtroJobs.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -23,15 +24,12 @@ class DrawerMenu extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
+                  // Get.toNamed(Routes.nomeTela);
                 },
-                child: const Text('Filtro de Jobs',
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
+                child: const Text('Filtro de Jobs', style: TextStyle(color: Colors.black, fontSize: 14)),
                 style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
               ),
             ),
             const SizedBox(height: 10),
@@ -43,14 +41,10 @@ class DrawerMenu extends StatelessWidget {
                   // Navigator.push(context, MaterialPageRoute(builder: ((context) => premium())));
                   Get.toNamed(Routes.premium);
                 },
-                child: const Text('Premium',
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
+                child: const Text('Premium', style: TextStyle(color: Colors.black, fontSize: 14)),
                 style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
               ),
             ),
             const SizedBox(height: 10),
@@ -63,14 +57,10 @@ class DrawerMenu extends StatelessWidget {
                   final storage = LocalStorageImp();
                   storage.writeToken('');
                 },
-                child: const Text('Configurações',
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
+                child: const Text('Configurações', style: TextStyle(color: Colors.black, fontSize: 14)),
                 style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
               ),
             ),
             const SizedBox(height: 10),
@@ -81,14 +71,10 @@ class DrawerMenu extends StatelessWidget {
                 onPressed: () {
                   // Navigator.push(context, MaterialPageRoute(builder: ((context) => suporte())));
                 },
-                child: const Text('Suporte',
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
+                child: const Text('Suporte', style: TextStyle(color: Colors.black, fontSize: 14)),
                 style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
               ),
             ),
           ],
