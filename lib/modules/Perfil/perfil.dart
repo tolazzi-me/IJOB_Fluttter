@@ -55,7 +55,9 @@ class _perfil extends State<perfil> {
             margin: const EdgeInsets.fromLTRB(20, 40, 20, 0),
             height: 150,
             width: double.infinity,
-            decoration: const BoxDecoration(color: Color.fromARGB(255, 195, 194, 194), borderRadius: BorderRadius.all(Radius.circular(15))),
+            decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 195, 194, 194),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
@@ -72,7 +74,8 @@ class _perfil extends State<perfil> {
                       children: [
                         const Text(
                           ' Trabalhos aceitos',
-                          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 15),
                         Container(
@@ -82,11 +85,17 @@ class _perfil extends State<perfil> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => filtroJobs())));
                           },
                           child: const Text(
                             'Filtro de trabalhos',
-                            style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -100,7 +109,9 @@ class _perfil extends State<perfil> {
             margin: const EdgeInsets.fromLTRB(20, 30, 20, 0),
             height: 150,
             width: double.infinity,
-            decoration: const BoxDecoration(color: Color.fromARGB(255, 195, 194, 194), borderRadius: BorderRadius.all(Radius.circular(15))),
+            decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 195, 194, 194),
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
@@ -117,11 +128,17 @@ class _perfil extends State<perfil> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: ((context) => documentacao())));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => documentacao())));
                           },
                           child: const Text(
                             'Documentação de segurança',
-                            style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         Container(

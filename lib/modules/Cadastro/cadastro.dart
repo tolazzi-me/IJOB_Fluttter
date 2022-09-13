@@ -41,7 +41,9 @@ class cadastro extends State<cadastroMain> {
                 height: 520,
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
@@ -54,9 +56,12 @@ class cadastro extends State<cadastroMain> {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+                            icon: const Icon(Icons.arrow_back_ios,
+                                color: Colors.black),
                           ),
-                          const Text('Criando sua conta', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+                          const Text('Criando sua conta',
+                              style: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold))
                         ],
                       ),
                       const SizedBox(height: 20),
@@ -75,7 +80,9 @@ class cadastro extends State<cadastroMain> {
                                   _obscureText = !_obscureText;
                                 });
                               },
-                              child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                              child: Icon(_obscureText
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
                             )),
                         obscureText: _obscureText,
                       ),
@@ -88,7 +95,9 @@ class cadastro extends State<cadastroMain> {
                               onTap: () {
                                 setState(() => _obscureText = !_obscureText);
                               },
-                              child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                              child: Icon(_obscureText
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
                             )),
                         obscureText: _obscureText,
                       ),
@@ -101,7 +110,8 @@ class cadastro extends State<cadastroMain> {
                               setState(() => termos = valor!);
                             },
                           ),
-                          const Text("Concordar com Termos de Uso \n e Política de Privacidade.")
+                          const Text(
+                              "Concordar com Termos de Uso \n e Política de Privacidade.")
                         ],
                       ),
                       const SizedBox(height: 30),
@@ -112,11 +122,22 @@ class cadastro extends State<cadastroMain> {
                               height: 40,
                               width: 200,
                               child: ElevatedButton(
-                                  onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: ((context) => cadastro2())))},
+                                  onPressed: () => {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: ((context) =>
+                                                    cadastro2())))
+                                      },
                                   style: ButtonStyle(
-                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                                      backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15))),
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.amberAccent)),
                                   child: const Text(
                                     'Continuar',
                                     style: TextStyle(color: Colors.black),

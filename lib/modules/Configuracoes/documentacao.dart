@@ -59,10 +59,8 @@ class _documentacao extends State<documentacao> {
                       padding: const EdgeInsets.fromLTRB(80, 30, 80, 30),
                       child: Container(
                         decoration: const BoxDecoration(
-                            color: Colors.transparent,
-                            image: DecorationImage(
-                                image: AssetImage('assets/documento.png'),
-                                fit: BoxFit.fill)),
+                          color: Colors.transparent,
+                        ),
                       ),
                     )),
                 const SizedBox(height: 20),

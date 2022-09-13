@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class filtroJobs extends StatefulWidget {
   _filtroJobs createState() => _filtroJobs();
@@ -61,7 +62,9 @@ class _filtroJobs extends State<filtroJobs> {
                     height: 40,
                     width: 170,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: const Text('Salvar',
                           style: TextStyle(color: Colors.black, fontSize: 25)),
                       style: ButtonStyle(

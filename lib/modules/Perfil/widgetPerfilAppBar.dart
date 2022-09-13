@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
 
 AppBar buildAppBarPerfil(BuildContext context) {
   return AppBar(
@@ -17,7 +18,10 @@ AppBar buildAppBarPerfil(BuildContext context) {
           padding: const EdgeInsets.all(10),
           child: IconButton(
             icon: const Icon(Icons.chat_bubble, color: Colors.black, size: 40),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => chatsMain())));
+            },
           )),
     ],
   );

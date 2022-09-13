@@ -30,7 +30,9 @@ class _feedback extends State<feedback> {
             padding: const EdgeInsets.all(30),
             child: Column(
               children: [
-                const TextField(decoration: InputDecoration(labelText: 'Nome'), style: TextStyle(fontSize: 20)),
+                const TextField(
+                    decoration: InputDecoration(labelText: 'Nome'),
+                    style: TextStyle(fontSize: 20)),
                 const SizedBox(height: 20),
                 const TextField(
                     decoration: InputDecoration(
@@ -79,8 +81,11 @@ class _feedback extends State<feedback> {
                       style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
                     style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.amberAccent),
                     ),
                   ),
                 ),
@@ -96,7 +101,7 @@ class _feedback extends State<feedback> {
         context: context,
         builder: (context) => AlertDialog(
           content: Container(
-            height: 80,
+            height: 100,
             width: 80,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -110,11 +115,15 @@ class _feedback extends State<feedback> {
                 const SizedBox(height: 10),
                 ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.amberAccent),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
                   ),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: ((context) => suporte())));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) => suporte())));
                   },
                   child: const Text(
                     'OK',

@@ -19,13 +19,12 @@ class _homeEmpregado extends State<homeEmpregado> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: buildDrawer(),
-        appBar: buildAppBar(context, () => _scaffoldKey.currentState?.openDrawer()),
-        body: Container(
-          height: double.infinity,
+    return Scaffold(
+      // key: _scaffoldKey,
+      endDrawer: buildDrawer(),
+      appBar: buildAppBar(context, () => _scaffoldKey.currentState?.openDrawer()),
+      body: SingleChildScrollView(
+        child: Container(
           width: double.infinity,
           decoration: const BoxDecoration(
               gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.amberAccent, Colors.transparent])),

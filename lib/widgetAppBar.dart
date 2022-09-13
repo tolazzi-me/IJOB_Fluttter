@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
 import 'modules/Perfil/perfil.dart';
 
 AppBar buildAppBar(BuildContext context, VoidCallback _onPressed) {
@@ -12,7 +12,8 @@ AppBar buildAppBar(BuildContext context, VoidCallback _onPressed) {
         padding: const EdgeInsets.all(8),
         child: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: ((context) => perfil())));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: ((context) => perfil())));
             },
             icon: const Icon(
               Icons.account_circle,
@@ -23,7 +24,8 @@ AppBar buildAppBar(BuildContext context, VoidCallback _onPressed) {
       title: const Center(
           child: Text(
         'iJob',
-        style: TextStyle(color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
+        style:
+            TextStyle(color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
       )),
       actions: [
         Padding(
@@ -51,7 +53,8 @@ AppBar buildAppBarEmpregador(BuildContext context, VoidCallback _onPressed) {
         padding: const EdgeInsets.all(8),
         child: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => chatsMain())));
             },
             icon: const Icon(
               Icons.chat,
@@ -62,7 +65,8 @@ AppBar buildAppBarEmpregador(BuildContext context, VoidCallback _onPressed) {
       title: const Center(
           child: Text(
         'iJob',
-        style: TextStyle(color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
+        style:
+            TextStyle(color: Colors.black, fontSize: 80, fontFamily: 'Chopsic'),
       )),
       actions: [
         Padding(

@@ -5,7 +5,9 @@ import 'package:ijob_app/core/values/app_colors.dart';
 import 'package:ijob_app/core/values/app_values.dart';
 import 'package:ijob_app/core/values/text_styles.dart';
 import 'package:ijob_app/core/widget/snackbar.dart';
+import 'package:ijob_app/modules/Cadastro/cadastro.dart';
 import 'package:ijob_app/modules/login/controllers/login_controller.dart';
+import 'package:ijob_app/modules/login/views/esqueciSenha_view.dart';
 
 class LoginView extends BaseView<LoginController> {
   @override
@@ -83,11 +85,14 @@ class LoginView extends BaseView<LoginController> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // go to forgot password
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => esqueciSenha())));
                       },
                       child: const Text(
                         'Esqueci minha senha',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black45, fontSize: 13),
                       ),
                     ),
                     Center(
@@ -104,7 +109,7 @@ class LoginView extends BaseView<LoginController> {
                         child: const Text('Continuar', style: yellowText35),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -113,7 +118,7 @@ class LoginView extends BaseView<LoginController> {
                         Image.asset('assets/loginLinkedin.png', height: 75),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 5),
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -125,6 +130,10 @@ class LoginView extends BaseView<LoginController> {
                           ),
                           TextButton(
                             onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => cadastroMain())));
                               // go to register page
                             },
                             child: const Text(
