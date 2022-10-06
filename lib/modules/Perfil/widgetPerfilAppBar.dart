@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
+import 'package:ijob_app/modules/Chat/views/chatsPrincipal.dart';
 
 AppBar buildAppBarPerfil(BuildContext context) {
   return AppBar(

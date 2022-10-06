@@ -1,4 +1,4 @@
-import 'package:ijob_app/modules/Chat/userChat.dart';
+import 'package:ijob_app/modules/Chat/views/userChat.dart';
 
 class Message {
   final User sender;

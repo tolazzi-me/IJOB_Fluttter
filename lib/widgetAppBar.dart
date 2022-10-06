@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
+import 'package:ijob_app/modules/Chat/views/chatsPrincipal.dart';
 import 'modules/Perfil/perfil.dart';
 
 AppBar buildAppBar(BuildContext context, VoidCallback _onPressed) {

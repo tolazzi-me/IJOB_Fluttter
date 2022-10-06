@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ijob_app/modules/Chat/appBarChatMain.dart';
-import 'package:ijob_app/modules/Chat/mensagens.dart';
-import 'package:ijob_app/modules/Chat/chat.dart';
+import 'package:ijob_app/modules/Chat/views/appBarChatMain.dart';
+import 'package:ijob_app/modules/Chat/views/mensagens.dart';
+import 'package:ijob_app/modules/Chat/views/chat.dart';
 
 class chatsMain extends StatelessWidget {
   @override

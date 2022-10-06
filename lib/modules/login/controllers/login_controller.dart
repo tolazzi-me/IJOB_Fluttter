@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
@@ -10,23 +12,32 @@ import '../../../routes/app_pages.dart';
 
 class LoginController extends BaseController {
   final headerImages = ['assets/BannerLogin1.png', 'assets/BannerLogin2.png'];
-  final UserRepository _userRepository = Get.find(tag: (UserRepository).toString());
+  final UserRepository _userRepository =
+      Get.find(tag: (UserRepository).toString());
 
   final _passwordHasVisible = false.obs;
   final _emailTextController = TextEditingController().obs;
   final _passwordTextController = TextEditingController().obs;
 
   TextEditingController get emailTextController => _emailTextController.value;
-  TextEditingController get passwordTextController => _passwordTextController.value;
+  TextEditingController get passwordTextController =>
+      _passwordTextController.value;
 
   bool get passwordHasVisible => _passwordHasVisible.value;
   set passwordHasVisible(bool value) => _passwordHasVisible.value = value;
 
   void login() async {
     showLoading();
-    final loggedOrError =
-        await _userRepository.login(_emailTextController.value.text, _passwordTextController.value.text);
-
+    final loggedOrError = await _userRepository.login(
+        _emailTextController.value.text, _passwordTextController.value.text);
+    final firebase = FirebaseAuth.instance;
+    final fbUSer = await firebase.signInWithEmailAndPassword(
+        email: 'teste@teste.com', password: 'teste123');
+    print(fbUSer);
+    if (fbUSer.user != null) {
+      String? email = fbUSer.user!.email;
+      print(email);
+    }
     loggedOrError.fold((error) {
       if (error is ApiException) {
         switch (error.httpCode) {

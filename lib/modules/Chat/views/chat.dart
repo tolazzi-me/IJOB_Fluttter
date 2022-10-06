@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ijob_app/modules/Chat/mensagens.dart';
-import 'package:ijob_app/modules/Chat/userChat.dart';
+import 'package:ijob_app/modules/Chat/views/mensagens.dart';
+import 'package:ijob_app/modules/Chat/views/userChat.dart';
 
 class chatMain extends StatefulWidget {
   final User user;
