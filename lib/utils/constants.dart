@@ -1,3 +1,3 @@
 class Utils {
-  static const String baseUrl = 'https://191.5.55.11:3000';
+  static const String baseUrl = 'https://192.168.3.10:3000';
 }
