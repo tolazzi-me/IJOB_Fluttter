@@ -5,7 +5,7 @@ import 'package:ijob_app/core/values/app_colors.dart';
 import 'package:ijob_app/core/values/app_values.dart';
 import 'package:ijob_app/core/values/text_styles.dart';
 import 'package:ijob_app/core/widget/snackbar.dart';
-import 'package:ijob_app/modules/Cadastro/cadastro.dart';
+import 'package:ijob_app/modules/register/views/register_page_one.dart';
 import 'package:ijob_app/modules/login/controllers/login_controller.dart';
 import 'package:ijob_app/modules/login/views/esqueciSenha_view.dart';
 
@@ -51,9 +51,7 @@ class LoginView extends BaseView<LoginController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Login',
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold)),
+                    const Text('Login', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 20),
                     TextFormField(
                       controller: controller.emailTextController,
@@ -71,12 +69,9 @@ class LoginView extends BaseView<LoginController> {
                         decoration: InputDecoration(
                           labelText: 'Senha',
                           suffixIcon: GestureDetector(
-                            onTap: () => controller.passwordHasVisible =
-                                !controller.passwordHasVisible,
+                            onTap: () => controller.passwordHasVisible = !controller.passwordHasVisible,
                             child: Icon(
-                              controller.passwordHasVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                              controller.passwordHasVisible ? Icons.visibility : Icons.visibility_off,
                             ),
                           ),
                         ),
@@ -85,10 +80,7 @@ class LoginView extends BaseView<LoginController> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => esqueciSenha())));
+                        Navigator.push(context, MaterialPageRoute(builder: ((context) => esqueciSenha())));
                       },
                       child: const Text(
                         'Esqueci minha senha',
@@ -125,23 +117,21 @@ class LoginView extends BaseView<LoginController> {
                         children: [
                           const Text(
                             'Novo aqui?',
-                            style: TextStyle(
-                                fontStyle: FontStyle.italic, fontSize: 17),
+                            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 17),
                           ),
                           TextButton(
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: ((context) => cadastroMain())));
+                                context,
+                                MaterialPageRoute(
+                                  builder: ((context) => const RegisterPageMain()),
+                                ),
+                              );
                               // go to register page
                             },
                             child: const Text(
                               'Crie uma conta!',
-                              style: TextStyle(
-                                  color: Colors.amberAccent,
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 17),
+                              style: TextStyle(color: Colors.amberAccent, fontStyle: FontStyle.italic, fontSize: 17),
                             ),
                           )
                         ],

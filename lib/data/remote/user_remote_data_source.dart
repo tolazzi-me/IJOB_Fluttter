@@ -7,6 +7,7 @@ import '../../utils/constants.dart';
 abstract class UserRemoteDataSource {
   Future<Either<Exception, String>> login(String email, String password);
   Future<Either<Exception, User>> me();
+  Future<Either<Exception, User>> store(User user);
 }
 
 class UserRemoteDataSourceImp extends BaseRemoteSource
@@ -35,5 +36,15 @@ class UserRemoteDataSourceImp extends BaseRemoteSource
 
   User _parseUserFromJson(Response<dynamic> response) {
     return User.fromJson(response.data);
+  }
+
+  @override
+  Future<Either<Exception, User>> store(User user) {
+    const endPoint = '${Utils.baseUrl}/user';
+    final dioCall = dioClient.post(endPoint, data: user.toJson());
+    return callApiWithErrorParser(dioCall).then((resultOrError) {
+      return resultOrError.fold((error) => left(error),
+          (response) => right(_parseUserFromJson(response)));
+    });
   }
 }

@@ -42,22 +42,22 @@ class _homeEmpregado extends State<homeEmpregado> {
                   urlImage:
                       'https://images.pexels.com/photos/5804231/pexels-photo-5804231.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'),
               const SizedBox(height: 15),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Ink.image(
-                      image: imageAceitar,
-                      height: 60,
-                      child: InkWell(onTap: onClicked),
-                    ),
-                    Image.asset(imageVoltar, height: 60),
-                    Image.asset(imageRecusar, height: 80),
-                    Image.asset(imageAceitar, height: 80),
-                    Image.asset(imageChat, height: 60),
-                  ],
-                ),
-              ),
+              // Center(
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: [
+              //       Ink.image(
+              //         image: imageAceitar,
+              //         height: 60,
+              //         child: InkWell(onTap: onClicked),
+              //       ),
+              //       Image.asset(imageVoltar, height: 60),
+              //       Image.asset(imageRecusar, height: 80),
+              //       Image.asset(imageAceitar, height: 80),
+              //       Image.asset(imageChat, height: 60),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),

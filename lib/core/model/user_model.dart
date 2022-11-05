@@ -6,36 +6,36 @@ String userToJson(User data) => json.encode(data.toJson());
 
 class User {
   User({
-    required this.id,
     required this.firstName,
     required this.lastName,
     required this.email,
-    required this.status,
     required this.bornDate,
-    required this.about,
-    required this.maxDistance,
-    required this.createdAt,
-    required this.updatedAt,
     required this.cellPhone,
-    required this.verified,
     required this.genre,
-    required this.userActiveType,
+    this.id,
+    this.maxDistance,
+    this.status,
+    this.about,
+    this.createdAt,
+    this.updatedAt,
+    this.verified,
+    this.userActiveType,
   });
 
-  final String id;
+  final String? id;
   final String firstName;
   final String lastName;
   final String email;
-  final bool status;
+  final bool? status;
   final DateTime bornDate;
   final String? about;
-  final int maxDistance;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final int? maxDistance;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
   final String cellPhone;
-  final bool verified;
+  final bool? verified;
   final String genre;
-  final int userActiveType;
+  final int? userActiveType;
 
   User copyWith({
     String? id,
@@ -96,8 +96,8 @@ class User {
         "bornDate": bornDate.toIso8601String(),
         "about": about,
         "maxDistance": maxDistance,
-        "createdAt": createdAt.toIso8601String(),
-        "updatedAt": updatedAt.toIso8601String(),
+        if (createdAt != null) "createdAt": createdAt?.toIso8601String(),
+        if (updatedAt != null) "updatedAt": updatedAt?.toIso8601String(),
         "cellPhone": cellPhone,
         "verified": verified,
         "genre": genre,
