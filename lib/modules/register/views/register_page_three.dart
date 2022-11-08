@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/modules/register/controllers/register_controller.dart';
+import 'package:ijob_app/utils/constants.dart';
 
 import '../../Empregado/homeEmpregado.dart';
 import '../../Empregador/homeEmpregador.dart';
@@ -71,8 +72,7 @@ class RegisterPageThree extends StatelessWidget {
                               width: 200,
                               child: ElevatedButton(
                                   onPressed: (() {
-                                    _controller.register();
-                                    Navigator.push(context, MaterialPageRoute(builder: ((context) => homeEmpregado())));
+                                    _controller.register(UserActiveType.employee);
                                   }),
                                   style: ButtonStyle(
                                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),

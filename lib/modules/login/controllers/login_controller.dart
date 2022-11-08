@@ -4,6 +4,7 @@ import 'package:ijob_app/core/base/base_controller.dart';
 import 'package:ijob_app/core/widget/snackbar.dart';
 import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:ijob_app/network/exceptions/api_exception.dart';
+import 'package:ijob_app/utils/constants.dart';
 
 import '../../../data/repositories/user_repository.dart';
 import '../../../routes/app_pages.dart';
@@ -24,8 +25,7 @@ class LoginController extends BaseController {
 
   void login() async {
     showLoading();
-    final loggedOrError =
-        await _userRepository.login(_emailTextController.value.text, _passwordTextController.value.text);
+    final loggedOrError = await _userRepository.login(_emailTextController.value.text, _passwordTextController.value.text);
 
     loggedOrError.fold((error) {
       if (error is ApiException) {
@@ -48,8 +48,9 @@ class LoginController extends BaseController {
       localStorage.writeToken(token);
       final userOrError = await _userRepository.me();
       userOrError.fold((error) => null, (user) {
+        localStorage.write('user', user);
         Get.offAllNamed(
-          user.userActiveType == 0 ? Routes.homeEmployee : Routes.homeEmployer,
+          user.userActiveType == UserActiveType.employee.index ? Routes.homeEmployee : Routes.homeEmployer,
         );
       });
     });

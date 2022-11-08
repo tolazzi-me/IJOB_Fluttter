@@ -49,7 +49,7 @@ class widgetFoto extends StatelessWidget {
         child: buildCirculo(
           color: Colors.white,
           all: 8,
-          child: Icon(Icons.edit, size: 25),
+          child: const Icon(Icons.edit, size: 25),
         ),
       );
 

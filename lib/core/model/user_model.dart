@@ -1,8 +1,11 @@
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
+
 User userFromJson(String str) => User.fromJson(json.decode(str));
 
 String userToJson(User data) => json.encode(data.toJson());
+final dateFormat = DateFormat('yyyy-MM-dd');
 
 class User {
   User({
@@ -12,20 +15,22 @@ class User {
     required this.bornDate,
     required this.cellPhone,
     required this.genre,
+    required this.userActiveType,
     this.id,
+    this.password,
     this.maxDistance,
     this.status,
     this.about,
     this.createdAt,
     this.updatedAt,
     this.verified,
-    this.userActiveType,
   });
 
   final String? id;
   final String firstName;
   final String lastName;
   final String email;
+  final String? password;
   final bool? status;
   final DateTime bornDate;
   final String? about;
@@ -35,13 +40,14 @@ class User {
   final String cellPhone;
   final bool? verified;
   final String genre;
-  final int? userActiveType;
+  final int userActiveType;
 
   User copyWith({
     String? id,
     String? firstName,
     String? lastName,
     String? email,
+    String? password,
     bool? status,
     DateTime? bornDate,
     String? about,
@@ -58,6 +64,7 @@ class User {
         firstName: firstName ?? this.firstName,
         lastName: lastName ?? this.lastName,
         email: email ?? this.email,
+        password: password ?? this.password,
         status: status ?? this.status,
         bornDate: bornDate ?? this.bornDate,
         about: about ?? this.about,
@@ -88,18 +95,19 @@ class User {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        if (id != null) "id": id,
         "firstName": firstName,
         "lastName": lastName,
         "email": email,
-        "status": status,
-        "bornDate": bornDate.toIso8601String(),
-        "about": about,
-        "maxDistance": maxDistance,
+        if (password != null) "password": password,
+        if (status != null) "status": status,
+        "bornDate": dateFormat.format(bornDate),
+        if (about != null) "about": about,
+        if (maxDistance != null) "maxDistance": maxDistance,
         if (createdAt != null) "createdAt": createdAt?.toIso8601String(),
         if (updatedAt != null) "updatedAt": updatedAt?.toIso8601String(),
         "cellPhone": cellPhone,
-        "verified": verified,
+        if (verified != null) "verified": verified,
         "genre": genre,
         "userActiveType": userActiveType,
       };

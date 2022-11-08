@@ -1,4 +1,5 @@
 import 'package:get_storage/get_storage.dart';
+import 'package:ijob_app/core/model/user_model.dart';
 import 'local_storage.dart';
 
 class LocalStorageImp implements LocalStorage {
@@ -17,5 +18,10 @@ class LocalStorageImp implements LocalStorage {
   @override
   void writeToken(String token) {
     _box.write('accessToken', token);
+  }
+
+  @override
+  User get user {
+    return User.fromJson(_box.read('user'));
   }
 }
