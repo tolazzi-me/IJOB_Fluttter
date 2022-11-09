@@ -15,7 +15,7 @@ class PlanRemoteDataSourceImp extends BaseRemoteSource implements PlanRemoteData
 
     final dioCall = dioClient.get(endPoint);
     return callApiWithErrorParser(dioCall).then((errorOrPlan) => errorOrPlan.fold((error) {
-          print(error);
+          print('$error url: $endPoint');
           return left(error);
         }, (response) => right(_parseListPlanFromJson(response))));
   }

@@ -63,7 +63,7 @@ abstract class BaseView<Controller extends BaseController> extends GetView<Contr
 
   Widget showErrorSnackBar(String message) {
     final snackBar = SnackBar(content: Text(message));
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       ScaffoldMessenger.of(Get.context!).showSnackBar(snackBar);
     });
 

@@ -10,17 +10,14 @@ abstract class UserRemoteDataSource {
   Future<Either<Exception, User>> store(User user);
 }
 
-class UserRemoteDataSourceImp extends BaseRemoteSource
-    implements UserRemoteDataSource {
+class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteDataSource {
   @override
   Future<Either<Exception, String>> login(String email, String password) {
     const endPoint = '${Utils.baseUrl}/user/authenticate';
-    final dioCall =
-        dioClient.post(endPoint, data: {'email': email, 'password': password});
+    final dioCall = dioClient.post(endPoint, data: {'email': email, 'password': password});
 
     return callApiWithErrorParser(dioCall).then((resultOrError) {
-      return resultOrError.fold(
-          (error) => left(error), (response) => right(response.data['token']));
+      return resultOrError.fold((error) => left(error), (response) => right(response.data['token']));
     });
   }
 
@@ -29,8 +26,7 @@ class UserRemoteDataSourceImp extends BaseRemoteSource
     const endPoint = '${Utils.baseUrl}/user/me';
     final dioCall = dioClient.get(endPoint);
     return callApiWithErrorParser(dioCall).then((resultOrError) {
-      return resultOrError.fold((error) => left(error),
-          (response) => right(_parseUserFromJson(response)));
+      return resultOrError.fold((error) => left(error), (response) => right(_parseUserFromJson(response)));
     });
   }
 
@@ -43,8 +39,9 @@ class UserRemoteDataSourceImp extends BaseRemoteSource
     const endPoint = '${Utils.baseUrl}/user';
     final dioCall = dioClient.post(endPoint, data: user.toJson());
     return callApiWithErrorParser(dioCall).then((resultOrError) {
-      return resultOrError.fold((error) => left(error),
-          (response) => right(_parseUserFromJson(response)));
+      return resultOrError.fold((error) => left(error), (response) {
+        return right(User.fromJson(response.data['data']['user']));
+      });
     });
   }
 }
