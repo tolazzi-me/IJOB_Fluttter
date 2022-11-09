@@ -9,6 +9,9 @@ abstract class Routes {
   static const homeEmployer = _Paths.homeEmployer;
   static const premium = _Paths.premium;
   static const subscription = _Paths.subscription;
+  static const registerPageOne = _Paths.registerPageOne;
+  static const registerPageTwo = _Paths.registerPageTwo;
+  static const registerPageThree = _Paths.registerPageThree;
 }
 
 abstract class _Paths {
@@ -18,4 +21,7 @@ abstract class _Paths {
   static const homeEmployer = '/homeEmployer';
   static const premium = '/premium';
   static const subscription = '/subscription';
+  static const registerPageOne = '/registerPageOne';
+  static const registerPageTwo = '/registerPageTwo';
+  static const registerPageThree = '/registerPageThree';
 }
