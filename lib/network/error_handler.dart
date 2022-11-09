@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:ijob_app/network/exceptions/app_exception.dart';
+import 'package:ijob_app/network/exceptions/conflict_exception.dart';
 
 import 'exceptions/api_exception.dart';
 import 'exceptions/network_exception.dart';
@@ -56,10 +57,9 @@ Exception _parseDioErrorResponse(DioError dioError) {
       return ServiceUnavailableException("Service Temporarily Unavailable");
     case HttpStatus.notFound:
       return NotFoundException(serverMessage ?? '', status ?? '');
+    case HttpStatus.conflict:
+      return ConflictException(serverMessage ?? '', status ?? '');
     default:
-      return ApiException(
-          httpCode: statusCode,
-          status: status ?? '',
-          message: serverMessage ?? '');
+      return ApiException(httpCode: statusCode, status: status ?? '', message: serverMessage ?? '');
   }
 }
