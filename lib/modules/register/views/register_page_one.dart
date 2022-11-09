@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/mixin/validations.dart';
+import 'package:ijob_app/core/widget/snackbar.dart';
 import 'package:ijob_app/modules/register/controllers/register_controller.dart';
 
 import 'register_page_two.dart';
@@ -133,7 +134,10 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                   setState(() => termos = valor!);
                                 },
                               ),
-                              const Text("Concordar com Termos de Uso \n e Política de Privacidade.")
+                              Text(
+                                "Concordar com Termos de Uso \n e Política de Privacidade.",
+                                style: TextStyle(color: termos ? Colors.black : Colors.red),
+                              )
                             ],
                           ),
                           const SizedBox(height: 30),
@@ -145,7 +149,7 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                   width: 200,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (_controller.formKeyPageMain.currentState!.validate()) {
+                                      if (_controller.formKeyPageMain.currentState!.validate() && termos) {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(

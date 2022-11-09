@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
 import 'package:ijob_app/core/model/user_model.dart';
 import 'package:ijob_app/core/widget/snackbar.dart';
+import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:ijob_app/data/remote/user_remote_data_source.dart';
-import 'package:ijob_app/modules/Empregado/homeEmpregado.dart';
+import 'package:ijob_app/routes/app_pages.dart';
 import 'package:ijob_app/utils/constants.dart';
 
 import '../../../data/repositories/user_repository.dart';
+import '../../../network/exceptions/conflict_exception.dart';
 
 class RegisterController extends BaseController {
   final test = Get.put<UserRemoteDataSource>(
@@ -28,6 +30,7 @@ class RegisterController extends BaseController {
   final formKeyPageTwo = GlobalKey<FormState>();
 
   Future<void> register(UserActiveType type) async {
+    showLoading();
     final name = nameTextController.text.split(' ');
     var convertedGenre = '';
     switch (genre.value) {
@@ -53,14 +56,25 @@ class RegisterController extends BaseController {
       genre: convertedGenre,
       userActiveType: type.index,
     );
-    print(user.toJson());
     final resultOrError = await _userRepository.store(user);
     resultOrError.fold((error) {
-      showRedSnackBar('Erro', 'Não foi possível registrar-se tente novamente mais tarde');
-    }, (user) {
-      // Get.offNamed('/homeEmployee');
-      Get.off(homeEmpregado());
-      showGreenSnackBar('Olá', 'Registrado com sucesso');
+      if (error is ConflictException) {
+        showRedSnackBar('Erro', 'Usuário já registrado');
+      } else {
+        showRedSnackBar('Erro', 'Não foi possível registrar-se tente novamente mais tarde');
+      }
+    }, (user) async {
+      final localStorage = LocalStorageImp();
+      final tokenOrError = await _userRepository.login(emailTextController.text, passwordTextController.text);
+      tokenOrError.fold((l) => showRedSnackBar('Erro', 'Não foi possível entrar no sistema'), (r) {
+        localStorage.writeToken(r);
+        if (type.index == 0) {
+          Get.offAllNamed(Routes.homeEmployee);
+        } else {
+          Get.offAllNamed(Routes.homeEmployer);
+        }
+      });
     });
+    resetPageState();
   }
 }
