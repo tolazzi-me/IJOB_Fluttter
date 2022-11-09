@@ -12,6 +12,7 @@ abstract class Routes {
   static const registerPageOne = _Paths.registerPageOne;
   static const registerPageTwo = _Paths.registerPageTwo;
   static const registerPageThree = _Paths.registerPageThree;
+  static const profile = _Paths.profile;
 }
 
 abstract class _Paths {
@@ -24,4 +25,5 @@ abstract class _Paths {
   static const registerPageOne = '/registerPageOne';
   static const registerPageTwo = '/registerPageTwo';
   static const registerPageThree = '/registerPageThree';
+  static const profile = '/profile';
 }

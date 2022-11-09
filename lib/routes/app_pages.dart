@@ -4,6 +4,8 @@ import 'package:ijob_app/modules/Empregador/homeEmpregador.dart';
 import 'package:ijob_app/modules/login/bindings/login_binding.dart';
 import 'package:ijob_app/modules/login/views/login_view.dart';
 import 'package:ijob_app/modules/premium/bindings/premium_binding.dart';
+import 'package:ijob_app/modules/profile/bindings/profile_bindings.dart';
+import 'package:ijob_app/modules/profile/views/profile_view.dart';
 import 'package:ijob_app/modules/register/bindings/register_binding.dart';
 import 'package:ijob_app/modules/register/views/register_page_one.dart';
 import 'package:ijob_app/modules/register/views/register_page_three.dart';
@@ -65,6 +67,11 @@ class AppPages {
       name: _Paths.registerPageThree,
       page: () => RegisterPageThree(),
       binding: RegisterBindings(),
+    ),
+    GetPage(
+      name: _Paths.profile,
+      page: () => ProfileView(),
+      binding: ProfileBindings(),
     ),
   ];
 }
