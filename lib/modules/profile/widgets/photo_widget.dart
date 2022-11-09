@@ -1,12 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
-class widgetFoto extends StatelessWidget {
+class PhotoWidget extends StatelessWidget {
   final String imagePath;
   final VoidCallback onClicked;
 
-  const widgetFoto({
+  const PhotoWidget({
     Key? key,
     required this.imagePath,
     required this.onClicked,
