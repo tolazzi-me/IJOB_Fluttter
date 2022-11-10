@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ijob_app/core/values/app_values.dart';
+import 'package:get/get.dart';
 import 'package:ijob_app/core/widget/custom_app_bar.dart';
 
+import '../../../routes/app_pages.dart';
 import '../widget/drawer.dart';
 
 class HomeEmployeeView extends StatelessWidget {
@@ -10,27 +11,33 @@ class HomeEmployeeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const DrawerMenu(),
       appBar: CustomAppBar(
         appBarTitleText: 'IJOB',
-        appBarTitleFontFamily: 'Chopisc',
-        leading: IconButton(
-          icon: const Icon(
-            Icons.account_circle,
-            size: AppValues.appBarIconSize_40,
+        leading: Padding(
+          padding: const EdgeInsets.all(8),
+          child: IconButton(
+            onPressed: () => Get.toNamed(Routes.profile),
+            icon: const Icon(
+              Icons.account_circle,
+              color: Colors.black,
+              size: 40,
+            ),
           ),
-          onPressed: () {},
         ),
       ),
-      // endDrawer: buildDrawer(),
-      endDrawer: const DrawerMenu(),
       body: Container(
-        height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.amberAccent, Colors.transparent])),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.amberAccent,
+              Colors.transparent,
+            ],
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -40,8 +47,7 @@ class HomeEmployeeView extends StatelessWidget {
                 border: Border.all(color: Colors.white, width: 1),
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 image: const DecorationImage(
-                  image: NetworkImage(
-                      "https://images.pexels.com/photos/5804231/pexels-photo-5804231.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"),
+                  image: NetworkImage("https://images.pexels.com/photos/5804231/pexels-photo-5804231.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -54,9 +60,7 @@ class HomeEmployeeView extends StatelessWidget {
                   child: Container(
                     height: 130,
                     width: 220,
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.75),
-                        borderRadius: const BorderRadius.only(topLeft: Radius.circular(15))),
+                    decoration: BoxDecoration(color: Colors.white.withOpacity(0.75), borderRadius: const BorderRadius.only(topLeft: Radius.circular(15))),
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(
