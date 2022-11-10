@@ -51,7 +51,9 @@ class LoginView extends BaseView<LoginController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Login', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                    const Text('Login',
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 20),
                     TextFormField(
                       controller: controller.emailTextController,
@@ -69,9 +71,12 @@ class LoginView extends BaseView<LoginController> {
                         decoration: InputDecoration(
                           labelText: 'Senha',
                           suffixIcon: GestureDetector(
-                            onTap: () => controller.passwordHasVisible = !controller.passwordHasVisible,
+                            onTap: () => controller.passwordHasVisible =
+                                !controller.passwordHasVisible,
                             child: Icon(
-                              controller.passwordHasVisible ? Icons.visibility : Icons.visibility_off,
+                              controller.passwordHasVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
                             ),
                           ),
                         ),
@@ -80,7 +85,10 @@ class LoginView extends BaseView<LoginController> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: ((context) => esqueciSenha())));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => esqueciSenha())));
                       },
                       child: const Text(
                         'Esqueci minha senha',
@@ -101,37 +109,33 @@ class LoginView extends BaseView<LoginController> {
                         child: const Text('Continuar', style: yellowText35),
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.asset('assets/loginGoogle.png', height: 75),
-                        Image.asset('assets/loginFacebook.png', height: 75),
-                        Image.asset('assets/loginLinkedin.png', height: 75),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 30),
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
                             'Novo aqui?',
-                            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 17),
+                            style: TextStyle(
+                                fontStyle: FontStyle.italic, fontSize: 17),
                           ),
                           TextButton(
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: ((context) => const RegisterPageMain()),
+                                  builder: ((context) =>
+                                      const RegisterPageMain()),
                                 ),
                               );
                               // go to register page
                             },
                             child: const Text(
                               'Crie uma conta!',
-                              style: TextStyle(color: Colors.amberAccent, fontStyle: FontStyle.italic, fontSize: 17),
+                              style: TextStyle(
+                                  color: Colors.amberAccent,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 17),
                             ),
                           )
                         ],
