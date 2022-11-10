@@ -7,11 +7,12 @@ abstract class UserRepository {
   Future<Either<Exception, String>> login(String email, String password);
   Future<Either<Exception, User>> me();
   Future<Either<Exception, User>> store(User user);
+  Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId);
+  Future<Either<Exception, User>> changeUserType(int type, String userId);
 }
 
 class UserRepositoryImp implements UserRepository {
-  final UserRemoteDataSource _remoteDataSource =
-      Get.find(tag: (UserRemoteDataSource).toString());
+  final UserRemoteDataSource _remoteDataSource = Get.find(tag: (UserRemoteDataSource).toString());
 
   @override
   Future<Either<Exception, String>> login(String email, String password) {
@@ -26,5 +27,15 @@ class UserRepositoryImp implements UserRepository {
   @override
   Future<Either<Exception, User>> store(User user) {
     return _remoteDataSource.store(user);
+  }
+
+  @override
+  Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId) {
+    return _remoteDataSource.updateMaxDistance(maxDistance, userId);
+  }
+
+  @override
+  Future<Either<Exception, User>> changeUserType(int type, String userId) {
+    return _remoteDataSource.changeUserType(type, userId);
   }
 }

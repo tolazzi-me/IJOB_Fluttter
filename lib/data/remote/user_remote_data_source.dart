@@ -8,6 +8,8 @@ abstract class UserRemoteDataSource {
   Future<Either<Exception, String>> login(String email, String password);
   Future<Either<Exception, User>> me();
   Future<Either<Exception, User>> store(User user);
+  Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId);
+  Future<Either<Exception, User>> changeUserType(int type, String userId);
 }
 
 class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteDataSource {
@@ -41,6 +43,34 @@ class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteData
     return callApiWithErrorParser(dioCall).then((resultOrError) {
       return resultOrError.fold((error) => left(error), (response) {
         return right(User.fromJson(response.data['data']['user']));
+      });
+    });
+  }
+
+  @override
+  Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId) {
+    final endPoint = '${Utils.baseUrl}/user/$userId';
+    Map<String, dynamic> data = {
+      'maxDistance': maxDistance.toInt(),
+    };
+    final dioCall = dioClient.patch(endPoint, data: data);
+    return callApiWithErrorParser(dioCall).then((resultOrError) {
+      return resultOrError.fold((error) => left(error), (response) {
+        return right(User.fromJson(response.data));
+      });
+    });
+  }
+
+  @override
+  Future<Either<Exception, User>> changeUserType(int type, String userId) {
+    final endPoint = '${Utils.baseUrl}/user/$userId';
+    Map<String, dynamic> data = {
+      'userActiveType': type,
+    };
+    final dioCall = dioClient.patch(endPoint, data: data);
+    return callApiWithErrorParser(dioCall).then((resultOrError) {
+      return resultOrError.fold((error) => left(error), (response) {
+        return right(User.fromJson(response.data));
       });
     });
   }
