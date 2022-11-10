@@ -22,6 +22,7 @@ class LocalStorageImp implements LocalStorage {
 
   @override
   User get user {
-    return User.fromJson(_box.read('user'));
+    final _user = _box.read('user');
+    return User.fromJson(_user);
   }
 }

@@ -9,6 +9,7 @@ class RepositoryBindings implements Bindings {
     Get.lazyPut<UserRepository>(
       () => UserRepositoryImp(),
       tag: (UserRepository).toString(),
+      fenix: true,
     );
     Get.lazyPut<PlanRepository>(
       () => PlanRepositoryImp(),

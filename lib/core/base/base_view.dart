@@ -10,6 +10,8 @@ import 'base_controller.dart';
 abstract class BaseView<Controller extends BaseController> extends GetView<Controller> {
   final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
 
+  BaseView({Key? key}) : super(key: key);
+
   Widget body(BuildContext context);
 
   PreferredSizeWidget? appBar(BuildContext context);

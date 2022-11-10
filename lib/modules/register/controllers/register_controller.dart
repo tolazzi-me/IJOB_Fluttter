@@ -68,6 +68,7 @@ class RegisterController extends BaseController {
       final tokenOrError = await _userRepository.login(emailTextController.text, passwordTextController.text);
       tokenOrError.fold((l) => showRedSnackBar('Erro', 'Não foi possível entrar no sistema'), (r) {
         localStorage.writeToken(r);
+        localStorage.write('user', user.toJson());
         if (type.index == 0) {
           Get.offAllNamed(Routes.homeEmployee);
         } else {

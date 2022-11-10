@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ijob_app/modules/premium/views/premium_view.dart';
+import 'package:ijob_app/modules/settings/views/settings_view.dart';
+import 'package:ijob_app/routes/app_pages.dart';
 
-import '../../widgetAppBar.dart';
-import '../Configuracoes/configuracoes.dart';
+import '../../core/widget/custom_app_bar.dart';
 import '../Suporte/suporte.dart';
+import '../home/widget/drawer.dart';
 import 'addTrabalho.dart';
 
-class homeEmpregador extends StatefulWidget {
+class HomeEmpregador extends StatefulWidget {
+  @override
   _homeEmpregador createState() => _homeEmpregador();
 }
 
-class _homeEmpregador extends State<homeEmpregador> {
+class _homeEmpregador extends State<HomeEmpregador> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) => Scaffold(
         key: _scaffoldKey,
-        endDrawer: buildDrawer(),
-        appBar: buildAppBarEmpregador(context, () => _scaffoldKey.currentState?.openDrawer()),
+        endDrawer: const DrawerMenu(),
+        appBar: CustomAppBar(
+          appBarTitleText: 'IJOB',
+          leading: Padding(
+            padding: const EdgeInsets.all(8),
+            child: IconButton(
+              onPressed: () => Get.toNamed(Routes.chat),
+              icon: const Icon(
+                Icons.chat,
+                color: Colors.black,
+                size: 35,
+              ),
+            ),
+          ),
+        ),
         floatingActionButton: buildNavigateButton(),
         body: SingleChildScrollView(
           child: Padding(
@@ -45,8 +62,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                                     style: TextStyle(fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                                     backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
                                   ),
                                 ),
@@ -61,8 +77,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                                     style: TextStyle(fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                                     backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
                                   ),
                                 ),
@@ -135,8 +150,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                               onPressed: () {},
                               child: const Text("Visualizar mais", style: TextStyle(fontSize: 20, color: Colors.black)),
                               style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent))),
                           const SizedBox(height: 20),
                         ],
@@ -165,8 +179,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                                     style: TextStyle(fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                                     backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
                                   ),
                                 ),
@@ -181,8 +194,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                                     style: TextStyle(fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                                     backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
                                   ),
                                 ),
@@ -255,8 +267,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                               onPressed: () {},
                               child: const Text("Visualizar mais", style: TextStyle(fontSize: 20, color: Colors.black)),
                               style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent))),
                           const SizedBox(height: 20),
                         ],
@@ -298,7 +309,7 @@ class _homeEmpregador extends State<homeEmpregador> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: ((context) => configuracoes())));
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => SettingsView())));
                     },
                     child: const Text('Configurações', style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
