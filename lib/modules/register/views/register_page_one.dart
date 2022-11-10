@@ -5,6 +5,7 @@ import 'package:ijob_app/core/widget/snackbar.dart';
 import 'package:ijob_app/modules/register/controllers/register_controller.dart';
 
 import 'register_page_two.dart';
+import 'termos.dart';
 
 class RegisterPageMain extends StatefulWidget {
   const RegisterPageMain({Key? key}) : super(key: key);
@@ -49,7 +50,9 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                 height: 520,
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
@@ -65,15 +68,20 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
-                                icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+                                icon: const Icon(Icons.arrow_back_ios,
+                                    color: Colors.black),
                               ),
-                              const Text('Criando sua conta', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+                              const Text('Criando sua conta',
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold))
                             ],
                           ),
                           const SizedBox(height: 20),
                           TextFormField(
                             style: const TextStyle(fontSize: 20),
-                            decoration: const InputDecoration(labelText: 'Nome Completo'),
+                            decoration: const InputDecoration(
+                                labelText: 'Nome Completo'),
                             validator: (val) => combine([
                               () => isNotEmpty(val),
                               () => isValidName(val),
@@ -91,7 +99,9 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                       _obscureText = !_obscureText;
                                     });
                                   },
-                                  child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                                  child: Icon(_obscureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
                                 )),
                             obscureText: _obscureText,
                             controller: _controller.passwordTextController,
@@ -114,11 +124,14 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                   setState(() => _obscureText = !_obscureText);
                                 },
                                 child: Icon(
-                                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                                  _obscureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                               ),
                             ),
-                            controller: _controller.repeatPasswordTextController,
+                            controller:
+                                _controller.repeatPasswordTextController,
                             validator: (val) => passwordHasMatch(
                               val,
                               _controller.passwordTextController.text,
@@ -134,10 +147,16 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                   setState(() => termos = valor!);
                                 },
                               ),
-                              Text(
-                                "Concordar com Termos de Uso \n e Política de Privacidade.",
-                                style: TextStyle(color: termos ? Colors.black : Colors.red),
-                              )
+                              TextButton(
+                                onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: ((context) => termosUso()),
+                                  ),
+                                ),
+                                child: const Text(
+                                    "Concordar com Termos de Uso \n e Política de Privacidade."),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 30),
@@ -149,19 +168,28 @@ class RegisterPage extends State<RegisterPageMain> with CustomValidations {
                                   width: 200,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (_controller.formKeyPageMain.currentState!.validate() && termos) {
+                                      if (_controller
+                                              .formKeyPageMain.currentState!
+                                              .validate() &&
+                                          termos) {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: ((context) => RegisterPageTwo()),
+                                            builder: ((context) =>
+                                                RegisterPageTwo()),
                                           ),
                                         );
                                       }
                                     },
                                     style: ButtonStyle(
-                                        shape:
-                                            MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                                        shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(15))),
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                                Colors.amberAccent)),
                                     child: const Text(
                                       'Continuar',
                                       style: TextStyle(color: Colors.black),
