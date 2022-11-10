@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:ijob_app/modules/Empregado/homeEmpregado.dart';
+import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
 import 'package:ijob_app/modules/Empregador/homeEmpregador.dart';
 import 'package:ijob_app/modules/login/bindings/login_binding.dart';
 import 'package:ijob_app/modules/login/views/login_view.dart';
@@ -10,6 +10,8 @@ import 'package:ijob_app/modules/register/bindings/register_binding.dart';
 import 'package:ijob_app/modules/register/views/register_page_one.dart';
 import 'package:ijob_app/modules/register/views/register_page_three.dart';
 import 'package:ijob_app/modules/register/views/register_page_two.dart';
+import 'package:ijob_app/modules/settings/bindings/settings_binding.dart';
+import 'package:ijob_app/modules/settings/views/settings_view.dart';
 import 'package:ijob_app/modules/splash/views/splash_view.dart';
 import 'package:ijob_app/modules/subscription/bindings/subscription_binding.dart';
 import 'package:ijob_app/modules/subscription/views/subscription_view.dart';
@@ -42,7 +44,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.homeEmployer,
-      page: () => homeEmpregador(),
+      page: () => HomeEmpregador(),
     ),
     GetPage(
       name: _Paths.premium,
@@ -73,6 +75,15 @@ class AppPages {
       name: _Paths.profile,
       page: () => ProfileView(),
       binding: ProfileBindings(),
+    ),
+    GetPage(
+      name: _Paths.chat,
+      page: () => const ChatsMain(),
+    ),
+    GetPage(
+      name: _Paths.settings,
+      page: () => SettingsView(),
+      binding: SettingsBindings(),
     ),
   ];
 }
