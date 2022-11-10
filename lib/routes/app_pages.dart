@@ -14,6 +14,7 @@ import 'package:ijob_app/modules/splash/views/splash_view.dart';
 import 'package:ijob_app/modules/subscription/bindings/subscription_binding.dart';
 import 'package:ijob_app/modules/subscription/views/subscription_view.dart';
 
+import '../modules/home/views/home_employee_view.dart';
 import '../modules/premium/views/premium_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 
@@ -37,7 +38,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.homeEmployee,
-      page: () => homeEmpregado(),
+      page: () => const HomeEmployeeView(),
     ),
     GetPage(
       name: _Paths.homeEmployer,
