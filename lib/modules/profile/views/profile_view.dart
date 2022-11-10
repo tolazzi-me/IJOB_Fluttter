@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ijob_app/core/base/base_view.dart';
 
-import '../../Configuracoes/documentacao.dart';
+import '../../settings/documentacao.dart';
 import '../../FiltroJobs/filtroJobs.dart';
 import '../controllers/profile_controller.dart';
 import '../widgets/photo_widget.dart';
@@ -20,8 +20,7 @@ class ProfileView extends BaseView<ProfileController> {
       children: [
         const SizedBox(height: 30),
         PhotoWidget(
-          imagePath:
-              'https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true',
+          imagePath: 'https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true',
           onClicked: () async {},
         ),
         const SizedBox(height: 20),
@@ -53,9 +52,7 @@ class ProfileView extends BaseView<ProfileController> {
           margin: const EdgeInsets.fromLTRB(20, 40, 20, 0),
           height: 150,
           width: double.infinity,
-          decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 195, 194, 194),
-              borderRadius: BorderRadius.all(Radius.circular(15))),
+          decoration: const BoxDecoration(color: Color.fromARGB(255, 195, 194, 194), borderRadius: BorderRadius.all(Radius.circular(15))),
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -72,8 +69,7 @@ class ProfileView extends BaseView<ProfileController> {
                     children: [
                       const Text(
                         ' Trabalhos aceitos',
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 15),
                       Container(
@@ -83,17 +79,11 @@ class ProfileView extends BaseView<ProfileController> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => filtroJobs())));
+                          Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
                         },
                         child: const Text(
                           'Filtro de trabalhos',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -107,9 +97,7 @@ class ProfileView extends BaseView<ProfileController> {
           margin: const EdgeInsets.fromLTRB(20, 30, 20, 0),
           height: 150,
           width: double.infinity,
-          decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 195, 194, 194),
-              borderRadius: BorderRadius.all(Radius.circular(15))),
+          decoration: const BoxDecoration(color: Color.fromARGB(255, 195, 194, 194), borderRadius: BorderRadius.all(Radius.circular(15))),
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -126,17 +114,11 @@ class ProfileView extends BaseView<ProfileController> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => documentacao())));
+                          Navigator.push(context, MaterialPageRoute(builder: ((context) => documentacao())));
                         },
                         child: const Text(
                           'Documentação de segurança',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Container(

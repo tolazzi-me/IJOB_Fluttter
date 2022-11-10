@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ijob_app/modules/premium/views/premium_view.dart';
 import 'package:ijob_app/modules/Empregado/CardEmpregado.dart';
+import 'package:ijob_app/modules/settings/views/settings_view.dart';
 
 import '../../widgetAppBar.dart';
-import '../Configuracoes/configuracoes.dart';
 import '../FiltroJobs/filtroJobs.dart';
 import '../Suporte/suporte.dart';
 
@@ -23,24 +23,19 @@ class _homeEmpregado extends State<homeEmpregado> {
     return Scaffold(
       // key: _scaffoldKey,
       endDrawer: buildDrawer(),
-      appBar:
-          buildAppBar(context, () => _scaffoldKey.currentState?.openDrawer()),
+      appBar: buildAppBar(context, () => _scaffoldKey.currentState?.openDrawer()),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
           decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Colors.amberAccent, Colors.transparent])),
+              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Colors.amberAccent, Colors.transparent])),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               JobCard(
                   title: 'Fotografo',
                   description: 'Procura-se fotografo para casamento',
-                  urlImage:
-                      'https://images.pexels.com/photos/5804231/pexels-photo-5804231.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'),
+                  urlImage: 'https://images.pexels.com/photos/5804231/pexels-photo-5804231.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'),
               const SizedBox(height: 15),
               // Center(
               //   child: Row(
@@ -79,20 +74,12 @@ class _homeEmpregado extends State<homeEmpregado> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => filtroJobs())));
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
                     },
-                    child: const Text('Filtro de Jobs',
-                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Filtro de Jobs', style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.amberAccent)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -101,20 +88,12 @@ class _homeEmpregado extends State<homeEmpregado> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => PremiumView())));
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => PremiumView())));
                     },
-                    child: const Text('Premium',
-                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Premium', style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.amberAccent)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -123,20 +102,12 @@ class _homeEmpregado extends State<homeEmpregado> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => configuracoes())));
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => SettingsView())));
                     },
-                    child: const Text('Configurações',
-                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Configurações', style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.amberAccent)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -145,18 +116,12 @@ class _homeEmpregado extends State<homeEmpregado> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: ((context) => suporte())));
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => suporte())));
                     },
-                    child: const Text('Suporte',
-                        style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Suporte', style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.amberAccent)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
                   ),
                 ),
               ],
