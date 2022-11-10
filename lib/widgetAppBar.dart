@@ -52,7 +52,7 @@ AppBar buildAppBarEmpregador(BuildContext context, VoidCallback _onPressed) {
         padding: const EdgeInsets.all(8),
         child: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: ((context) => chatsMain())));
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => const ChatsMain())));
             },
             icon: const Icon(
               Icons.chat,

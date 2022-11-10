@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ijob_app/modules/Chat/appBarChatMain.dart';
-import 'package:ijob_app/modules/Chat/mensagens.dart';
-import 'package:ijob_app/modules/Chat/chat.dart';
 
-class chatsMain extends StatelessWidget {
+class ChatsMain extends StatelessWidget {
+  const ChatsMain({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

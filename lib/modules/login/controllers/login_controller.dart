@@ -48,7 +48,7 @@ class LoginController extends BaseController {
       localStorage.writeToken(token);
       final userOrError = await _userRepository.me();
       userOrError.fold((error) => null, (user) {
-        localStorage.write('user', user);
+        localStorage.write('user', user.toJson());
         Get.offAllNamed(
           user.userActiveType == UserActiveType.employee.index ? Routes.homeEmployee : Routes.homeEmployer,
         );
