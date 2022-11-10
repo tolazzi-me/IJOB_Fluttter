@@ -40,7 +40,9 @@ class RegisterPageThree extends BaseView<RegisterController> {
               height: 520,
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25)),
               ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
@@ -53,9 +55,12 @@ class RegisterPageThree extends BaseView<RegisterController> {
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+                          icon: const Icon(Icons.arrow_back_ios,
+                              color: Colors.black),
                         ),
-                        const Text('Criando sua conta', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+                        const Text('Criando sua conta',
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold))
                       ],
                     ),
                     const SizedBox(height: 10),
@@ -75,9 +80,17 @@ class RegisterPageThree extends BaseView<RegisterController> {
                                   controller.register(UserActiveType.employee);
                                 }),
                                 style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
-                                child: const Text('Quero Trabalhar', style: TextStyle(color: Colors.black, fontSize: 25))),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.amberAccent)),
+                                child: const Text('Quero Trabalhar',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 25))),
                           ),
                           const SizedBox(height: 40),
                           SizedBox(
@@ -88,9 +101,17 @@ class RegisterPageThree extends BaseView<RegisterController> {
                                   controller.register(UserActiveType.employer);
                                 }),
                                 style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
-                                child: const Text('Quero Empregar', style: TextStyle(color: Colors.black, fontSize: 25))),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.amberAccent)),
+                                child: const Text('Quero Empregar',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 25))),
                           ),
                         ],
                       ),

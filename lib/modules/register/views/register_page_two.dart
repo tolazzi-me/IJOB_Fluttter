@@ -6,7 +6,8 @@ import 'package:ijob_app/modules/register/controllers/register_controller.dart';
 
 import 'register_page_three.dart';
 
-class RegisterPageTwo extends BaseView<RegisterController> with CustomValidations {
+class RegisterPageTwo extends BaseView<RegisterController>
+    with CustomValidations {
   final genero = ['Masculino', 'Feminino', 'Prefiro não dizer'];
   final dropGenero = ValueNotifier('');
   List<String> images = ["assets/BannerLogin1.png", "assets/BannerLogin2.png"];
@@ -44,7 +45,9 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
               height: 520,
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25)),
               ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
@@ -59,9 +62,12 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+                            icon: const Icon(Icons.arrow_back_ios,
+                                color: Colors.black),
                           ),
-                          const Text('Criando sua conta', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))
+                          const Text('Criando sua conta',
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.bold))
                         ],
                       ),
                       const SizedBox(height: 20),
@@ -80,7 +86,8 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                             width: double.infinity,
                             child: DropdownButton<String>(
                               isExpanded: true,
-                              hint: const Text('Genero', style: TextStyle(fontSize: 20)),
+                              hint: const Text('Genero',
+                                  style: TextStyle(fontSize: 20)),
                               value: (value.isEmpty) ? null : value,
                               onChanged: (escolha) {
                                 dropGenero.value = escolha.toString();
@@ -108,7 +115,8 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                         dateLabelText: 'Data de Nascimento',
                         onChanged: (val) => print(val),
                         validator: isValidBirthDate,
-                        onSaved: (val) => controller.birthDateText.value = DateTime.parse(val!),
+                        onSaved: (val) => controller.birthDateText.value =
+                            DateTime.parse(val!),
                       ),
                       const SizedBox(height: 40),
                       Column(
@@ -119,18 +127,26 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                               width: 170,
                               child: ElevatedButton(
                                   onPressed: () {
-                                    if (controller.formKeyPageTwo.currentState!.validate()) {
+                                    if (controller.formKeyPageTwo.currentState!
+                                        .validate()) {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: ((context) => RegisterPageThree()),
+                                          builder: ((context) =>
+                                              RegisterPageThree()),
                                         ),
                                       );
                                     }
                                   },
                                   style: ButtonStyle(
-                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(13))),
-                                      backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(13))),
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.amberAccent)),
                                   child: const Text(
                                     'Continuar',
                                     style: TextStyle(color: Colors.black),
