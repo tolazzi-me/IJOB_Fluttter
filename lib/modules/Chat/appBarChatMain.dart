@@ -18,7 +18,7 @@ AppBar appBarChatMain(BuildContext context) {
             Navigator.pop(context);
           },
         )),
-    actions: [
+    /*actions: [
       Padding(
         padding: const EdgeInsets.all(5),
         child: Row(
@@ -34,6 +34,6 @@ AppBar appBarChatMain(BuildContext context) {
           ],
         ),
       )
-    ],
+    ],*/
   );
 }

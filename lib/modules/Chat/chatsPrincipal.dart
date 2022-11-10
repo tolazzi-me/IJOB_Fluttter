@@ -7,8 +7,37 @@ class chatsMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarChatMain(context),
-      body: ListView.builder(
+        appBar: appBarChatMain(context),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'A conversas chegarão',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              Text(
+                'em breve...',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              Text(
+                'Fique ligado!',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+          ),
+        )
+
+        /*ListView.builder(
         itemCount: chats.length,
         itemBuilder: (BuildContext context, int index) {
           final Message chat = chats[index];
@@ -67,7 +96,7 @@ class chatsMain extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
+      ),*/
+        );
   }
 }
