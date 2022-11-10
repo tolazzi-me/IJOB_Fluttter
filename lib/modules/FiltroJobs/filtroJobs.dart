@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'cardJobs.dart';
+
 class filtroJobs extends StatefulWidget {
   _filtroJobs createState() => _filtroJobs();
 }
@@ -47,14 +49,47 @@ class _filtroJobs extends State<filtroJobs> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [buildTrabalho(), buildTrabalho()],
+                      children: const [
+                        buildTrabalho(
+                          jobImage:
+                              'https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                          jobName: 'Jardinagem',
+                        ),
+                        buildTrabalho(
+                          jobImage:
+                              'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                          jobName: 'TI',
+                        )
+                      ],
                     ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [buildTrabalho(), buildTrabalho()],
+                      children: const [
+                        buildTrabalho(
+                          jobImage:
+                              'https://www.maryhelp.com.br/img/layout/servico/piscineiro.jpg',
+                          jobName: 'Piscineiro',
+                        ),
+                        buildTrabalho(
+                          jobImage:
+                              'http://s2.glbimg.com/-iAjSgo-VEaDfA3698q1xLzBo0M=/620x453/e.glbimg.com/og/ed/f/original/2016/08/18/baba-cuidando-do-bebe.jpg',
+                          jobName: 'Babá',
+                        )
+                      ],
                     ),
                   ],
+                ),
+                const SizedBox(height: 20),
+                Center(
+                  child: Column(
+                    children: const [
+                      Text(
+                        'Mais jobs em breve...',
+                        style: TextStyle(fontSize: 25),
+                      )
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Center(
@@ -83,12 +118,4 @@ class _filtroJobs extends State<filtroJobs> {
           )),
     );
   }
-
-  Widget buildTrabalho() => Container(
-        height: 110,
-        width: 160,
-        decoration: const BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.all(Radius.circular(20))),
-      );
 }

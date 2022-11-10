@@ -15,7 +15,7 @@ class PremiumView extends BaseView<PremiumnController> {
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
-    return CustomAppBar(appBarTitleText: 'Premium');
+    return CustomAppBar(appBarTitleText: '');
   }
 
   @override

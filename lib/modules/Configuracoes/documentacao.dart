@@ -19,7 +19,7 @@ class _documentacao extends State<documentacao> {
           centerTitle: true,
           title: const Text(
             'Documentação e Segurança',
-            style: TextStyle(fontSize: 25, color: Colors.black),
+            style: TextStyle(fontSize: 20, color: Colors.black),
           ),
           leading: IconButton(
             onPressed: () {
@@ -173,7 +173,7 @@ class _documentacao extends State<documentacao> {
         context: context,
         builder: (context) => AlertDialog(
           content: Container(
-            height: 80,
+            height: 120,
             width: 80,
             decoration: const BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -184,7 +184,7 @@ class _documentacao extends State<documentacao> {
                   'Nova senha confirmada',
                   style: TextStyle(fontSize: 20),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
