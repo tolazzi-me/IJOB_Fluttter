@@ -139,7 +139,7 @@ class _documentacao extends State<documentacao> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Row(
+                /*Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
@@ -160,7 +160,7 @@ class _documentacao extends State<documentacao> {
                 const Text(
                   'Essa funcionalidade permite que você adicione uma camada extra de segurança na sua conta, depois de ativada, toda vez que um novo aparelho tentar entrar na sua conta um código será solicitado.',
                   style: TextStyle(color: Colors.grey),
-                )
+                )*/
               ],
             ),
           ),
