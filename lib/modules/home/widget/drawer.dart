@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 
 import '../../../data/local/get_storage.dart';
 import '../../../routes/app_pages.dart';
+import '../../Configuracoes/configuracoes.dart';
 import '../../FiltroJobs/filtroJobs.dart';
+import '../../Suporte/suporte.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -23,7 +25,7 @@ class DrawerMenu extends StatelessWidget {
               width: 140,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
                   // Get.toNamed(Routes.nomeTela);
                 },
                 child: const Text('Filtro de Jobs', style: TextStyle(color: Colors.black, fontSize: 14)),
@@ -53,7 +55,7 @@ class DrawerMenu extends StatelessWidget {
               width: 140,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: ((context) => configuracoes())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) => configuracoes())));
                   final storage = LocalStorageImp();
                   storage.writeToken('');
                 },
@@ -69,7 +71,7 @@ class DrawerMenu extends StatelessWidget {
               width: 140,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: ((context) => suporte())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) => suporte())));
                 },
                 child: const Text('Suporte', style: TextStyle(color: Colors.black, fontSize: 14)),
                 style: ButtonStyle(

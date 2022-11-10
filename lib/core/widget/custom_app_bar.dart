@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     required this.appBarTitleText,
     this.leading,
     this.actions,
-    this.appBarTitleFontFamily = 'Montserrat',
+    this.appBarTitleFontFamily = 'Chopsic',
     this.isBackButtonEnabled = true,
     this.toolBarHeight = 80,
   }) : super(key: key);
@@ -31,10 +31,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       automaticallyImplyLeading: isBackButtonEnabled,
       leading: leading,
       actions: actions,
-      iconTheme: const IconThemeData(color: AppColors.appBarIconColor),
+      iconTheme: const IconThemeData(color: AppColors.blackColor, size: 40),
       title: AppBarTitle(
         text: appBarTitleText,
         fontFamily: appBarTitleFontFamily,
+        size: 70,
       ),
     );
   }
