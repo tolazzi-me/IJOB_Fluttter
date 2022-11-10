@@ -9,8 +9,13 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _controller = Get.put(SplashController());
     return const Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
-        child: Text('iJOB'),
+        child: Text(
+          'iJob',
+          style: TextStyle(
+              color: Colors.white, fontSize: 100, fontFamily: 'Chopsic'),
+        ),
       ),
     );
   }
