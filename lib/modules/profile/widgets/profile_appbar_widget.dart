@@ -19,7 +19,7 @@ AppBar buildAppBarPerfil(BuildContext context) {
           child: IconButton(
             icon: const Icon(Icons.chat_bubble, color: Colors.black, size: 40),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: ((context) => chatsMain())));
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => const ChatsMain())));
             },
           )),
     ],
