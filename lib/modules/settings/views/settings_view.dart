@@ -58,30 +58,32 @@ class SettingsView extends BaseView<SettingsController> {
                   },
                 ),
               ),
-              const SizedBox(height: 10),
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 30, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 25, 0),
                     child: IconButton(
-                      icon: const Icon(Icons.first_page, size: 50),
+                      icon: const Icon(Icons.first_page, size: 60),
                       onPressed: () {
                         controller.logout();
                       },
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      controller.logout();
-                    },
-                    child: const Text(
-                      "Sair da conta",
-                      style: TextStyle(fontSize: 20),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                    child: TextButton(
+                      onPressed: () {
+                        controller.logout();
+                      },
+                      child: const Text(
+                        "Sair da conta",
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
                   )
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
               Row(
                 children: const [
                   Padding(
@@ -93,6 +95,7 @@ class SettingsView extends BaseView<SettingsController> {
               ),
             ],
           ),
+          const SizedBox(height: 30),
           Center(
             child: SizedBox(
               height: 40,
@@ -100,8 +103,11 @@ class SettingsView extends BaseView<SettingsController> {
               child: ElevatedButton(
                   onPressed: () => {},
                   style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                      backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 255, 214, 62))),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15))),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color.fromARGB(255, 255, 214, 62))),
                   child: const Text(
                     'Redefinir',
                     style: TextStyle(color: Colors.black),

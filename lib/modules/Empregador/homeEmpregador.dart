@@ -42,7 +42,8 @@ class _homeEmpregador extends State<HomeEmpregador> {
               children: [
                 ExpansionTile(
                   initiallyExpanded: true,
-                  title: const Text('Vaga para fotógrafo', style: TextStyle(fontSize: 20)),
+                  title: const Text('Vaga para fotógrafo',
+                      style: TextStyle(fontSize: 20)),
                   children: [
                     Container(
                       width: double.infinity,
@@ -59,11 +60,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                                   onPressed: () {},
                                   child: const Text(
                                     "Editar",
-                                    style: TextStyle(fontSize: 15, color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.amberAccent),
                                   ),
                                 ),
                               ),
@@ -74,11 +82,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                                   onPressed: () {},
                                   child: const Text(
                                     "Excluir",
-                                    style: TextStyle(fontSize: 15, color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.amberAccent),
                                   ),
                                 ),
                               )
@@ -88,58 +103,81 @@ class _homeEmpregador extends State<HomeEmpregador> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
-                                height: 170,
-                                width: 170,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                            'https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-                                        fit: BoxFit.cover)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const Text('Ana Nunes', style: TextStyle(fontSize: 20, color: Colors.white)),
-                                      Row(
-                                        children: const [
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        ],
-                                      )
-                                    ],
+                              InkWell(
+                                onTap: () => {openContato()},
+                                child: Container(
+                                  height: 170,
+                                  width: 170,
+                                  decoration: const BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(15)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              'https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text('Ana Nunes',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white)),
+                                        Row(
+                                          children: const [
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                              Container(
-                                height: 170,
-                                width: 170,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                            'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-                                        fit: BoxFit.cover)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const Text('Gio Dallas', style: TextStyle(fontSize: 20, color: Colors.white)),
-                                      Row(
-                                        children: const [
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        ],
-                                      ),
-                                    ],
+                              InkWell(
+                                onTap: () => {openContato()},
+                                child: Container(
+                                  height: 170,
+                                  width: 170,
+                                  decoration: const BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(15)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text('Gio Dallas',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white)),
+                                        Row(
+                                          children: const [
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -148,10 +186,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                           const SizedBox(height: 20),
                           ElevatedButton(
                               onPressed: () {},
-                              child: const Text("Visualizar mais", style: TextStyle(fontSize: 20, color: Colors.black)),
+                              child: const Text("Visualizar mais",
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.black)),
                               style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent))),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10))),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.amberAccent))),
                           const SizedBox(height: 20),
                         ],
                       ),
@@ -159,7 +205,8 @@ class _homeEmpregador extends State<HomeEmpregador> {
                   ],
                 ),
                 ExpansionTile(
-                  title: const Text('Vaga para modelo', style: TextStyle(fontSize: 20)),
+                  title: const Text('Vaga para modelo',
+                      style: TextStyle(fontSize: 20)),
                   children: [
                     Container(
                       width: double.infinity,
@@ -176,11 +223,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                                   onPressed: () {},
                                   child: const Text(
                                     "Editar",
-                                    style: TextStyle(fontSize: 15, color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.amberAccent),
                                   ),
                                 ),
                               ),
@@ -191,11 +245,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                                   onPressed: () {},
                                   child: const Text(
                                     "Excluir",
-                                    style: TextStyle(fontSize: 15, color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
                                   ),
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10))),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.amberAccent),
                                   ),
                                 ),
                               )
@@ -205,58 +266,81 @@ class _homeEmpregador extends State<HomeEmpregador> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
-                                height: 170,
-                                width: 170,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                            'https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-                                        fit: BoxFit.cover)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const Text('Ana Nunes', style: TextStyle(fontSize: 20, color: Colors.white)),
-                                      Row(
-                                        children: const [
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        ],
-                                      )
-                                    ],
+                              InkWell(
+                                onTap: () => {openContato()},
+                                child: Container(
+                                  height: 170,
+                                  width: 170,
+                                  decoration: const BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(15)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              'https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text('Ana Nunes',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white)),
+                                        Row(
+                                          children: const [
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                              Container(
-                                height: 170,
-                                width: 170,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                            'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
-                                        fit: BoxFit.cover)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const Text('Gio Dallas', style: TextStyle(fontSize: 20, color: Colors.white)),
-                                      Row(
-                                        children: const [
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                          Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        ],
-                                      ),
-                                    ],
+                              InkWell(
+                                onTap: () => {openContato()},
+                                child: Container(
+                                  height: 170,
+                                  width: 170,
+                                  decoration: const BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(15)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text('Gio Dallas',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white)),
+                                        Row(
+                                          children: const [
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                            Icon(Icons.star,
+                                                color: Colors.yellow, size: 17),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -265,10 +349,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                           const SizedBox(height: 20),
                           ElevatedButton(
                               onPressed: () {},
-                              child: const Text("Visualizar mais", style: TextStyle(fontSize: 20, color: Colors.black)),
+                              child: const Text("Visualizar mais",
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.black)),
                               style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent))),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10))),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.amberAccent))),
                           const SizedBox(height: 20),
                         ],
                       ),
@@ -295,12 +387,20 @@ class _homeEmpregador extends State<HomeEmpregador> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: ((context) => PremiumView())));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => PremiumView())));
                     },
-                    child: const Text('Premium', style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Premium',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -309,12 +409,20 @@ class _homeEmpregador extends State<HomeEmpregador> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: ((context) => SettingsView())));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => SettingsView())));
                     },
-                    child: const Text('Configurações', style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Configurações',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -323,12 +431,18 @@ class _homeEmpregador extends State<HomeEmpregador> {
                   width: 130,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: ((context) => suporte())));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => suporte())));
                     },
-                    child: const Text('Suporte', style: TextStyle(color: Colors.black, fontSize: 15)),
+                    child: const Text('Suporte',
+                        style: TextStyle(color: Colors.black, fontSize: 15)),
                     style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.amberAccent)),
                   ),
                 ),
               ],
@@ -339,14 +453,54 @@ class _homeEmpregador extends State<HomeEmpregador> {
 
   Widget buildNavigateButton() => FloatingActionButton(
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: ((context) => addTrabalho())));
+        Navigator.push(
+            context, MaterialPageRoute(builder: ((context) => addTrabalho())));
       },
       child: IconButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: ((context) => addTrabalho())));
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => addTrabalho())));
         },
         icon: const Icon(Icons.add),
         color: Colors.black,
       ),
       backgroundColor: Colors.amberAccent);
+
+  Future openContato() => showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Container(
+            height: 200,
+            width: 80,
+            decoration: const BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            ),
+            child: Column(
+              children: [
+                const Text(
+                  'Número:\n(42)991633013 \n\nEmail:\nananunes@gmail.com',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 15),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.amberAccent),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'OK',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
 }
