@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
+import 'package:ijob_app/core/widget/snackbar.dart';
 import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:ijob_app/routes/app_pages.dart';
 
@@ -35,8 +36,11 @@ class SettingsController extends BaseController {
     bool isActiveUserType = _localStorage.user.userActiveType == 1 ? false : true;
     if (_userActiveTypeSelected.value != isActiveUserType) {
       final type = _userActiveTypeSelected.value == true ? 0 : 1;
-      print('changed');
-      await _userRepository.changeUserType(type, _localStorage.user.id!);
+      final userOrError = await _userRepository.changeUserType(type, _localStorage.user.id!);
+      userOrError.fold((_) => showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta'), (user) async {
+        _localStorage.write('user', user.toJson());
+        await showGreenSnackBar('Sucesso', 'É necessário reiniciar o app para aplicar as modificações!');
+      });
     }
     resetPageState();
   }
