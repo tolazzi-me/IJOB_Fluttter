@@ -43,6 +43,8 @@ dependencies:
   date_time_picker: ^2.1.0
   image_picker: ^0.8.2
   geolocator: ^9.0.2
+  swipable_stack: ^2.0.0
+  cached_network_image: ^3.2.2
 
 dev_dependencies:
   flutter_test:
