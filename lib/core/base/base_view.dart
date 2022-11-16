@@ -54,6 +54,7 @@ abstract class BaseView<Controller extends BaseController> extends GetView<Contr
       body: pageContent(context),
       bottomNavigationBar: bottomNavigationBar(),
       drawer: drawer(),
+      endDrawer: endDrawer(),
     );
   }
 
@@ -98,5 +99,9 @@ abstract class BaseView<Controller extends BaseController> extends GetView<Contr
 
   Widget _showLoading() {
     return const Loading();
+  }
+
+  Widget? endDrawer() {
+    return null;
   }
 }

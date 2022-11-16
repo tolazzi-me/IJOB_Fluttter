@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:ijob_app/core/base/base_remote_source.dart';
 import 'package:ijob_app/core/model/user_model.dart';
+import '../../core/model/user_location_model.dart';
 import '../../utils/constants.dart';
 
 abstract class UserRemoteDataSource {
@@ -10,6 +11,7 @@ abstract class UserRemoteDataSource {
   Future<Either<Exception, User>> store(User user);
   Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId);
   Future<Either<Exception, User>> changeUserType(int type, String userId);
+  Future<Either<Exception, UserLocation>> storeLocation(double latitude, double longitude);
 }
 
 class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteDataSource {
@@ -71,6 +73,20 @@ class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteData
     return callApiWithErrorParser(dioCall).then((resultOrError) {
       return resultOrError.fold((error) => left(error), (response) {
         return right(User.fromJson(response.data));
+      });
+    });
+  }
+
+  @override
+  Future<Either<Exception, UserLocation>> storeLocation(double latitude, double longitude) {
+    const endPoint = '${Utils.baseUrl}/location';
+    Map<String, dynamic> data = {
+      'coordinates': [longitude, latitude],
+    };
+    final dioCall = dioClient.post(endPoint, data: data);
+    return callApiWithErrorParser(dioCall).then((resultOrError) {
+      return resultOrError.fold((error) => left(error), (response) {
+        return right(UserLocation.fromJson(response.data['data']));
       });
     });
   }

@@ -8,6 +8,8 @@ import '../widgets/photo_widget.dart';
 import '../widgets/profile_appbar_widget.dart';
 
 class ProfileView extends BaseView<ProfileController> {
+  ProfileView({Key? key}) : super(key: key);
+
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
     return buildAppBarPerfil(context);
@@ -20,7 +22,8 @@ class ProfileView extends BaseView<ProfileController> {
       children: [
         const SizedBox(height: 30),
         PhotoWidget(
-          imagePath: 'https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true',
+          imagePath:
+              controller.user.avatarUrl ?? 'https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true',
           onClicked: () async {},
         ),
         const SizedBox(height: 20),
