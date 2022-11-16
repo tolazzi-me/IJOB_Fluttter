@@ -70,7 +70,7 @@ class HomeEmployeeView extends BaseView<HomeEmployeeController> {
               }
               return SwipableStack(
                 onSwipeCompleted: ((index, direction) {
-                  if (direction == SwipeDirection.right) {
+                  if (direction == SwipeDirection.right || direction == SwipeDirection.left) {
                     controller.currentIndexService.value++;
                   }
                   print(direction);
