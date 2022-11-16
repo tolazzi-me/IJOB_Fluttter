@@ -23,14 +23,14 @@ class ProfileView extends BaseView<ProfileController> {
       children: [
         const SizedBox(height: 30),
         PhotoWidget(
-          imagePath: controller.user.avatarUrl ?? Utils.defaultAvatarUrl,
+          imagePath: controller.user?.avatarUrl ?? Utils.defaultAvatarUrl,
           onClicked: () async {},
           onTap: () => controller.importImageProfile(),
         ),
         const SizedBox(height: 20),
         Center(
           child: Text(
-            '${controller.user.firstName} ${controller.user.lastName}',
+            '${controller.user?.firstName} ${controller.user?.lastName}',
             style: const TextStyle(
               fontSize: 35,
             ),
@@ -48,7 +48,7 @@ class ProfileView extends BaseView<ProfileController> {
         const SizedBox(height: 20),
         Center(
           child: Text(
-            controller.user.about ?? 'Não existe bio cadastrada',
+            controller.user?.about ?? 'Não existe bio cadastrada',
             style: const TextStyle(fontSize: 20),
           ),
         ),

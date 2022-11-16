@@ -24,19 +24,19 @@ class SettingsController extends BaseController {
   }
 
   Future<void> saveDistance() async {
-    if (_distance.value != _localStorage.user.maxDistance) {
-      final user = _localStorage.user.copyWith(maxDistance: _distance.value.toInt());
-      _userRepository.updateMaxDistance(_distance.value, user.id!);
+    if (_distance.value != _localStorage.user?.maxDistance) {
+      final user = _localStorage.user?.copyWith(maxDistance: _distance.value.toInt());
+      _userRepository.updateMaxDistance(_distance.value, user!.id!);
     }
   }
 
   Future<void> changeUserActiveType() async {
     showLoading();
     await Future.delayed(const Duration(seconds: 1));
-    bool isActiveUserType = _localStorage.user.userActiveType == 1 ? false : true;
+    bool isActiveUserType = _localStorage.user?.userActiveType == 1 ? false : true;
     if (_userActiveTypeSelected.value != isActiveUserType) {
       final type = _userActiveTypeSelected.value == true ? 0 : 1;
-      final userOrError = await _userRepository.changeUserType(type, _localStorage.user.id!);
+      final userOrError = await _userRepository.changeUserType(type, _localStorage.user!.id!);
       userOrError.fold((_) => showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta'), (user) async {
         _localStorage.write('user', user.toJson());
         await showGreenSnackBar('Sucesso', 'É necessário reiniciar o app para aplicar as modificações!');
@@ -49,8 +49,10 @@ class SettingsController extends BaseController {
   void onInit() {
     super.onInit();
     final _user = _localStorage.user;
-    _distance.value = _user.maxDistance!.toDouble();
-    _userActiveTypeSelected.value = _user.userActiveType == 1 ? false : true;
+    if (_user != null) {
+      _distance.value = _user.maxDistance!.toDouble();
+      _userActiveTypeSelected.value = _user.userActiveType == 1 ? false : true;
+    }
     debounce(_distance, (_) async => await saveDistance(), time: const Duration(seconds: 5));
   }
 }

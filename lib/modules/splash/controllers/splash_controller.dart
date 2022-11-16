@@ -22,6 +22,7 @@ class SplashController extends BaseController {
       }
     }, (user) async {
       final _localStorage = LocalStorageImp();
+      print(user.toJson());
       _localStorage.write('user', user.toJson());
       Get.offAllNamed(user.userActiveType == 0 ? Routes.homeEmployee : Routes.homeEmployer);
       final position = await _determinePosition();

@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../../core/model/user_model.dart';
 
 class ProfileController extends BaseController {
-  late User user;
+  late User? user;
   XFile? imageJob;
 
   @override
