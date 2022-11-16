@@ -24,6 +24,7 @@ class User {
     this.createdAt,
     this.updatedAt,
     this.verified,
+    this.avatarUrl,
   });
 
   final String? id;
@@ -41,6 +42,7 @@ class User {
   final bool? verified;
   final String genre;
   final int userActiveType;
+  final String? avatarUrl;
 
   User copyWith({
     String? id,
@@ -58,6 +60,7 @@ class User {
     bool? verified,
     String? genre,
     int? userActiveType,
+    String? avatarUrl,
   }) =>
       User(
         id: id ?? this.id,
@@ -75,6 +78,7 @@ class User {
         verified: verified ?? this.verified,
         genre: genre ?? this.genre,
         userActiveType: userActiveType ?? this.userActiveType,
+        avatarUrl: avatarUrl ?? this.avatarUrl,
       );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -92,6 +96,7 @@ class User {
         verified: json["verified"],
         genre: json["genre"],
         userActiveType: json["userActiveType"],
+        avatarUrl: json['avatarUrl'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -110,5 +115,6 @@ class User {
         if (verified != null) "verified": verified,
         "genre": genre,
         "userActiveType": userActiveType,
+        "avatarUrl": avatarUrl,
       };
 }
