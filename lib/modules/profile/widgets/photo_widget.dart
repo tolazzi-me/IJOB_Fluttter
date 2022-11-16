@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/profile_controller.dart';
 
 class PhotoWidget extends StatelessWidget {
   final String imagePath;
@@ -12,6 +14,7 @@ class PhotoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProfileController());
     final color = Theme.of(context).colorScheme.primary;
 
     return Center(
@@ -35,7 +38,9 @@ class PhotoWidget extends StatelessWidget {
           fit: BoxFit.cover,
           width: 128,
           height: 128,
-          child: InkWell(onTap: onClicked),
+          child: InkWell(onTap: () {
+            controller.importImageProfile();
+          }),
         ),
       ),
     );
