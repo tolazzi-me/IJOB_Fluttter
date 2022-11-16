@@ -108,13 +108,14 @@ class suporte extends StatelessWidget {
                           ),
                       child: const Text('Política de privacidade')),
                   TextButton(
-                      onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: ((context) => termosUso()),
-                            ),
-                          ),
-                      child: const Text('Termos de serviço'))
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => termosUso()),
+                      ),
+                    ),
+                    child: const Text('Termos de serviço'),
+                  )
                 ],
               )
             ],
