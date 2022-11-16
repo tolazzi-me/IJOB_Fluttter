@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
 import 'package:ijob_app/modules/Empregador/homeEmpregador.dart';
+import 'package:ijob_app/modules/home/bindings/home_employee_binding.dart';
 import 'package:ijob_app/modules/login/bindings/login_binding.dart';
 import 'package:ijob_app/modules/login/views/login_view.dart';
 import 'package:ijob_app/modules/premium/bindings/premium_binding.dart';
@@ -40,7 +41,8 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.homeEmployee,
-      page: () => const HomeEmployeeView(),
+      page: () => HomeEmployeeView(),
+      binding: HomeEmployeeBindings(),
     ),
     GetPage(
       name: _Paths.homeEmployer,
