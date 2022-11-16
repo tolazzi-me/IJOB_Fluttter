@@ -57,10 +57,10 @@ class HomeEmployeeView extends BaseView<HomeEmployeeController> {
             width: Get.size.width * .95,
             child: Obx(() {
               if (controller.services.length == controller.currentIndexService.value) {
-                return const Center(
+                return Center(
                   child: Text(
-                    'Não há mais serviços disponíveis próximo de você',
-                    style: TextStyle(
+                    controller.services.isEmpty ? 'Não existe serviços disponíveis' : 'Não há mais serviços disponíveis próximo de você',
+                    style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
