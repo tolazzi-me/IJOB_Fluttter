@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
 import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:image_picker/image_picker.dart';
@@ -6,7 +7,7 @@ import '../../../core/model/user_model.dart';
 
 class ProfileController extends BaseController {
   late User? user;
-  XFile? imageJob;
+  final avatarPath = ''.obs;
 
   @override
   void onInit() {
@@ -16,13 +17,17 @@ class ProfileController extends BaseController {
   }
 
   void importImageProfile() async {
+    showLoading();
     final ImagePicker picker = ImagePicker();
 
     try {
       XFile? file = await picker.pickImage(source: ImageSource.gallery);
-      if (file != null) () => imageJob = file;
+      // print(file?.path);
+      if (file != null) avatarPath.value = file.path;
     } catch (e) {
       print(e);
+      resetPageState();
     }
+    resetPageState();
   }
 }

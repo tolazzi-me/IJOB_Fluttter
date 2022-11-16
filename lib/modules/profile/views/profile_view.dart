@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_view.dart';
 import 'package:ijob_app/utils/constants.dart';
 
@@ -22,11 +25,20 @@ class ProfileView extends BaseView<ProfileController> {
       physics: const BouncingScrollPhysics(),
       children: [
         const SizedBox(height: 30),
-        PhotoWidget(
-          imagePath: controller.user?.avatarUrl ?? Utils.defaultAvatarUrl,
-          onClicked: () async {},
-          onTap: () => controller.importImageProfile(),
-        ),
+        Obx(() {
+          return PhotoWidget(
+            image: controller.avatarPath.value.isNotEmpty
+                ? Image.file(
+                    File(controller.avatarPath.value),
+                    width: 128,
+                    height: 128,
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(controller.user?.avatarUrl ?? Utils.defaultAvatarUrl, width: 128, height: 128),
+            onClicked: () => controller.importImageProfile(),
+            onTap: () => controller.importImageProfile(),
+          );
+        }),
         const SizedBox(height: 20),
         Center(
           child: Text(

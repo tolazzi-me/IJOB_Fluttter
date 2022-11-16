@@ -54,8 +54,19 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
   Widget body(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(15),
-      child: Obx(
-        () => ListView.builder(
+      child: Obx(() {
+        if (controller.services.isEmpty) {
+          return const Center(
+            child: Text(
+              'Você não tem serviços cadastrados',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+              ),
+            ),
+          );
+        }
+        return ListView.builder(
           itemCount: controller.services.length,
           itemBuilder: ((context, index) {
             final service = controller.services[index];
@@ -164,8 +175,8 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
               ],
             );
           }),
-        ),
-      ),
+        );
+      }),
     );
   }
 }

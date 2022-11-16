@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class PhotoWidget extends StatelessWidget {
-  final String imagePath;
+  final Image image;
   final VoidCallback onClicked;
   final VoidCallback onTap;
 
   const PhotoWidget({
     Key? key,
-    required this.imagePath,
     required this.onClicked,
     required this.onTap,
+    required this.image,
   }) : super(key: key);
 
   @override
@@ -27,19 +27,12 @@ class PhotoWidget extends StatelessWidget {
   }
 
   Widget buildFoto() {
-    final image = NetworkImage(imagePath);
-
     return ClipOval(
       child: Material(
         color: Colors.transparent,
-        child: Ink.image(
-          image: image,
-          fit: BoxFit.cover,
-          width: 128,
-          height: 128,
-          child: InkWell(
-            onTap: onTap,
-          ),
+        child: GestureDetector(
+          child: image,
+          onTap: onTap,
         ),
       ),
     );
