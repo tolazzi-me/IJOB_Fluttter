@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:ijob_app/core/model/service_category_model.dart';
 import 'package:ijob_app/core/model/service_photo_model.dart';
 
+import 'like_model.dart';
+
 Service serviceFromJson(String str) => Service.fromJson(json.decode(str));
 
 String serviceToJson(Service data) => json.encode(data.toJson());
@@ -19,6 +21,7 @@ class Service {
     this.closed,
     this.serviceCategory,
     this.servicePhotos,
+    this.likes,
   });
 
   final String? id;
@@ -31,6 +34,7 @@ class Service {
   final bool? closed;
   final ServiceCategory? serviceCategory;
   final List<ServicePhoto>? servicePhotos;
+  final List<Like>? likes;
 
   Service copyWith({
     String? id,
@@ -43,6 +47,7 @@ class Service {
     bool? closed,
     ServiceCategory? serviceCategory,
     List<ServicePhoto>? servicePhotos,
+    List<Like>? likes,
   }) =>
       Service(
         id: id ?? this.id,
@@ -54,6 +59,7 @@ class Service {
         createdBy: createdBy ?? this.createdBy,
         closed: closed ?? this.closed,
         serviceCategory: serviceCategory ?? this.serviceCategory,
+        likes: likes ?? this.likes,
       );
 
   factory Service.fromJson(Map<String, dynamic> json) => Service(
@@ -67,6 +73,7 @@ class Service {
         closed: json["closed"],
         serviceCategory: json['serviceCategory'] == null ? null : ServiceCategory.fromJson(json['serviceCategory']),
         servicePhotos: json['servicePhotos'] == null ? null : (json['servicePhotos'] as List).map((e) => ServicePhoto.fromJson(e)).toList(),
+        likes: json['likes'] == null ? null : (json['likes'] as List).map((e) => Like.fromJson(e)).toList(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -79,6 +86,7 @@ class Service {
         if (createdBy != null) "createdBy": createdBy,
         if (closed != null) "closed": closed,
         if (serviceCategory != null) "serviceCategory": serviceCategory?.toJson(),
-        if (servicePhotos != null && servicePhotos!.isNotEmpty) "servicePhotos": servicePhotos!.map((e) => e.toJson())
+        if (servicePhotos != null && servicePhotos!.isNotEmpty) "servicePhotos": servicePhotos!.map((e) => e.toJson()),
+        if (likes != null && likes!.isNotEmpty) "likes": likes!.map((e) => e.toJson())
       };
 }

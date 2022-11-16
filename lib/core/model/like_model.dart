@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:ijob_app/core/model/user_model.dart';
+
 import 'service_model.dart';
 
 Like likeFromJson(String str) => Like.fromJson(json.decode(str));
@@ -15,6 +17,7 @@ class Like {
     required this.idEmployee,
     required this.idEmployer,
     required this.service,
+    this.user,
   });
 
   final String id;
@@ -23,7 +26,8 @@ class Like {
   final DateTime updatedAt;
   final String idEmployee;
   final String idEmployer;
-  final Service service;
+  final Service? service;
+  final User? user;
 
   Like copyWith({
     String? id,
@@ -33,6 +37,7 @@ class Like {
     String? idEmployee,
     String? idEmployer,
     Service? service,
+    User? user,
   }) =>
       Like(
         id: id ?? this.id,
@@ -42,6 +47,7 @@ class Like {
         idEmployee: idEmployee ?? this.idEmployee,
         idEmployer: idEmployer ?? this.idEmployer,
         service: service ?? this.service,
+        user: user ?? this.user,
       );
 
   factory Like.fromJson(Map<String, dynamic> json) => Like(
@@ -51,7 +57,8 @@ class Like {
         updatedAt: DateTime.parse(json["updatedAt"]),
         idEmployee: json["idEmployee"],
         idEmployer: json["idEmployer"],
-        service: Service.fromJson(json["service"]),
+        service: json['service'] == null ? null : Service.fromJson(json["service"]),
+        user: json['user'] == null ? null : User.fromJson(json['user']),
       );
 
   Map<String, dynamic> toJson() => {
@@ -61,6 +68,7 @@ class Like {
         "updatedAt": updatedAt.toIso8601String(),
         "idEmployee": idEmployee,
         "idEmployer": idEmployer,
-        "service": service.toJson(),
+        if (service != null) "service": service!.toJson(),
+        if (user != null) "user": user!.toJson(),
       };
 }

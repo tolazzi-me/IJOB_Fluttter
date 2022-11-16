@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ijob_app/core/base/base_view.dart';
+import 'package:ijob_app/utils/constants.dart';
 
 import '../../settings/documentacao.dart';
 import '../../FiltroJobs/filtroJobs.dart';
@@ -22,9 +23,9 @@ class ProfileView extends BaseView<ProfileController> {
       children: [
         const SizedBox(height: 30),
         PhotoWidget(
-          imagePath:
-              controller.user.avatarUrl ?? 'https://filestore.community.support.microsoft.com/api/images/6061bd47-2818-4f2b-b04a-5a9ddb6f6467?upload=true',
+          imagePath: controller.user.avatarUrl ?? Utils.defaultAvatarUrl,
           onClicked: () async {},
+          onTap: () => controller.importImageProfile(),
         ),
         const SizedBox(height: 20),
         Center(

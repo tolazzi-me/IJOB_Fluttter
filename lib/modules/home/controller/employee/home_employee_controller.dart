@@ -30,7 +30,7 @@ class HomeEmployeeController extends BaseController {
       if (!_likedSevices.contains(services[stController.currentIndex].id!)) {
         final resultOrError = await _serviceRepository.likeService(services[currentIndexService.value].id!);
         resultOrError.fold((l) => print(l.toString()), (r) {
-          _likedSevices.add(r.service.id!);
+          _likedSevices.add(r.service!.id!);
           print('like service ${stController.currentIndex}');
         });
       }
