@@ -101,7 +101,7 @@ class _feedback extends State<feedback> {
         context: context,
         builder: (context) => AlertDialog(
           content: Container(
-            height: 100,
+            height: 120,
             width: 80,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -122,8 +122,7 @@ class _feedback extends State<feedback> {
                             borderRadius: BorderRadius.circular(20))),
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => suporte())));
+                    Navigator.pop(context);
                   },
                   child: const Text(
                     'OK',
