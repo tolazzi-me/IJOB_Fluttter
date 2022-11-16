@@ -65,8 +65,8 @@ class Service {
         description: json["description"],
         createdBy: json["createdBy"],
         closed: json["closed"],
-        serviceCategory: ServiceCategory.fromJson(json['serviceCategory']),
-        servicePhotos: (json['servicePhotos'] as List).map((e) => ServicePhoto.fromJson(e)).toList(),
+        serviceCategory: json['serviceCategory'] == null ? null : ServiceCategory.fromJson(json['serviceCategory']),
+        servicePhotos: json['servicePhotos'] == null ? null : (json['servicePhotos'] as List).map((e) => ServicePhoto.fromJson(e)).toList(),
       );
 
   Map<String, dynamic> toJson() => {

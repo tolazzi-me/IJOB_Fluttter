@@ -23,8 +23,12 @@ class HomeEmployeeController extends BaseController {
   }
 
   Future<void> likeService() async {
+    showLoading();
     stController.next(swipeDirection: SwipeDirection.right);
+    final resultOrError = await _serviceRepository.likeService(services[currentIndexService.value].id!);
+    resultOrError.fold((l) => print(l.toString()), (r) => print(r.id));
     print('like service ${currentIndexService.value}');
+    resetPageState();
   }
 
   Future<void> refuseService() async {
