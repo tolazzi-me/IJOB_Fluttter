@@ -31,7 +31,10 @@ class LoginController extends BaseController {
       if (error is ApiException) {
         switch (error.httpCode) {
           case 400:
-            showRedSnackBar('Dados inválidos', 'E-mail ou senha incorreto');
+            showRedSnackBar('Dados inválidos', 'E-mail ou senha incorretos');
+            break;
+          case 401:
+            showRedSnackBar('Dados inválidos', 'E-mail ou senha incorretos');
             break;
           case 404:
             showRedSnackBar('Dados inválidos', 'Usuário não encontrado');
