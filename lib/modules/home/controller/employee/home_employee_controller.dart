@@ -11,6 +11,7 @@ class HomeEmployeeController extends BaseController {
   // final ServiceRepository _serviceRepository = Get.find();
   final currentIndexService = 0.obs;
   final services = <Service>[].obs;
+  final _likedSevices = <String>[];
 
   Future<void> getServicesNear() async {
     showLoading();
@@ -25,9 +26,15 @@ class HomeEmployeeController extends BaseController {
   Future<void> likeService() async {
     showLoading();
     stController.next(swipeDirection: SwipeDirection.right);
-    final resultOrError = await _serviceRepository.likeService(services[currentIndexService.value].id!);
-    resultOrError.fold((l) => print(l.toString()), (r) => print(r.id));
-    print('like service ${currentIndexService.value}');
+    if (services.isNotEmpty && stController.currentIndex <= services.length - 1) {
+      if (!_likedSevices.contains(services[stController.currentIndex].id!)) {
+        final resultOrError = await _serviceRepository.likeService(services[currentIndexService.value].id!);
+        resultOrError.fold((l) => print(l.toString()), (r) {
+          _likedSevices.add(r.service.id!);
+          print('like service ${stController.currentIndex}');
+        });
+      }
+    }
     resetPageState();
   }
 
