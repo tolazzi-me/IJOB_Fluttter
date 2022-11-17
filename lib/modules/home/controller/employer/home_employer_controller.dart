@@ -23,7 +23,7 @@ class HomeEmployerController extends BaseController {
       print(error);
     }, (result) {
       services.clear();
-      result.sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
+      result.sort((a, b) => b.createdAt!.compareTo(a.createdAt!));
       services.addAll(result);
     });
   }
