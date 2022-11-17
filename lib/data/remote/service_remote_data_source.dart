@@ -74,7 +74,7 @@ class ServiceRemoteSourceImp extends BaseRemoteSource implements ServiceRemoteSo
         return left(error);
       }, (response) async {
         final createdService = Service.fromJson(response.data['data']);
-        if (photo != null) {
+        if (photo != null && photo.path.isNotEmpty) {
           final servicePhotoOrError = await storePhoto(photo, createdService.id!);
           servicePhotoOrError.fold((l) => print(l), (r) => print(r));
         }
@@ -86,6 +86,7 @@ class ServiceRemoteSourceImp extends BaseRemoteSource implements ServiceRemoteSo
   @override
   Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId) async {
     String fileName = photo.path.split('/').last;
+
     FormData formData = FormData.fromMap({
       "images": await MultipartFile.fromFile(photo.path, filename: fileName),
     });
