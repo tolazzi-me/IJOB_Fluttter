@@ -46,6 +46,7 @@ class HomeEmployerController extends BaseController {
     }, (service) async {
       print(service.toJson());
       showGreenSnackBar('Sucesso', 'Serviço criado com sucesso');
+      await getServices();
       Get.toNamed(Routes.homeEmployer);
     });
     resetPageState();
