@@ -28,11 +28,16 @@ class AddServiceWidget extends BaseView<HomeEmployerController> {
                 return Container(
                   margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: FileImage(
-                        File(controller.imagePath.value),
-                      ),
-                    ),
+                    image: controller.imagePath.value.isEmpty
+                        ? const DecorationImage(
+                            image: NetworkImage(
+                                "https://firebasestorage.googleapis.com/v0/b/ijob-bfe21.appspot.com/o/sem-imagem.png?alt=media&token=afc9df2c-08dc-4556-9e18-fe9dd69cb6e1"),
+                          )
+                        : DecorationImage(
+                            image: FileImage(
+                              File(controller.imagePath.value),
+                            ),
+                          ),
                     color: Colors.black12,
                     border: Border.all(color: Colors.grey, width: 1),
                     borderRadius: const BorderRadius.all(

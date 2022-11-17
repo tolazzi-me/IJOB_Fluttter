@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:ijob_app/core/model/like_model.dart';
 import 'package:ijob_app/core/model/service_model.dart';
 import 'package:ijob_app/core/model/service_photo_model.dart';
+import 'package:mime/mime.dart';
 
 import '../../core/base/base_remote_source.dart';
 import '../../utils/constants.dart';
@@ -86,14 +88,23 @@ class ServiceRemoteSourceImp extends BaseRemoteSource implements ServiceRemoteSo
   @override
   Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId) async {
     String fileName = photo.path.split('/').last;
-
+    String? mimeType = lookupMimeType(fileName) ?? 'application/octet-stream';
+    String mime = mimeType.split('/')[0];
+    String type = mimeType.split('/')[1];
     FormData formData = FormData.fromMap({
-      "images": await MultipartFile.fromFile(photo.path, filename: fileName),
+      "images": await MultipartFile.fromFile(
+        photo.path,
+        filename: fileName,
+        contentType: MediaType(mime, type),
+      ),
     });
-    print(formData.fields);
     final endPoint = '${Utils.baseUrl}/service/photos/$serviceId';
 
-    final dioCall = dioClient.post(endPoint, data: formData);
+    final dioCall = dioClient.post(
+      endPoint,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
     return callApiWithErrorParser(dioCall).then(
       (servicePhotoOrError) => servicePhotoOrError.fold((error) {
         print('$error url: $endPoint');
