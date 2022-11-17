@@ -71,8 +71,11 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
           itemBuilder: ((context, index) {
             final service = controller.services[index];
             return ExpansionTile(
-              initiallyExpanded: index == 0 ? true : false,
-              title: Text(service.title, style: const TextStyle(fontSize: 20)),
+              initiallyExpanded: index == 0 && service.likes!.isNotEmpty ? true : false,
+              title: Text(
+                service.title,
+                style: const TextStyle(fontSize: 20),
+              ),
               children: [
                 SizedBox(
                   child: Column(
@@ -114,53 +117,65 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 5.0,
-                          mainAxisSpacing: 5.0,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: service.likes!.length,
-                        itemBuilder: ((context, serviceIndex) {
-                          final like = service.likes![serviceIndex];
-                          return InkWell(
-                            onTap: () => Get.dialog(
-                              ContactWidget(cellPhone: like.user!.cellPhone, email: like.user!.email),
-                            ),
-                            child: Container(
-                              height: 170,
-                              width: 170,
-                              decoration: BoxDecoration(
-                                borderRadius: const BorderRadius.all(Radius.circular(15)),
-                                image: DecorationImage(image: NetworkImage(like.user!.avatarUrl ?? Utils.defaultAvatarUrl), fit: BoxFit.cover),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '${like.user!.firstName} ${like.user!.lastName}',
-                                      style: const TextStyle(fontSize: 20, color: Colors.white),
-                                    ),
-                                    Row(
-                                      children: const [
-                                        Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        Icon(Icons.star, color: Colors.yellow, size: 17),
-                                        Icon(Icons.star, color: Colors.yellow, size: 17),
-                                      ],
-                                    )
-                                  ],
+                      service.likes!.isEmpty
+                          ? const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Center(
+                                child: Text(
+                                  'Não há candidatos',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
                                 ),
                               ),
+                            )
+                          : GridView.builder(
+                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 5.0,
+                                mainAxisSpacing: 5.0,
+                              ),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: service.likes!.length,
+                              itemBuilder: ((context, serviceIndex) {
+                                final like = service.likes![serviceIndex];
+                                return InkWell(
+                                  onTap: () => Get.dialog(
+                                    ContactWidget(cellPhone: like.user!.cellPhone, email: like.user!.email),
+                                  ),
+                                  child: Container(
+                                    height: 170,
+                                    width: 170,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(Radius.circular(15)),
+                                      image: DecorationImage(image: NetworkImage(like.user!.avatarUrl ?? Utils.defaultAvatarUrl), fit: BoxFit.cover),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            '${like.user!.firstName} ${like.user!.lastName}',
+                                            style: const TextStyle(fontSize: 20, color: Colors.white),
+                                          ),
+                                          Row(
+                                            children: const [
+                                              Icon(Icons.star, color: Colors.yellow, size: 17),
+                                              Icon(Icons.star, color: Colors.yellow, size: 17),
+                                              Icon(Icons.star, color: Colors.yellow, size: 17),
+                                              Icon(Icons.star, color: Colors.yellow, size: 17),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
                             ),
-                          );
-                        }),
-                      ),
                       // const SizedBox(height: 20),
                       // ElevatedButton(
                       //     onPressed: () {},
