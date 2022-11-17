@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_view.dart';
 import 'package:ijob_app/modules/home/controller/employer/home_employer_controller.dart';
+import 'package:ijob_app/modules/home/widget/add_service_widget.dart';
 import 'package:ijob_app/modules/home/widget/contact_widget.dart';
 
 import '../../../core/widget/custom_app_bar.dart';
 import '../../../routes/app_pages.dart';
 import '../../../utils/constants.dart';
-import '../../Empregador/addTrabalho.dart';
 import '../widget/drawer.dart';
 
 class HomeEmployerView extends BaseView<HomeEmployerController> {
@@ -22,7 +22,7 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
   Widget? floatingActionButton() {
     return FloatingActionButton(
       onPressed: () {
-        Get.to(addTrabalho());
+        Get.to(AddServiceWidget());
       },
       child: const Icon(
         Icons.add,

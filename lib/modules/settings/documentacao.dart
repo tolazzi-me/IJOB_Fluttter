@@ -126,27 +126,27 @@ class _documentacao extends State<documentacao> {
                 ),
               ),
               const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Autenticação em dois fatores',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  Switch(
-                      value: autenticacao,
-                      activeColor: Colors.amberAccent,
-                      onChanged: (bool estado) => {
-                            setState(() {
-                              autenticacao = estado;
-                            }),
-                          }),
-                ],
-              ),
-              const Text(
-                'Essa funcionalidade permite que você adicione uma camada extra de segurança na sua conta, depois de ativada, toda vez que um novo aparelho tentar entrar na sua conta um código será solicitado.',
-                style: TextStyle(color: Colors.grey),
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     const Text(
+              //       'Autenticação em dois fatores',
+              //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              //     ),
+              //     Switch(
+              //         value: autenticacao,
+              //         activeColor: Colors.amberAccent,
+              //         onChanged: (bool estado) => {
+              //               setState(() {
+              //                 autenticacao = estado;
+              //               }),
+              //             }),
+              //   ],
+              // ),
+              // const Text(
+              //   'Essa funcionalidade permite que você adicione uma camada extra de segurança na sua conta, depois de ativada, toda vez que um novo aparelho tentar entrar na sua conta um código será solicitado.',
+              //   style: TextStyle(color: Colors.grey),
+              // )
             ],
           ),
         ),

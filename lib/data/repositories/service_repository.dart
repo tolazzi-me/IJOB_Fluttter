@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/data/remote/service_remote_data_source.dart';
@@ -10,6 +12,7 @@ abstract class ServiceRepository {
   Future<Either<Exception, List<Service>>> getServices();
   Future<Either<Exception, List<Service>>> getServicesNear();
   Future<Either<Exception, Like>> likeService(String serviceId);
+  Future<Either<Exception, Service>> store(String title, String description, File? photo);
 }
 
 class ServiceRepositoryImp implements ServiceRepository {
@@ -27,5 +30,10 @@ class ServiceRepositoryImp implements ServiceRepository {
   @override
   Future<Either<Exception, Like>> likeService(String serviceId) {
     return _remoteDataSource.likeService(serviceId);
+  }
+
+  @override
+  Future<Either<Exception, Service>> store(String title, String description, File? photo) {
+    return _remoteDataSource.store(title, description, photo);
   }
 }
