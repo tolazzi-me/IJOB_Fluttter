@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
+import 'package:ijob_app/core/widget/no_network_connection.dart';
 import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
-import 'package:ijob_app/modules/Empregador/homeEmpregador.dart';
 import 'package:ijob_app/modules/home/bindings/home_employee_binding.dart';
 import 'package:ijob_app/modules/home/bindings/home_employer_binding.dart';
 import 'package:ijob_app/modules/home/views/home_employer_view.dart';
@@ -89,6 +89,10 @@ class AppPages {
       name: _Paths.settings,
       page: () => SettingsView(),
       binding: SettingsBindings(),
+    ),
+    GetPage(
+      name: _Paths.notConnection,
+      page: () => NoNetworkConnectionWidget(),
     ),
   ];
 }

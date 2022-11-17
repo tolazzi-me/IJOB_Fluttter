@@ -1,6 +1,7 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
+import 'package:ijob_app/core/base/network_controller.dart';
 import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:ijob_app/data/repositories/user_repository.dart';
 import 'package:ijob_app/network/exceptions/api_exception.dart';

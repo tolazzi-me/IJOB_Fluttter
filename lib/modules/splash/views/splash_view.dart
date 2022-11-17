@@ -13,8 +13,7 @@ class SplashScreen extends StatelessWidget {
       body: Center(
         child: Text(
           'iJob',
-          style: TextStyle(
-              color: Colors.white, fontSize: 100, fontFamily: 'Chopsic'),
+          style: TextStyle(color: Colors.white, fontSize: 100, fontFamily: 'Chopsic'),
         ),
       ),
     );

@@ -15,6 +15,7 @@ abstract class Routes {
   static const profile = _Paths.profile;
   static const chat = _Paths.chat;
   static const settings = _Paths.settings;
+  static const notConnection = _Paths.notConnection;
 }
 
 abstract class _Paths {
@@ -30,4 +31,5 @@ abstract class _Paths {
   static const profile = '/profile';
   static const chat = '/chat';
   static const settings = '/settings';
+  static const notConnection = '/noConnection';
 }

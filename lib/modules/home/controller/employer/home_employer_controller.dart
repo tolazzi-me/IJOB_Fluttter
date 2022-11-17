@@ -18,14 +18,17 @@ class HomeEmployerController extends BaseController {
   final descriptionTextController = TextEditingController().obs;
 
   Future<void> getServices() async {
+    showLoading();
     final servicesOrError = await _serviceRepository.getServices();
     servicesOrError.fold((error) {
+      resetPageState();
       print(error);
     }, (result) {
       services.clear();
       result.sort((a, b) => b.createdAt!.compareTo(a.createdAt!));
       services.addAll(result);
     });
+    resetPageState();
   }
 
   Future<void> importImage() async {
