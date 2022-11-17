@@ -22,6 +22,7 @@ class HomeEmployerController extends BaseController {
     servicesOrError.fold((error) {
       print(error);
     }, (result) {
+      services.clear();
       services.addAll(result);
     });
   }
