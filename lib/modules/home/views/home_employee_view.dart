@@ -70,10 +70,13 @@ class HomeEmployeeView extends BaseView<HomeEmployeeController> {
               }
               return SwipableStack(
                 onSwipeCompleted: ((index, direction) {
-                  if (direction == SwipeDirection.right || direction == SwipeDirection.left) {
+                  if (direction == SwipeDirection.right) {
+                    controller.likeService();
+                    controller.currentIndexService.value++;
+                  } else if (direction == SwipeDirection.left) {
+                    controller.refuseService();
                     controller.currentIndexService.value++;
                   }
-                  print(direction);
                 }),
                 controller: controller.stController,
                 allowVerticalSwipe: false,
@@ -134,14 +137,14 @@ class HomeEmployeeView extends BaseView<HomeEmployeeController> {
               children: [
                 Image.asset('assets/voltar.png', height: 60),
                 GestureDetector(
-                  onTap: () => controller.refuseService(),
+                  onTap: () => controller.stController.next(swipeDirection: SwipeDirection.left),
                   child: Image.asset(
                     'assets/recusar.png',
                     height: 80,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => controller.likeService(),
+                  onTap: () => controller.stController.next(swipeDirection: SwipeDirection.right),
                   child: Image.asset(
                     'assets/aceitar.png',
                     height: 80,

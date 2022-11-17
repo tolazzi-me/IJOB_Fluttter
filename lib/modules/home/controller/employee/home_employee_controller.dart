@@ -25,7 +25,6 @@ class HomeEmployeeController extends BaseController {
 
   Future<void> likeService() async {
     showLoading();
-    stController.next(swipeDirection: SwipeDirection.right);
     if (services.isNotEmpty && stController.currentIndex <= services.length - 1) {
       if (!_likedSevices.contains(services[stController.currentIndex].id!)) {
         final resultOrError = await _serviceRepository.likeService(services[currentIndexService.value].id!);
@@ -39,7 +38,6 @@ class HomeEmployeeController extends BaseController {
   }
 
   Future<void> refuseService() async {
-    stController.next(swipeDirection: SwipeDirection.left);
     print('refused service ${currentIndexService.value}');
   }
 
