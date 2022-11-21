@@ -2,6 +2,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
 import 'package:ijob_app/core/base/network_controller.dart';
+import 'package:ijob_app/core/widget/snackbar.dart';
 import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:ijob_app/data/repositories/user_repository.dart';
 import 'package:ijob_app/network/exceptions/api_exception.dart';
@@ -13,13 +14,13 @@ class SplashController extends BaseController {
 
   Future<void> getPersonalInfo() async {
     final userOrError = await _userRepository.me();
-    userOrError.fold((error) {
+    userOrError.fold((error) async {
       if (error is ApiException) {
         if (error.httpCode == 401) {
           Get.offAllNamed(Routes.login);
         }
       } else {
-        Get.snackbar('Erro', 'Não foi possível conectar ao serviço');
+        await showRedSnackBar('Erro', 'Não foi possível conectar ao serviço');
       }
     }, (user) async {
       final _localStorage = LocalStorageImp();
