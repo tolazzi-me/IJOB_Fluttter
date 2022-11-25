@@ -16,6 +16,7 @@ class HomeEmployerController extends BaseController {
   final imagePath = ''.obs;
   final titleTextController = TextEditingController().obs;
   final descriptionTextController = TextEditingController().obs;
+  var formKey = GlobalKey<FormState>();
 
   Future<void> getServices() async {
     showLoading();

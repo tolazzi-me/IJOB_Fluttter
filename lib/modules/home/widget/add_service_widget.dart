@@ -30,6 +30,7 @@ class AddServiceWidget extends BaseView<HomeEmployerController> {
                   decoration: BoxDecoration(
                     image: controller.imagePath.value.isEmpty
                         ? const DecorationImage(
+                            fit: BoxFit.cover,
                             image: NetworkImage(
                                 "https://firebasestorage.googleapis.com/v0/b/ijob-bfe21.appspot.com/o/sem-imagem.png?alt=media&token=afc9df2c-08dc-4556-9e18-fe9dd69cb6e1"),
                           )
@@ -51,7 +52,7 @@ class AddServiceWidget extends BaseView<HomeEmployerController> {
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
-                        height: 150,
+                        height: 190,
                         width: 230,
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.75),
@@ -61,21 +62,36 @@ class AddServiceWidget extends BaseView<HomeEmployerController> {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              TextFormField(
-                                controller: controller.titleTextController.value,
-                                decoration: const InputDecoration(labelText: 'Nome do Trabalho'),
-                                style: const TextStyle(fontSize: 15),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                controller: controller.descriptionTextController.value,
-                                decoration: const InputDecoration(labelText: 'Descriçao'),
-                                style: const TextStyle(fontSize: 15),
-                              ),
-                            ],
+                          child: Form(
+                            key: controller.formKey,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                TextFormField(
+                                  controller: controller.titleTextController.value,
+                                  decoration: const InputDecoration(labelText: 'Nome do Trabalho'),
+                                  style: const TextStyle(fontSize: 15),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Título inválido';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: controller.descriptionTextController.value,
+                                  decoration: const InputDecoration(labelText: 'Descriçao'),
+                                  style: const TextStyle(fontSize: 15),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Descrição inválida';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -89,7 +105,11 @@ class AddServiceWidget extends BaseView<HomeEmployerController> {
                 height: 40,
                 width: 150,
                 child: ElevatedButton(
-                  onPressed: () => controller.store(),
+                  onPressed: () {
+                    if (controller.formKey.currentState!.validate()) {
+                      controller.store();
+                    }
+                  },
                   child: const Text(
                     'Pronto',
                     style: TextStyle(color: Colors.black, fontSize: 20),
