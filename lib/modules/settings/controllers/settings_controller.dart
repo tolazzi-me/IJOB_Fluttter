@@ -20,7 +20,7 @@ class SettingsController extends BaseController {
   Future<void> logout() async {
     _localStorage.writeToken('');
     _localStorage.write('', null);
-    Get.offAllNamed(Routes.login);
+    await Get.offAllNamed(Routes.login);
   }
 
   Future<void> saveDistance() async {
@@ -31,6 +31,7 @@ class SettingsController extends BaseController {
   }
 
   Future<void> changeUserActiveType() async {
+    print('Switch');
     showLoading();
     await Future.delayed(const Duration(seconds: 1));
     bool isActiveUserType = _localStorage.user?.userActiveType == 1 ? false : true;
@@ -38,8 +39,8 @@ class SettingsController extends BaseController {
       final type = _userActiveTypeSelected.value == true ? 0 : 1;
       final userOrError = await _userRepository.changeUserType(type, _localStorage.user!.id!);
       userOrError.fold((_) => showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta'), (user) async {
-        _localStorage.write('user', user.toJson());
-        await showGreenSnackBar('Sucesso', 'É necessário reiniciar o app para aplicar as modificações!');
+        logout();
+        // await showGreenSnackBar('Sucesso', 'Você foi redirecionado para o login');
       });
     }
     resetPageState();
