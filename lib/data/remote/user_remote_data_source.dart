@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:ijob_app/core/base/base_remote_source.dart';
 import 'package:ijob_app/core/model/user_model.dart';
+import 'package:mime/mime.dart';
 import '../../core/model/user_location_model.dart';
 import '../../utils/constants.dart';
 
@@ -12,6 +16,7 @@ abstract class UserRemoteDataSource {
   Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId);
   Future<Either<Exception, User>> changeUserType(int type, String userId);
   Future<Either<Exception, UserLocation>> storeLocation(double latitude, double longitude);
+  Future<Either<Exception, User>> storeAvatar(File avatar);
 }
 
 class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteDataSource {
@@ -89,5 +94,37 @@ class UserRemoteDataSourceImp extends BaseRemoteSource implements UserRemoteData
         return right(UserLocation.fromJson(response.data['data']));
       });
     });
+  }
+
+  @override
+  Future<Either<Exception, User>> storeAvatar(File avatar) async {
+    String fileName = avatar.path.split('/').last;
+    String? mimeType = lookupMimeType(fileName) ?? 'application/octet-stream';
+    String mime = mimeType.split('/')[0];
+    String type = mimeType.split('/')[1];
+    FormData formData = FormData.fromMap({
+      "avatar": await MultipartFile.fromFile(
+        avatar.path,
+        filename: fileName,
+        contentType: MediaType(mime, type),
+      ),
+    });
+    const endPoint = '${Utils.baseUrl}/user/avatar';
+
+    final dioCall = dioClient.post(
+      endPoint,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return callApiWithErrorParser(dioCall).then(
+      (servicePhotoOrError) => servicePhotoOrError.fold((error) {
+        print('$error url: $endPoint');
+        return left(error);
+      }, (response) {
+        return right(
+          User.fromJson(response.data['data']),
+        );
+      }),
+    );
   }
 }

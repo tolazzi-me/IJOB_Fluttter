@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/model/user_location_model.dart';
@@ -11,6 +13,7 @@ abstract class UserRepository {
   Future<Either<Exception, User>> updateMaxDistance(double maxDistance, String userId);
   Future<Either<Exception, User>> changeUserType(int type, String userId);
   Future<Either<Exception, UserLocation>> storeLocation(double latitude, double longitude);
+  Future<Either<Exception, User>> storeAvatar(File avatar);
 }
 
 class UserRepositoryImp implements UserRepository {
@@ -44,5 +47,10 @@ class UserRepositoryImp implements UserRepository {
   @override
   Future<Either<Exception, UserLocation>> storeLocation(double latitude, double longitude) {
     return _remoteDataSource.storeLocation(latitude, longitude);
+  }
+
+  @override
+  Future<Either<Exception, User>> storeAvatar(File avatar) {
+    return _remoteDataSource.storeAvatar(avatar);
   }
 }

@@ -34,7 +34,12 @@ class ProfileView extends BaseView<ProfileController> {
                     height: 128,
                     fit: BoxFit.cover,
                   )
-                : Image.network(controller.user?.avatarUrl ?? Utils.defaultAvatarUrl, width: 128, height: 128),
+                : Image.network(
+                    controller.user?.avatarUrl ?? Utils.defaultAvatarUrl,
+                    width: 128,
+                    height: 128,
+                    fit: BoxFit.cover,
+                  ),
             onClicked: () => controller.importImageProfile(),
             onTap: () => controller.importImageProfile(),
           );

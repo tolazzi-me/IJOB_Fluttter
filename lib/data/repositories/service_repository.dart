@@ -6,6 +6,7 @@ import 'package:ijob_app/data/remote/service_remote_data_source.dart';
 
 import '../../core/model/like_model.dart';
 import '../../core/model/service_model.dart';
+import '../../core/model/service_photo_model.dart';
 import '../remote/plan_remote_data_source.dart';
 
 abstract class ServiceRepository {
@@ -14,6 +15,7 @@ abstract class ServiceRepository {
   Future<Either<Exception, Like>> likeService(String serviceId);
   Future<Either<Exception, Service>> store(String title, String description, File? photo);
   Future<Either<Exception, String>> deleteService(String serviceId);
+  Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId);
 }
 
 class ServiceRepositoryImp implements ServiceRepository {
@@ -41,5 +43,10 @@ class ServiceRepositoryImp implements ServiceRepository {
   @override
   Future<Either<Exception, String>> deleteService(String serviceId) {
     return _remoteDataSource.deleteService(serviceId);
+  }
+
+  @override
+  Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId) {
+    return _remoteDataSource.storePhoto(photo, serviceId);
   }
 }
