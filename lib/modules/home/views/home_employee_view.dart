@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_view.dart';
 import 'package:ijob_app/core/widget/custom_app_bar.dart';
+import 'package:ijob_app/modules/home/widget/swipe/card_overlay_widget.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
 import '../../../routes/app_pages.dart';
@@ -69,6 +70,12 @@ class HomeEmployeeView extends BaseView<HomeEmployeeController> {
                 );
               }
               return SwipableStack(
+                overlayBuilder: (context, properties) {
+                  return CardOverlayWidget(
+                    swipeProgress: properties.swipeProgress,
+                    direction: properties.direction,
+                  );
+                },
                 onSwipeCompleted: ((index, direction) {
                   if (direction == SwipeDirection.right) {
                     controller.likeService();
