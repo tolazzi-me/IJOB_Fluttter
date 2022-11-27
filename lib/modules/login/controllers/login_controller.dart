@@ -36,6 +36,9 @@ class LoginController extends BaseController {
           case 401:
             showRedSnackBar('Dados inválidos', 'E-mail ou senha incorretos');
             break;
+          case 422:
+            showRedSnackBar('Dados inválidos', 'E-mail ou senha incorretos');
+            break;
           case 404:
             showRedSnackBar('Dados inválidos', 'Usuário não encontrado');
             break;

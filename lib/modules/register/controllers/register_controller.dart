@@ -31,7 +31,7 @@ class RegisterController extends BaseController {
 
   Future<void> register(UserActiveType type) async {
     showLoading();
-    final name = nameTextController.text.split(' ');
+    final name = nameTextController.text.trim().split(' ');
     var convertedGenre = '';
     switch (genre.value) {
       case 'Masculino':
@@ -47,8 +47,8 @@ class RegisterController extends BaseController {
     }
 
     final user = User(
-      firstName: name.first,
-      lastName: name.last,
+      firstName: name[0],
+      lastName: name.getRange(1, name.length).join(' '),
       email: emailTextController.text,
       password: passwordTextController.text,
       bornDate: birthDateText.value,
@@ -59,7 +59,7 @@ class RegisterController extends BaseController {
     final resultOrError = await _userRepository.store(user);
     resultOrError.fold((error) {
       if (error is ConflictException) {
-        showRedSnackBar('Erro', 'Usuário já registrado');
+        showRedSnackBar('Erro', 'E-mail em uso');
       } else {
         showRedSnackBar('Erro', 'Não foi possível registrar-se tente novamente mais tarde');
       }

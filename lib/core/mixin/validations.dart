@@ -1,3 +1,5 @@
+import 'package:ijob_app/utils/date_extension.dart';
+
 mixin CustomValidations {
   String? isNotEmpty(String? value, [String? message]) {
     if (value!.isEmpty) {
@@ -23,8 +25,15 @@ mixin CustomValidations {
   }
 
   String? isValidName(String? value, [String? message]) {
-    final splited = value!.split(' ');
-    splited.removeWhere((element) => element.contains(' '));
+    final splited = value!.trim().split(' ');
+    for (var name in splited) {
+      final isValid = RegExp(r"^[a-zA-Z]+(([',. -\s][a-zA-Z ])?[a-zA-Z]*)*$").hasMatch(name);
+      if (!isValid) {
+        return message ?? "Ops, seu nome não é valido";
+      }
+      break;
+    }
+
     if (splited.length < 2) {
       return message ?? "Ops, preciso do seu nome e sobrenome";
     }
@@ -32,8 +41,11 @@ mixin CustomValidations {
   }
 
   String? isValidBirthDate(String? value, [String? message]) {
-    if (value == null || DateTime.parse(value).compareTo(DateTime.now()) > 0) {
+    if (value == null) {
       return message ?? "Ops, data de nascimento inválida";
+    }
+    if (!DateTime.parse(value).isAtLeastYearsOld(18)) {
+      return message ?? "Ops, você precisa ser maior de idade";
     }
     return null;
   }
