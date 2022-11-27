@@ -86,32 +86,34 @@ class PlanAttributes {
     required this.key,
     required this.type,
     required this.value,
+    required this.description,
   });
 
   final String key;
   final int type;
   final int value;
+  final String description;
 
   PlanAttributes copyWith({
     String? key,
     int? type,
     int? value,
+    String? description,
   }) =>
       PlanAttributes(
         key: key ?? this.key,
         type: type ?? this.type,
         value: value ?? this.value,
+        description: description ?? this.description,
       );
 
-  factory PlanAttributes.fromJson(Map<String, dynamic> json) => PlanAttributes(
-        key: json["key"],
-        type: json["type"],
-        value: json["value"],
-      );
+  factory PlanAttributes.fromJson(Map<String, dynamic> json) =>
+      PlanAttributes(key: json["key"], type: json["type"], value: json["value"], description: json["description"]);
 
   Map<String, dynamic> toJson() => {
         "key": key,
         "type": type,
         "value": value,
+        "description": description,
       };
 }

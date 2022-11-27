@@ -48,8 +48,7 @@ class PremiumView extends BaseView<PremiumnController> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 5, right: 5, top: 25, bottom: 0),
+                padding: const EdgeInsets.only(left: 5, right: 5, top: 25, bottom: 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -73,14 +72,15 @@ class PremiumView extends BaseView<PremiumnController> {
                         itemBuilder: (context, index) {
                           final _plan = controller.plans[index];
                           return Obx(
-                            () => PlanBoxWdiget(
-                              plan: _plan,
-                              color: _plan.id == controller.selectedPlan?.id
-                                  ? AppColors.textColorYellow
-                                  : AppColors.colorWhite,
-                              onPressed: () {
-                                controller.selectPlan(_plan);
-                              },
+                            () => Padding(
+                              padding: const EdgeInsets.only(bottom: 12),
+                              child: PlanBoxWdiget(
+                                plan: _plan,
+                                color: _plan.id == controller.selectedPlan?.id ? AppColors.textColorYellow : AppColors.colorWhite,
+                                onPressed: () {
+                                  controller.selectPlan(_plan);
+                                },
+                              ),
                             ),
                           );
                         },
@@ -100,22 +100,18 @@ class PremiumView extends BaseView<PremiumnController> {
                             );
                           }
                         },
-                        child: const Text('Assine agora',
-                            style: TextStyle(
-                                color: AppColors.blackColor, fontSize: 20)),
+                        child: const Text('Assine agora', style: TextStyle(color: AppColors.blackColor, fontSize: 20)),
                         style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(AppValues.radius_12),
+                              borderRadius: BorderRadius.circular(AppValues.radius_12),
                             ),
                           ),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              AppColors.textColorYellow),
+                          backgroundColor: MaterialStateProperty.all<Color>(AppColors.textColorYellow),
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
