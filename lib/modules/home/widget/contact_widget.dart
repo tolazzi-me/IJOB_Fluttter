@@ -41,36 +41,3 @@ class ContactWidget extends StatelessWidget {
     );
   }
 }
-// Widget contactWidget(String cellPhone, String email) {
-//   return AlertDialog(
-//     content: Container(
-//       height: 200,
-//       width: 80,
-//       decoration: const BoxDecoration(
-//         borderRadius: BorderRadius.all(Radius.circular(20)),
-//       ),
-//       child: Column(
-//         children: [
-//           Text(
-//             'Número:\n$cellPhone \n\nEmail:\n$email',
-//             style: const TextStyle(fontSize: 20),
-//           ),
-//           const SizedBox(height: 15),
-//           ElevatedButton(
-//             style: ButtonStyle(
-//               backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
-//               shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-//             ),
-//             onPressed: () {
-//               Get.back();
-//             },
-//             child: const Text(
-//               'Fechar',
-//               style: TextStyle(color: Colors.black),
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   );
-// }

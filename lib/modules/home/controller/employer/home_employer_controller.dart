@@ -58,6 +58,21 @@ class HomeEmployerController extends BaseController {
     resetPageState();
   }
 
+  Future<void> deleteService(String serviceId) async {
+    showLoading();
+    final deletedOrError = await _serviceRepository.deleteService(serviceId);
+    deletedOrError.fold((error) {
+      showRedSnackBar("Erro", 'Falha ao deletar o serviço');
+      resetPageState();
+    }, (r) async {
+      Get.back();
+      showGreenSnackBar("Sucesso", r);
+      resetPageState();
+      await getServices();
+    });
+    resetPageState();
+  }
+
   @override
   void onInit() async {
     await getServices();

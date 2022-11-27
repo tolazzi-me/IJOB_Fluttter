@@ -4,6 +4,7 @@ import 'package:ijob_app/core/base/base_view.dart';
 import 'package:ijob_app/modules/home/controller/employer/home_employer_controller.dart';
 import 'package:ijob_app/modules/home/widget/add_service_widget.dart';
 import 'package:ijob_app/modules/home/widget/contact_widget.dart';
+import 'package:ijob_app/modules/home/widget/delete_service_widget.dart';
 
 import '../../../core/widget/custom_app_bar.dart';
 import '../../../routes/app_pages.dart';
@@ -82,7 +83,7 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
                             width: 170,
@@ -103,7 +104,14 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
                             width: 170,
                             height: 35,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.dialog(
+                                  DeleteServiceWidget(
+                                    onCancel: () => Get.back(),
+                                    onConfirm: () => controller.deleteService(service.id!),
+                                  ),
+                                );
+                              },
                               child: const Text(
                                 "Excluir",
                                 style: TextStyle(fontSize: 15, color: Colors.black),

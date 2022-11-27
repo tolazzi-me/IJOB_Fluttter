@@ -17,6 +17,7 @@ abstract class ServiceRemoteSource {
   Future<Either<Exception, Like>> likeService(String serviceId);
   Future<Either<Exception, Service>> store(String title, String description, File? photo);
   Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId);
+  Future<Either<Exception, String>> deleteService(String serviceId);
 }
 
 class ServiceRemoteSourceImp extends BaseRemoteSource implements ServiceRemoteSource {
@@ -113,6 +114,21 @@ class ServiceRemoteSourceImp extends BaseRemoteSource implements ServiceRemoteSo
         return right(
           (response.data['data'] as List).map((e) => ServicePhoto.fromJson(e)).toList(),
         );
+      }),
+    );
+  }
+
+  @override
+  Future<Either<Exception, String>> deleteService(String serviceId) {
+    final endPoint = '${Utils.baseUrl}/service/$serviceId';
+
+    final dioCall = dioClient.delete(endPoint);
+    return callApiWithErrorParser(dioCall).then(
+      (servicesOrError) => servicesOrError.fold((error) {
+        print('$error url: $endPoint');
+        return left(error);
+      }, (response) {
+        return right("Deletado com sucesso");
       }),
     );
   }
