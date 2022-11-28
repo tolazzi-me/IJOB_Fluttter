@@ -9,7 +9,11 @@ import 'package:ijob_app/modules/register/views/register_page_one.dart';
 import 'package:ijob_app/modules/login/controllers/login_controller.dart';
 import 'package:ijob_app/modules/login/views/esqueciSenha_view.dart';
 
-class LoginView extends BaseView<LoginController> {
+import '../../../core/mixin/validations.dart';
+
+class LoginView extends BaseView<LoginController> with CustomValidations {
+  LoginView({Key? key}) : super(key: key);
+
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
     return null;
@@ -48,89 +52,90 @@ class LoginView extends BaseView<LoginController> {
               ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Login', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 20),
-                    TextFormField(
-                      textInputAction: TextInputAction.next,
-                      controller: controller.emailTextController,
-                      style: blackText18,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                      ),
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    const SizedBox(height: 15),
-                    Obx(
-                      () => TextFormField(
-                        textInputAction: TextInputAction.done,
-                        controller: controller.passwordTextController,
+                child: Form(
+                  key: controller.formKeyLogin,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Login', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        textInputAction: TextInputAction.next,
+                        controller: controller.emailTextController,
+                        validator: (val) => isValidEmail(val, 'Eii, seu e-mail não é válido'),
                         style: blackText18,
-                        decoration: InputDecoration(
-                          labelText: 'Senha',
-                          suffixIcon: GestureDetector(
-                            onTap: () => controller.passwordHasVisible = !controller.passwordHasVisible,
-                            child: Icon(
-                              controller.passwordHasVisible ? Icons.visibility : Icons.visibility_off,
-                            ),
-                          ),
+                        decoration: const InputDecoration(
+                          labelText: 'Email',
                         ),
-                        obscureText: !controller.passwordHasVisible,
+                        keyboardType: TextInputType.emailAddress,
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: ((context) => esqueciSenha())));
-                      },
-                      child: const Text(
-                        'Esqueci minha senha',
-                        style: TextStyle(color: Colors.black45, fontSize: 13),
-                      ),
-                    ),
-                    Center(
-                      child: TextButton(
-                        onPressed: () {
-                          // go to home employee
-                          controller.formIsValid
-                              ? controller.login()
-                              : showRedSnackBar(
-                                  'Erro',
-                                  'Existe campos inválidos',
-                                );
-                        },
-                        child: const Text('Continuar', style: yellowText35),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Novo aqui?',
-                            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 17),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: ((context) => const RegisterPageMain()),
-                                ),
-                              );
-                              // go to register page
-                            },
-                            child: const Text(
-                              'Crie uma conta!',
-                              style: TextStyle(color: Colors.amberAccent, fontStyle: FontStyle.italic, fontSize: 17),
+                      const SizedBox(height: 15),
+                      Obx(
+                        () => TextFormField(
+                          textInputAction: TextInputAction.done,
+                          controller: controller.passwordTextController,
+                          validator: hasSixChars,
+                          style: blackText18,
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            suffixIcon: GestureDetector(
+                              onTap: () => controller.passwordHasVisible = !controller.passwordHasVisible,
+                              child: Icon(
+                                controller.passwordHasVisible ? Icons.visibility : Icons.visibility_off,
+                              ),
                             ),
-                          )
-                        ],
+                          ),
+                          obscureText: !controller.passwordHasVisible,
+                        ),
                       ),
-                    )
-                  ],
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: ((context) => esqueciSenha())));
+                        },
+                        child: const Text(
+                          'Esqueci minha senha',
+                          style: TextStyle(color: Colors.black45, fontSize: 13),
+                        ),
+                      ),
+                      Center(
+                        child: TextButton(
+                          onPressed: () {
+                            if (controller.formKeyLogin.currentState!.validate()) {
+                              controller.login();
+                            }
+                          },
+                          child: const Text('Continuar', style: yellowText35),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Novo aqui?',
+                              style: TextStyle(fontStyle: FontStyle.italic, fontSize: 17),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: ((context) => const RegisterPageMain()),
+                                  ),
+                                );
+                                // go to register page
+                              },
+                              child: const Text(
+                                'Crie uma conta!',
+                                style: TextStyle(color: Colors.amberAccent, fontStyle: FontStyle.italic, fontSize: 17),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             )

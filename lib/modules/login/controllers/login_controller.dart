@@ -16,6 +16,7 @@ class LoginController extends BaseController {
   final _passwordHasVisible = false.obs;
   final _emailTextController = TextEditingController().obs;
   final _passwordTextController = TextEditingController().obs;
+  final formKeyLogin = GlobalKey<FormState>();
 
   TextEditingController get emailTextController => _emailTextController.value;
   TextEditingController get passwordTextController => _passwordTextController.value;
@@ -62,10 +63,4 @@ class LoginController extends BaseController {
     });
     resetPageState();
   }
-
-  //validators
-  bool get emailIsValid => _emailTextController.value.text.isEmail;
-  bool get passwordIsValid => _passwordTextController.value.text.isNotEmpty;
-
-  bool get formIsValid => emailIsValid && passwordIsValid;
 }
