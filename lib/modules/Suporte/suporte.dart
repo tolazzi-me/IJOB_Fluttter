@@ -78,21 +78,17 @@ class suporte extends StatelessWidget {
               const Text('contato@ijob.com', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
               const SizedBox(height: 20),
               Center(
-                child: SizedBox(
-                  height: 40,
-                  width: 270,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: ((context) => feedback())));
-                      },
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
-                      child: const Text(
-                        'Envie-nos um feedback',
-                        style: TextStyle(fontSize: 20, color: Colors.black),
-                      )),
-                ),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => feedback())));
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                    child: const Text(
+                      'Envie-nos um feedback',
+                      style: TextStyle(fontSize: 16, color: Colors.black),
+                    )),
               ),
               const SizedBox(height: 10),
               Column(

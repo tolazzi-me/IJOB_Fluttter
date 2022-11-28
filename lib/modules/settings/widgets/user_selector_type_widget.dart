@@ -12,7 +12,7 @@ class UserSelectorTypeWidget extends StatelessWidget {
       children: [
         const Text("Empregador", style: TextStyle(fontSize: 20)),
         SizedBox(
-          width: 10,
+          width: 20,
           child: Switch(
             value: selectedType,
             activeColor: Colors.amberAccent,
