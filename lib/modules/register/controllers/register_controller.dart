@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_controller.dart';
@@ -53,7 +54,7 @@ class RegisterController extends BaseController {
       email: emailTextController.text,
       password: passwordTextController.text,
       bornDate: birthDateText.value,
-      cellPhone: '45998237626',
+      cellPhone: UtilBrasilFields.obterTelefone(cellPhoneTextController.text, ddd: true, mascara: false),
       genre: convertedGenre,
       userActiveType: type.index,
     );
