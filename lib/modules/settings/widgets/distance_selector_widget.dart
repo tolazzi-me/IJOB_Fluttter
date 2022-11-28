@@ -13,7 +13,7 @@ class DistanceSelectorWidget extends StatelessWidget {
         Column(
           children: [
             Text(
-              "Distância máxima ${distance.toStringAsFixed(0)}",
+              "Distância máxima ${distance.toStringAsFixed(0)} km",
               style: const TextStyle(fontSize: 20),
             ),
             SizedBox(
