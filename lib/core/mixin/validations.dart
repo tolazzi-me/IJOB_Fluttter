@@ -40,8 +40,19 @@ mixin CustomValidations {
     return null;
   }
 
+  String? isValidCellPhone(String? value, [String? message]) {
+    if (value == null || value.isEmpty) {
+      return message ?? 'Ops, número de telefone inválido';
+    }
+    final isValid = RegExp(r"^\(?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$").hasMatch(value);
+    if (!isValid) {
+      return message ?? "Ops, número de telefone inválido";
+    }
+    return null;
+  }
+
   String? isValidBirthDate(String? value, [String? message]) {
-    if (value == null) {
+    if (value == null || value.isEmpty) {
       return message ?? "Ops, data de nascimento inválida";
     }
     if (!DateTime.parse(value).isAtLeastYearsOld(18)) {
@@ -52,7 +63,7 @@ mixin CustomValidations {
 
   String? passwordHasMatch(String? value, String? value2, [String? message]) {
     if (value! != value2) {
-      return message ?? "As senhas não conferem";
+      return message ?? "Ops, as senhas não conferem";
     }
     return null;
   }
