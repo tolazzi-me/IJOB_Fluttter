@@ -15,7 +15,15 @@ class PremiumView extends BaseView<PremiumnController> {
 
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
-    return CustomAppBar(appBarTitleText: '');
+    return CustomAppBar(
+      appBarTitleText: '',
+      leading: IconButton(
+        onPressed: () {
+          Get.back();
+        },
+        icon: const Icon(Icons.arrow_back_ios, color: Colors.black, size: 24),
+      ),
+    );
   }
 
   @override
