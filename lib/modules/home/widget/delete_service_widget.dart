@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DeleteServiceWidget extends StatelessWidget {
   final VoidCallback onCancel;
@@ -10,11 +11,13 @@ class DeleteServiceWidget extends StatelessWidget {
     return AlertDialog(
       content: Container(
         height: 150,
-        width: 90,
+        width: Get.width * .8,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               'Tem certeza que deseja realmente excluir esse serviço?',
@@ -22,6 +25,7 @@ class DeleteServiceWidget extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   style: ButtonStyle(
@@ -31,7 +35,7 @@ class DeleteServiceWidget extends StatelessWidget {
                   onPressed: onCancel,
                   child: const Text(
                     'Cancelar',
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),
                 const SizedBox(width: 5),
@@ -43,7 +47,7 @@ class DeleteServiceWidget extends StatelessWidget {
                   onPressed: onConfirm,
                   child: const Text(
                     'Confirmar',
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),
               ],
