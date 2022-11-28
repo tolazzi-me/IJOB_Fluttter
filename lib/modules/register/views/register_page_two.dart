@@ -1,5 +1,7 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ijob_app/core/base/base_view.dart';
 import 'package:ijob_app/core/mixin/validations.dart';
 import 'package:ijob_app/modules/register/controllers/register_controller.dart';
@@ -43,7 +45,7 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                   }),
             ),
             Container(
-              height: 520,
+              height: 550,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
@@ -75,6 +77,19 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                         controller: controller.emailTextController,
                       ),
                       const SizedBox(height: 15),
+                      TextFormField(
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          TelefoneInputFormatter(),
+                        ],
+                        style: const TextStyle(fontSize: 20),
+                        decoration: const InputDecoration(labelText: 'Seu número de telefone'),
+                        validator: isValidCellPhone,
+                        controller: controller.cellPhoneTextController,
+                      ),
+                      const SizedBox(height: 15),
                       DateTimePicker(
                         textInputAction: TextInputAction.done,
                         dateMask: 'dd/MM/yyyy',
@@ -83,9 +98,13 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                         firstDate: DateTime(1900),
                         lastDate: DateTime.now(),
                         dateLabelText: 'Data de Nascimento',
-                        onChanged: (val) => print(val),
+                        onChanged: (val) {
+                          controller.birthDateText.value = DateTime.parse(val);
+                        },
                         validator: isValidBirthDate,
-                        onSaved: (val) => controller.birthDateText.value = DateTime.parse(val!),
+                        onSaved: (val) {
+                          controller.birthDateText.value = DateTime.parse(val!);
+                        },
                       ),
                       const SizedBox(height: 15),
                       ValueListenableBuilder(
@@ -94,13 +113,19 @@ class RegisterPageTwo extends BaseView<RegisterController> with CustomValidation
                           return SizedBox(
                             height: 60,
                             width: double.infinity,
-                            child: DropdownButton<String>(
+                            child: DropdownButtonFormField<String>(
                               isExpanded: true,
-                              hint: const Text('Genero', style: TextStyle(fontSize: 20)),
+                              hint: const Text('Gênero', style: TextStyle(fontSize: 20)),
                               value: (value.isEmpty) ? null : value,
                               onChanged: (escolha) {
                                 dropGenero.value = escolha.toString();
                                 controller.genre.value = escolha.toString();
+                              },
+                              validator: (val) {
+                                if (val == null) {
+                                  return 'Ops, o gênero não é válido';
+                                }
+                                return null;
                               },
                               items: genero
                                   .map(

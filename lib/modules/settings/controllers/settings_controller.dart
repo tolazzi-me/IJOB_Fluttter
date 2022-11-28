@@ -31,16 +31,19 @@ class SettingsController extends BaseController {
   }
 
   Future<void> changeUserActiveType() async {
-    print('Switch');
     showLoading();
     await Future.delayed(const Duration(seconds: 1));
     bool isActiveUserType = _localStorage.user?.userActiveType == 1 ? false : true;
+    print(
+        'selecionando: ${_userActiveTypeSelected.value == true ? 'Empregado' : 'Empregador'} atual: ${_localStorage.user?.userActiveType == 0 ? 'Empregado' : 'Empregador'} ');
     if (_userActiveTypeSelected.value != isActiveUserType) {
       final type = _userActiveTypeSelected.value == true ? 0 : 1;
       final userOrError = await _userRepository.changeUserType(type, _localStorage.user!.id!);
-      userOrError.fold((_) => showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta'), (user) async {
+      userOrError.fold((error) async {
+        _userActiveTypeSelected.value = isActiveUserType;
+        await showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta');
+      }, (user) async {
         logout();
-        // await showGreenSnackBar('Sucesso', 'Você foi redirecionado para o login');
       });
     }
     resetPageState();
@@ -52,6 +55,7 @@ class SettingsController extends BaseController {
     final _user = _localStorage.user;
     if (_user != null) {
       _distance.value = _user.maxDistance!.toDouble();
+      print(_user.userActiveType);
       _userActiveTypeSelected.value = _user.userActiveType == 1 ? false : true;
     }
     debounce(_distance, (_) async => await saveDistance(), time: const Duration(seconds: 5));
