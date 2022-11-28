@@ -7,6 +7,7 @@ import 'package:ijob_app/data/local/get_storage.dart';
 import 'package:ijob_app/data/remote/user_remote_data_source.dart';
 import 'package:ijob_app/routes/app_pages.dart';
 import 'package:ijob_app/utils/constants.dart';
+import 'package:intl/intl.dart';
 
 import '../../../data/repositories/user_repository.dart';
 import '../../../network/exceptions/conflict_exception.dart';
@@ -26,6 +27,7 @@ class RegisterController extends BaseController {
   final genre = ''.obs;
   final passwordTextController = TextEditingController();
   final repeatPasswordTextController = TextEditingController();
+  final cellPhoneTextController = TextEditingController();
   final formKeyPageMain = GlobalKey<FormState>();
   final formKeyPageTwo = GlobalKey<FormState>();
 
@@ -45,7 +47,6 @@ class RegisterController extends BaseController {
         convertedGenre = 'N';
         break;
     }
-
     final user = User(
       firstName: name[0],
       lastName: name.getRange(1, name.length).join(' '),
