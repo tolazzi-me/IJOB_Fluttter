@@ -23,7 +23,7 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
   Widget? floatingActionButton() {
     return FloatingActionButton(
       onPressed: () {
-        Get.to(AddServiceWidget());
+        Get.to(AddServiceWidget(), arguments: ['create', null]);
       },
       child: const Icon(
         Icons.add,
@@ -82,6 +82,15 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        width: Get.width * .85,
+                        child: Text(
+                          service.description,
+                          textAlign: TextAlign.left,
+                          softWrap: true,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -89,7 +98,9 @@ class HomeEmployerView extends BaseView<HomeEmployerController> {
                             width: 170,
                             height: 35,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(AddServiceWidget(), arguments: ['edit', service]);
+                              },
                               child: const Text(
                                 "Editar",
                                 style: TextStyle(fontSize: 15, color: Colors.black),

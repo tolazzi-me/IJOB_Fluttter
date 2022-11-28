@@ -9,6 +9,7 @@ import 'package:ijob_app/routes/app_pages.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../data/remote/service_remote_data_source.dart';
+import '../../../../network/exceptions/api_exception.dart';
 
 class HomeEmployerController extends BaseController {
   final _serviceRepository = Get.put(ServiceRemoteSourceImp());
@@ -16,6 +17,7 @@ class HomeEmployerController extends BaseController {
   final imagePath = ''.obs;
   final titleTextController = TextEditingController().obs;
   final descriptionTextController = TextEditingController().obs;
+  final urlImageService = ''.obs;
   var formKey = GlobalKey<FormState>();
 
   Future<void> getServices() async {
@@ -45,24 +47,42 @@ class HomeEmployerController extends BaseController {
 
   Future<void> store() async {
     showLoading();
-    final createdServiceOrError = await _serviceRepository.store(titleTextController.value.text, descriptionTextController.value.text, File(imagePath.value));
-    createdServiceOrError.fold((l) {
-      print(l);
+    final createdServiceOrError =
+        await _serviceRepository.store(titleTextController.value.text.trim(), descriptionTextController.value.text.trim(), File(imagePath.value));
+    createdServiceOrError.fold((error) {
+      print(error is ApiException);
+      if (error is ApiException) {
+        switch (error.httpCode) {
+          case 409:
+            showRedSnackBar('Erro', 'O serviço já existe');
+            break;
+          case 500:
+            showRedSnackBar('Erro', 'Ocorreu um erro interno');
+            break;
+        }
+      }
       resetPageState();
     }, (service) async {
       print(service.toJson());
       showGreenSnackBar('Sucesso', 'Serviço criado com sucesso');
       await getServices();
-      Get.toNamed(Routes.homeEmployer);
+      titleTextController.value.text = '';
+      descriptionTextController.value.text = '';
+      imagePath.value = '';
+      Get.offNamed(Routes.homeEmployer);
     });
     resetPageState();
+  }
+
+  Future<void> updateService() async {
+    print('Updating');
   }
 
   Future<void> deleteService(String serviceId) async {
     showLoading();
     final deletedOrError = await _serviceRepository.deleteService(serviceId);
-    deletedOrError.fold((error) {
-      showRedSnackBar("Erro", 'Falha ao deletar o serviço');
+    deletedOrError.fold((error) async {
+      showRedSnackBar('Erro', 'Não foi possível deletar o serviço');
       resetPageState();
     }, (r) async {
       Get.back();
