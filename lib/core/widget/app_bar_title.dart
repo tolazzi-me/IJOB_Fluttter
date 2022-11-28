@@ -11,7 +11,7 @@ class AppBarTitle extends StatelessWidget {
     Key? key,
     required this.text,
     this.fontFamily,
-    this.size = 18,
+    this.size = 14,
   }) : super(key: key);
 
   @override

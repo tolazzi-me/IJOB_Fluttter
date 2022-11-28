@@ -35,7 +35,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       title: AppBarTitle(
         text: appBarTitleText,
         fontFamily: appBarTitleFontFamily,
-        size: 70,
+        size: 60,
       ),
     );
   }
