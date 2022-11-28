@@ -9,116 +9,93 @@ class _esqueciSenha extends State<esqueciSenha> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                margin: const EdgeInsets.only(top: 20),
-                height: 300,
-                width: double.maxFinite,
-                child: PageView.builder(
-                    itemCount: images.length,
-                    pageSnapping: true,
-                    itemBuilder: (context, pagePosition) {
-                      return Container(
-                        child: Image.asset(
-                          images[pagePosition],
-                          fit: BoxFit.cover,
-                        ),
-                      );
-                    }),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              height: 300,
+              width: double.maxFinite,
+              child: PageView.builder(
+                  itemCount: images.length,
+                  pageSnapping: true,
+                  itemBuilder: (context, pagePosition) {
+                    return Container(
+                      child: Image.asset(
+                        images[pagePosition],
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  }),
+            ),
+            Container(
+              height: 520,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
               ),
-              Container(
-                height: 520,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Esqueceu sua senha?',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 20),
-                      const Text(
-                        'Não se preocupe, é só colocar seu Email aqui e enviaremos para você uma mensagem possibilitando a troca da sua senha.',
-                        style: TextStyle(fontSize: 17, color: Colors.grey),
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Esqueceu sua senha?', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Não se preocupe, é só colocar seu Email aqui e enviaremos para você uma mensagem possibilitando a troca da sua senha.',
+                      style: TextStyle(fontSize: 17, color: Colors.grey),
+                    ),
+                    const SizedBox(height: 40),
+                    const Text('Insira seu Email', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                    const TextField(
+                      style: TextStyle(
+                        fontSize: 20,
                       ),
-                      const SizedBox(height: 40),
-                      const Text('Insira seu Email',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold)),
-                      const TextField(
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                        decoration: InputDecoration(labelText: 'Email'),
-                      ),
-                      const SizedBox(height: 50),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                            child: SizedBox(
-                              height: 40,
-                              width: 170,
-                              child: ElevatedButton(
-                                  onPressed: (() {
-                                    Navigator.pop(context);
-                                  }),
-                                  style: ButtonStyle(
-                                      shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(13))),
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.amberAccent)),
-                                  child: const Text('Enviar',
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 20))),
-                            ),
+                      decoration: InputDecoration(labelText: 'Email'),
+                    ),
+                    const SizedBox(height: 50),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: SizedBox(
+                            height: 40,
+                            width: 170,
+                            child: ElevatedButton(
+                                onPressed: (() {
+                                  Navigator.pop(context);
+                                }),
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(13))),
+                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+                                child: const Text('Enviar', style: TextStyle(color: Colors.black, fontSize: 20))),
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 25),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                              onPressed: (() {
-                                Navigator.pop(context);
-                              }),
-                              style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15))),
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.grey)),
-                              child: const Text('Voltar',
-                                  style: TextStyle(color: Colors.white))),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 25),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                            onPressed: (() {
+                              Navigator.pop(context);
+                            }),
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+                                backgroundColor: MaterialStateProperty.all<Color>(Colors.grey)),
+                            child: const Text('Voltar', style: TextStyle(color: Colors.white))),
+                      ],
+                    ),
+                  ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
