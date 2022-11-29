@@ -12,6 +12,7 @@ import '../remote/plan_remote_data_source.dart';
 abstract class ServiceRepository {
   Future<Either<Exception, List<Service>>> getServices();
   Future<Either<Exception, List<Service>>> getServicesNear();
+  Future<Either<Exception, List<Service>>> getLikedServices();
   Future<Either<Exception, Like>> likeService(String serviceId);
   Future<Either<Exception, Service>> store(String title, String description, File? photo);
   Future<Either<Exception, String>> deleteService(String serviceId);
@@ -48,5 +49,10 @@ class ServiceRepositoryImp implements ServiceRepository {
   @override
   Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId) {
     return _remoteDataSource.storePhoto(photo, serviceId);
+  }
+
+  @override
+  Future<Either<Exception, List<Service>>> getLikedServices() {
+    return _remoteDataSource.getLikedServices();
   }
 }

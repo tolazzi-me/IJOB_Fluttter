@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ijob_app/core/base/base_view.dart';
+import 'package:ijob_app/routes/app_pages.dart';
 import 'package:ijob_app/utils/constants.dart';
 
 import '../../settings/documentacao.dart';
@@ -71,7 +72,7 @@ class ProfileView extends BaseView<ProfileController> {
         ),
         Container(
           margin: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-          height: 150,
+          height: 200,
           width: double.infinity,
           decoration: const BoxDecoration(color: Color.fromARGB(255, 195, 194, 194), borderRadius: BorderRadius.all(Radius.circular(15))),
           child: Padding(
@@ -88,9 +89,14 @@ class ProfileView extends BaseView<ProfileController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        ' Trabalhos aceitos',
-                        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                      TextButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.likedServices);
+                        },
+                        child: const Text(
+                          ' Trabalhos aceitos',
+                          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black),
+                        ),
                       ),
                       const SizedBox(height: 15),
                       Container(

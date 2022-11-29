@@ -16,6 +16,7 @@ abstract class Routes {
   static const chat = _Paths.chat;
   static const settings = _Paths.settings;
   static const notConnection = _Paths.notConnection;
+  static const likedServices = _Paths.likedServices;
 }
 
 abstract class _Paths {
@@ -32,4 +33,5 @@ abstract class _Paths {
   static const chat = '/chat';
   static const settings = '/settings';
   static const notConnection = '/noConnection';
+  static const likedServices = '/likedServices';
 }

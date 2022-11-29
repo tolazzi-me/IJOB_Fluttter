@@ -14,6 +14,7 @@ import '../../utils/constants.dart';
 abstract class ServiceRemoteSource {
   Future<Either<Exception, List<Service>>> getServices();
   Future<Either<Exception, List<Service>>> getServicesNear();
+  Future<Either<Exception, List<Service>>> getLikedServices();
   Future<Either<Exception, Like>> likeService(String serviceId);
   Future<Either<Exception, Service>> store(String title, String description, File? photo);
   Future<Either<Exception, List<ServicePhoto>>> storePhoto(File photo, String serviceId);
@@ -131,5 +132,16 @@ class ServiceRemoteSourceImp extends BaseRemoteSource implements ServiceRemoteSo
         return right("Deletado com sucesso");
       }),
     );
+  }
+
+  @override
+  Future<Either<Exception, List<Service>>> getLikedServices() {
+    const endPoint = '${Utils.baseUrl}/service/liked';
+
+    final dioCall = dioClient.get(endPoint);
+    return callApiWithErrorParser(dioCall).then((servicesOrError) => servicesOrError.fold((error) {
+          print('$error url: $endPoint');
+          return left(error);
+        }, (response) => right(_parseListServicesFromJson(response))));
   }
 }

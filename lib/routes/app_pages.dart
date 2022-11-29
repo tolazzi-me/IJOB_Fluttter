@@ -4,6 +4,8 @@ import 'package:ijob_app/modules/Chat/chatsPrincipal.dart';
 import 'package:ijob_app/modules/home/bindings/home_employee_binding.dart';
 import 'package:ijob_app/modules/home/bindings/home_employer_binding.dart';
 import 'package:ijob_app/modules/home/views/home_employer_view.dart';
+import 'package:ijob_app/modules/liked_services/bindings/liked_services_bindings.dart';
+import 'package:ijob_app/modules/liked_services/views/liked_services_view.dart';
 import 'package:ijob_app/modules/login/bindings/login_binding.dart';
 import 'package:ijob_app/modules/login/views/login_view.dart';
 import 'package:ijob_app/modules/premium/bindings/premium_binding.dart';
@@ -93,6 +95,11 @@ class AppPages {
     GetPage(
       name: _Paths.notConnection,
       page: () => NoNetworkConnectionWidget(),
+    ),
+    GetPage(
+      name: _Paths.likedServices,
+      page: () => LikedServicesView(),
+      binding: LikedServicesBindings(),
     ),
   ];
 }
