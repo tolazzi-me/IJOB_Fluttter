@@ -42,10 +42,9 @@ class SettingsView extends BaseView<SettingsController> {
             children: [
               Obx(
                 () => UserSelectorTypeWidget(
-                  selectedType: controller.userActiveTypeSelected,
-                  onChanged: (bool value) async {
-                    print('changed');
-                    controller.userActiveTypeSelected = value;
+                  selectedUserType: controller.userActiveTypeSelected,
+                  onSelect: (value) async {
+                    controller.userActiveTypeSelected = value as int;
                     await controller.changeUserActiveType();
                   },
                 ),

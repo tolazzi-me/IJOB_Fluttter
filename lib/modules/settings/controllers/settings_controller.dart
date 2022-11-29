@@ -10,12 +10,12 @@ class SettingsController extends BaseController {
   final UserRepository _userRepository = Get.find(tag: (UserRepository).toString());
   final _localStorage = LocalStorageImp();
   final _distance = 1.0.obs;
-  final _userActiveTypeSelected = false.obs;
+  final _userActiveTypeSelected = 2.obs;
 
   double get distance => _distance.value;
   set distance(double value) => _distance.value = value;
-  bool get userActiveTypeSelected => _userActiveTypeSelected.value;
-  set userActiveTypeSelected(bool value) => _userActiveTypeSelected.value = value;
+  int get userActiveTypeSelected => _userActiveTypeSelected.value;
+  set userActiveTypeSelected(int value) => _userActiveTypeSelected.value = value;
 
   Future<void> logout() async {
     _localStorage.writeToken('');
@@ -33,14 +33,12 @@ class SettingsController extends BaseController {
   Future<void> changeUserActiveType() async {
     showLoading();
     await Future.delayed(const Duration(seconds: 1));
-    bool isActiveUserType = _localStorage.user?.userActiveType == 1 ? false : true;
-    print(
-        'selecionando: ${_userActiveTypeSelected.value == true ? 'Empregado' : 'Empregador'} atual: ${_localStorage.user?.userActiveType == 0 ? 'Empregado' : 'Empregador'} ');
-    if (_userActiveTypeSelected.value != isActiveUserType) {
-      final type = _userActiveTypeSelected.value == true ? 0 : 1;
+    int? isActiveUserType = _localStorage.user?.userActiveType;
+    if (_userActiveTypeSelected.value != isActiveUserType && _userActiveTypeSelected.value != 2) {
+      final type = _userActiveTypeSelected.value;
       final userOrError = await _userRepository.changeUserType(type, _localStorage.user!.id!);
       userOrError.fold((error) async {
-        _userActiveTypeSelected.value = isActiveUserType;
+        _userActiveTypeSelected.value = isActiveUserType!;
         await showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta');
       }, (user) async {
         logout();
@@ -56,7 +54,7 @@ class SettingsController extends BaseController {
     if (_user != null) {
       _distance.value = _user.maxDistance!.toDouble();
       print(_user.userActiveType);
-      _userActiveTypeSelected.value = _user.userActiveType == 1 ? false : true;
+      _userActiveTypeSelected.value = _user.userActiveType;
     }
     debounce(_distance, (_) async => await saveDistance(), time: const Duration(seconds: 5));
   }
