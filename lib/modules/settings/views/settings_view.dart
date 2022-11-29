@@ -30,6 +30,14 @@ class SettingsView extends BaseView<SettingsController> {
 
   @override
   Widget body(BuildContext context) {
+    // print('Building');
+    final _user = controller.localStorage.user;
+    // print('on init settings: ${_user?.toJson()}');
+    if (_user != null) {
+      controller.distance = _user.maxDistance!.toDouble();
+      print(_user.userActiveType);
+      controller.userActiveTypeSelected = _user.userActiveType;
+    }
     return Padding(
       padding: const EdgeInsets.all(35.0),
       child: Column(

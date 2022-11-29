@@ -8,7 +8,7 @@ import '../../../data/repositories/user_repository.dart';
 
 class SettingsController extends BaseController {
   final UserRepository _userRepository = Get.find(tag: (UserRepository).toString());
-  final _localStorage = LocalStorageImp();
+  final localStorage = LocalStorageImp();
   final _distance = 1.0.obs;
   final _userActiveTypeSelected = 2.obs;
 
@@ -18,14 +18,14 @@ class SettingsController extends BaseController {
   set userActiveTypeSelected(int value) => _userActiveTypeSelected.value = value;
 
   Future<void> logout() async {
-    _localStorage.writeToken('');
-    _localStorage.write('', null);
+    localStorage.writeToken('');
+    localStorage.write('', null);
     await Get.offAllNamed(Routes.login);
   }
 
   Future<void> saveDistance() async {
-    if (_distance.value != _localStorage.user?.maxDistance) {
-      final user = _localStorage.user?.copyWith(maxDistance: _distance.value.toInt());
+    if (_distance.value != localStorage.user?.maxDistance) {
+      final user = localStorage.user?.copyWith(maxDistance: _distance.value.toInt());
       _userRepository.updateMaxDistance(_distance.value, user!.id!);
     }
   }
@@ -33,10 +33,10 @@ class SettingsController extends BaseController {
   Future<void> changeUserActiveType() async {
     showLoading();
     await Future.delayed(const Duration(seconds: 1));
-    int? isActiveUserType = _localStorage.user?.userActiveType;
+    int? isActiveUserType = localStorage.user?.userActiveType;
     if (_userActiveTypeSelected.value != isActiveUserType && _userActiveTypeSelected.value != 2) {
       final type = _userActiveTypeSelected.value;
-      final userOrError = await _userRepository.changeUserType(type, _localStorage.user!.id!);
+      final userOrError = await _userRepository.changeUserType(type, localStorage.user!.id!);
       userOrError.fold((error) async {
         _userActiveTypeSelected.value = isActiveUserType!;
         await showRedSnackBar('Erro', 'Não foi possível alterar o tipo de conta');
@@ -50,12 +50,6 @@ class SettingsController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    final _user = _localStorage.user;
-    if (_user != null) {
-      _distance.value = _user.maxDistance!.toDouble();
-      print(_user.userActiveType);
-      _userActiveTypeSelected.value = _user.userActiveType;
-    }
-    debounce(_distance, (_) async => await saveDistance(), time: const Duration(seconds: 5));
+    debounce(_distance, (_) async => await saveDistance(), time: const Duration(seconds: 2));
   }
 }

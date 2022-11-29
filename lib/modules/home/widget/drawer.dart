@@ -19,21 +19,21 @@ class DrawerMenu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             const SizedBox(height: 80),
-            SizedBox(
-              height: 35,
-              width: 140,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
-                  // Get.toNamed(Routes.nomeTela);
-                },
-                child: const Text('Filtro de Jobs', style: TextStyle(color: Colors.black, fontSize: 14)),
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
-              ),
-            ),
-            const SizedBox(height: 10),
+            // SizedBox(
+            //   height: 35,
+            //   width: 140,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.push(context, MaterialPageRoute(builder: ((context) => filtroJobs())));
+            //       // Get.toNamed(Routes.nomeTela);
+            //     },
+            //     child: const Text('Filtro de Jobs', style: TextStyle(color: Colors.black, fontSize: 14)),
+            //     style: ButtonStyle(
+            //         shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+            //         backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
+            //   ),
+            // ),
+            // const SizedBox(height: 10),
             SizedBox(
               height: 35,
               width: 140,
